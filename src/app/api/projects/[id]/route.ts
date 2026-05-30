@@ -1,10 +1,7 @@
 import { NextResponse } from 'next/server';
 import { deleteProject } from '@/lib/db';
 
-export async function DELETE(
-  request: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
+export async function DELETE(request: Request, { params }: { params: any }) {
   try {
     const resolvedParams = await params;
     const success = await deleteProject(resolvedParams.id);
