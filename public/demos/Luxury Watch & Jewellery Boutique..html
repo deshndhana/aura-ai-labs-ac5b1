@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura Chrono & Co. — Timeless Elegance, Crafted for Generations</title>
+  <meta name="description" content="Aura Chrono & Co. — The world's most distinguished house of haute horlogerie and fine jewellery. Bespoke timepieces, Avant-Garde diamonds, and bridal curation for the discerning collector." />
+
+  <!-- Tailwind CSS via Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Cormorant Garamond (luxury serif) + Raleway (clean sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'obsidian':    '#0b0b0c',
+            'charcoal':    '#141416',
+            'graphite':    '#1e1e22',
+            'carbon':      '#2a2a30',
+            'gold':        '#c5a880',
+            'gold-bright': '#d4af37',
+            'gold-pale':   '#e8d5b0',
+            'platinum':    '#b8bcc2',
+            'silver-mist': '#d4d6da',
+            'ivory':       '#f5f0eb',
+          },
+          fontFamily: {
+            'serif':  ['"Cormorant Garamond"', 'Garamond', 'Georgia', 'serif'],
+            'sans':   ['"Raleway"', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            'ultra': '0.25em',
+            'widest': '0.4em',
+          },
+          backgroundImage: {
+            'gold-gradient': 'linear-gradient(135deg, #c5a880 0%, #d4af37 50%, #c5a880 100%)',
+            'dark-gradient': 'linear-gradient(180deg, rgba(11,11,12,0) 0%, rgba(11,11,12,0.7) 60%, rgba(11,11,12,0.97) 100%)',
+            'side-gradient': 'linear-gradient(90deg, rgba(11,11,12,0.97) 0%, rgba(11,11,12,0.6) 60%, rgba(11,11,12,0) 100%)',
+          },
+          animation: {
+            'fade-up':     'fadeUp 1.1s cubic-bezier(0.22,1,0.36,1) both',
+            'fade-in':     'fadeIn 1.4s ease both',
+            'line-expand': 'lineExpand 1.2s ease both',
+            'shimmer':     'shimmer 2.5s infinite',
+          },
+          keyframes: {
+            fadeUp:      { '0%': { opacity:'0', transform:'translateY(32px)' }, '100%': { opacity:'1', transform:'translateY(0)' } },
+            fadeIn:      { '0%': { opacity:'0' }, '100%': { opacity:'1' } },
+            lineExpand:  { '0%': { width:'0' }, '100%': { width:'3rem' } },
+            shimmer:     { '0%,100%': { opacity:'1' }, '50%': { opacity:'0.6' } },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ─── Base Resets & Root ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      background-color: #0b0b0c;
+      color: #f5f0eb;
+      font-family: 'Raleway', system-ui, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── Custom Scrollbar ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #0b0b0c; }
+    ::-webkit-scrollbar-thumb { background: #c5a880; border-radius: 2px; }
+
+    /* ─── Gold Horizontal Rule ─── */
+    .gold-rule {
+      width: 3rem;
+      height: 1px;
+      background: linear-gradient(90deg, #c5a880, #d4af37);
+      display: block;
+    }
+
+    /* ─── Grain Texture Overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.35;
+    }
+
+    /* ─── Serif Headline Utility ─── */
+    .headline { font-family: 'Cormorant Garamond', serif; }
+
+    /* ─── Button: Gold Outline ─── */
+    .btn-gold-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      border: 1px solid #c5a880;
+      color: #c5a880;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      transition: background 0.35s ease, color 0.35s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-gold-outline:hover { background: #c5a880; color: #0b0b0c; }
+
+    /* ─── Button: Gold Solid ─── */
+    .btn-gold-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, #c5a880, #d4af37);
+      color: #0b0b0c;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-gold-solid:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    /* ─── Navbar ─── */
+    #navbar {
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(11,11,12,0.92) !important;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(197,168,128,0.15);
+    }
+
+    /* ─── Mobile Menu ─── */
+    #mobile-menu {
+      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease;
+      transform: translateX(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    #mobile-menu.open {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ─── Burger Lines ─── */
+    .burger-line {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: #c5a880;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+    #burger.open .burger-line:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    #burger.open .burger-line:nth-child(2) { opacity: 0; }
+    #burger.open .burger-line:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+    /* ─── Hero Parallax Container ─── */
+    .hero-bg {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ─── Collection Card Hover ─── */
+    .collection-card .card-overlay {
+      background: linear-gradient(180deg, rgba(11,11,12,0) 20%, rgba(11,11,12,0.75) 65%, rgba(11,11,12,0.97) 100%);
+      transition: background 0.5s ease;
+    }
+    .collection-card:hover .card-overlay {
+      background: linear-gradient(180deg, rgba(11,11,12,0.2) 0%, rgba(11,11,12,0.88) 60%, rgba(11,11,12,0.99) 100%);
+    }
+    .collection-card .card-img {
+      transition: transform 0.9s cubic-bezier(0.22,1,0.36,1);
+    }
+    .collection-card:hover .card-img { transform: scale(1.07); }
+    .collection-card .card-action {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+    }
+    .collection-card:hover .card-action {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Concierge Form Inputs ─── */
+    .concierge-input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(197,168,128,0.35);
+      color: #f5f0eb;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      padding: 0.75rem 0;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.3s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .concierge-input:focus { border-color: #c5a880; }
+    .concierge-input option { background: #141416; color: #f5f0eb; }
+    .concierge-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #c5a880;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ─── Stats Counter ─── */
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1;
+      background: linear-gradient(135deg, #c5a880, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── Section Entry Animations ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.35s; }
+    .reveal-delay-4 { transition-delay: 0.5s; }
+
+    /* ─── Testimonial Quote Mark ─── */
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8rem;
+      line-height: 0.6;
+      color: rgba(197,168,128,0.15);
+      font-weight: 300;
+    }
+
+    /* ─── Divider Ornament ─── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: rgba(197,168,128,0.45);
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+    }
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(197,168,128,0.4), transparent);
+    }
+
+    /* ─── Footer Links ─── */
+    .footer-link {
+      color: #6b6b78;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-link:hover { color: #c5a880; }
+
+    /* ─── Shimmer Badge ─── */
+    .shimmer-badge {
+      animation: shimmer 2.5s infinite;
+    }
+
+    /* ─── Responsive Hero Text ─── */
+    .hero-headline {
+      font-size: clamp(2.8rem, 7vw, 6.5rem);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVIGATION — Ultra-sleek transparent navbar
+════════════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style="background: rgba(11,11,12,0.45);">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12">
+    <div class="flex items-center justify-between h-20">
+
+      <!-- Logo -->
+      <a href="#" class="flex flex-col leading-none">
+        <span class="headline text-gold text-xl font-light tracking-ultra">AURA</span>
+        <span class="text-ivory font-sans text-[0.55rem] font-light tracking-widest uppercase" style="letter-spacing:0.35em;">CHRONO &amp; CO.</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="hidden lg:flex items-center gap-10">
+        <li><a href="#collections" class="text-silver-mist font-sans text-[0.65rem] font-light tracking-ultra uppercase hover:text-gold transition-colors duration-300">The Collection</a></li>
+        <li><a href="#heritage" class="text-silver-mist font-sans text-[0.65rem] font-light tracking-ultra uppercase hover:text-gold transition-colors duration-300">Heritage</a></li>
+        <li><a href="#bespoke" class="text-silver-mist font-sans text-[0.65rem] font-light tracking-ultra uppercase hover:text-gold transition-colors duration-300">Bespoke Service</a></li>
+        <li><a href="#footer" class="text-silver-mist font-sans text-[0.65rem] font-light tracking-ultra uppercase hover:text-gold transition-colors duration-300">Boutiques</a></li>
+        <li><a href="#concierge" class="text-silver-mist font-sans text-[0.65rem] font-light tracking-ultra uppercase hover:text-gold transition-colors duration-300">Contact</a></li>
+      </ul>
+
+      <!-- Right Side: Icons + CTA -->
+      <div class="flex items-center gap-5">
+        <!-- Cart Icon -->
+        <button class="hidden md:flex items-center gap-1.5 text-silver-mist hover:text-gold transition-colors duration-300" aria-label="Shopping Bag">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z" />
+          </svg>
+        </button>
+
+        <!-- Book Private Viewing CTA -->
+        <a href="#concierge" class="hidden md:inline-flex btn-gold-outline text-[0.6rem] px-5 py-2.5">
+          Book Private Viewing
+        </a>
+
+        <!-- Burger Menu Button (Mobile) -->
+        <button id="burger" class="flex lg:hidden flex-col gap-[5px] p-1 z-50" aria-label="Open menu">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     MOBILE MENU — Full-screen dark overlay
+════════════════════════════════════════════════════ -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-obsidian flex flex-col justify-center items-center gap-10">
+  <div class="flex flex-col items-center gap-1 mb-8">
+    <span class="headline text-gold text-3xl font-light tracking-ultra">AURA</span>
+    <span class="text-ivory font-sans text-[0.55rem] font-light tracking-widest uppercase">CHRONO &amp; CO.</span>
+  </div>
+  <nav class="flex flex-col items-center gap-7">
+    <a href="#collections" class="mobile-nav-link text-ivory font-sans text-[0.75rem] font-light tracking-ultra uppercase hover:text-gold transition-colors">The Collection</a>
+    <a href="#heritage" class="mobile-nav-link text-ivory font-sans text-[0.75rem] font-light tracking-ultra uppercase hover:text-gold transition-colors">Heritage</a>
+    <a href="#bespoke" class="mobile-nav-link text-ivory font-sans text-[0.75rem] font-light tracking-ultra uppercase hover:text-gold transition-colors">Bespoke Service</a>
+    <a href="#footer" class="mobile-nav-link text-ivory font-sans text-[0.75rem] font-light tracking-ultra uppercase hover:text-gold transition-colors">Boutiques</a>
+    <a href="#concierge" class="mobile-nav-link text-ivory font-sans text-[0.75rem] font-light tracking-ultra uppercase hover:text-gold transition-colors">Contact</a>
+  </nav>
+  <div class="mt-10 flex flex-col items-center gap-4">
+    <a href="#concierge" class="btn-gold-solid mobile-nav-link text-[0.65rem]">Book Private Viewing</a>
+    <span class="text-platinum text-[0.6rem] tracking-widest uppercase">+44 20 7946 0823</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     HERO SECTION — Cinematic full-viewport hero
+════════════════════════════════════════════════════ -->
+<section id="hero" class="relative min-h-screen flex items-end overflow-hidden">
+
+  <!-- Background Image -->
+  <div class="absolute inset-0 hero-bg" style="background-image: url('https://images.unsplash.com/photo-1548169874-53e85f753f1e?auto=format&fit=crop&w=2000&q=85');"></div>
+
+  <!-- Gradient Overlay -->
+  <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,12,0.3) 0%, rgba(11,11,12,0.15) 30%, rgba(11,11,12,0.75) 70%, rgba(11,11,12,0.98) 100%);"></div>
+  <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(11,11,12,0.6) 0%, transparent 60%);"></div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 max-w-screen-xl mx-auto px-6 lg:px-12 pb-24 lg:pb-32 w-full">
+    <div class="max-w-3xl">
+
+      <!-- Overline Label -->
+      <div class="flex items-center gap-4 mb-8 animate-fade-up" style="animation-delay:0.2s;">
+        <span class="gold-rule"></span>
+        <span class="text-gold font-sans text-[0.6rem] font-light tracking-widest uppercase">Maison Established 1892</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="headline hero-headline font-light text-ivory leading-[1.02] mb-8 animate-fade-up" style="animation-delay:0.4s;">
+        Timeless Elegance.<br />
+        <em class="text-gold not-italic">Crafted for</em><br />
+        Generations.
+      </h1>
+
+      <!-- Sub-Headline -->
+      <p class="font-sans text-platinum font-light text-sm leading-relaxed max-w-md mb-12 animate-fade-up" style="letter-spacing:0.06em; animation-delay:0.6s;">
+        Each creation from our atelier is an heirloom in the making — a convergence of rare earth materials, centuries of horological mastery, and the singular vision of our master craftsmen.
+      </p>
+
+      <!-- Dual CTA Buttons -->
+      <div class="flex flex-wrap gap-4 animate-fade-up" style="animation-delay:0.8s;">
+        <a href="#collections" class="btn-gold-solid">
+          <span>Explore Collection</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+        </a>
+        <a href="#heritage" class="btn-gold-outline">
+          <span>Our Heritage</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Floating Scroll Indicator -->
+    <div class="absolute bottom-8 right-8 lg:right-12 flex flex-col items-center gap-3 animate-fade-in" style="animation-delay:1.2s;">
+      <span class="text-gold font-sans text-[0.55rem] tracking-widest uppercase" style="writing-mode: vertical-lr; letter-spacing:0.3em;">Scroll</span>
+      <div class="w-px h-16 bg-gradient-to-b from-gold to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Corner Engraving Detail -->
+  <div class="absolute top-24 right-8 lg:right-12 hidden lg:flex flex-col items-end gap-1 animate-fade-in" style="animation-delay:1s;">
+    <span class="text-gold font-sans text-[0.55rem] font-light tracking-widest uppercase opacity-60">Limited Editions Available</span>
+    <span class="gold-rule ml-auto shimmer-badge"></span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     MARQUEE STRIP — Brand values ticker
+════════════════════════════════════════════════════ -->
+<div class="bg-graphite border-y border-gold border-opacity-20 py-4 overflow-hidden">
+  <div class="flex whitespace-nowrap" style="animation: scroll-x 30s linear infinite;">
+    <div class="flex items-center gap-12 pr-12 flex-shrink-0">
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Haute Horlogerie</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Ethically Sourced Diamonds</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Hand-Finished Movements</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Private Atelier Appointments</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">130 Years of Mastery</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Complimentary Lifetime Servicing</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Global Boutiques</span>
+      <span class="text-gold text-xs">◆</span>
+    </div>
+    <!-- Duplicate for seamless loop -->
+    <div class="flex items-center gap-12 pr-12 flex-shrink-0" aria-hidden="true">
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Haute Horlogerie</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Ethically Sourced Diamonds</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Hand-Finished Movements</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Private Atelier Appointments</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">130 Years of Mastery</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Complimentary Lifetime Servicing</span>
+      <span class="text-gold text-xs">◆</span>
+      <span class="font-sans text-[0.6rem] font-light tracking-widest uppercase text-platinum">Global Boutiques</span>
+      <span class="text-gold text-xs">◆</span>
+    </div>
+  </div>
+</div>
+<style>
+  @keyframes scroll-x {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+
+<!-- ═══════════════════════════════════════════════════
+     THE COLLECTIONS GRID — 3 immersive product cards
+════════════════════════════════════════════════════ -->
+<section id="collections" class="py-28 lg:py-36 bg-obsidian px-6 lg:px-12">
+  <div class="max-w-screen-xl mx-auto">
+
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center mb-16 reveal">
+      <div class="ornament w-40 mb-8 text-[0.55rem]">The Collections</div>
+      <h2 class="headline text-ivory font-light leading-tight mb-6" style="font-size: clamp(2.2rem, 5vw, 4rem);">
+        An Anthology of<br /><em class="text-gold">Rare Distinction</em>
+      </h2>
+      <p class="font-sans text-platinum font-light text-sm leading-loose max-w-lg" style="letter-spacing:0.06em;">
+        Three curated expressions of excellence, each a testament to the uncompromising vision that has defined our maison for over a century.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+
+      <!-- Card 1: Heritage Timepieces -->
+      <div class="collection-card group relative overflow-hidden cursor-pointer h-[70vh] md:h-[80vh] reveal reveal-delay-1">
+        <img
+          src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=85"
+          alt="Heritage Timepieces — Aura Chrono"
+          class="card-img absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="card-overlay absolute inset-0"></div>
+        <!-- Content -->
+        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col gap-3">
+          <span class="font-sans text-gold text-[0.6rem] font-light tracking-widest uppercase">Collection I</span>
+          <h3 class="headline text-ivory font-light leading-tight" style="font-size: clamp(1.6rem, 2.5vw, 2.2rem);">The Heritage<br/>Timepieces</h3>
+          <p class="font-sans text-silver-mist font-light text-xs leading-relaxed max-w-xs" style="letter-spacing:0.05em;">
+            Mechanical complications born from 130 years of Swiss-influenced horology. Each movement assembled by a single master watchmaker over 400 hours.
+          </p>
+          <div class="card-action mt-2">
+            <a href="#" class="btn-gold-outline text-[0.58rem] px-4 py-2">Discover Pieces →</a>
+          </div>
+        </div>
+        <!-- Badge -->
+        <div class="absolute top-6 right-6 bg-obsidian bg-opacity-75 border border-gold border-opacity-40 px-3 py-1.5">
+          <span class="font-sans text-gold text-[0.55rem] tracking-widest uppercase">34 References</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Avant-Garde Diamonds -->
+      <div class="collection-card group relative overflow-hidden cursor-pointer h-[70vh] md:h-[80vh] reveal reveal-delay-2">
+        <img
+          src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=85"
+          alt="Avant-Garde Diamonds — Aura Chrono"
+          class="card-img absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="card-overlay absolute inset-0"></div>
+        <!-- Content -->
+        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col gap-3">
+          <span class="font-sans text-gold text-[0.6rem] font-light tracking-widest uppercase">Collection II</span>
+          <h3 class="headline text-ivory font-light leading-tight" style="font-size: clamp(1.6rem, 2.5vw, 2.2rem);">Avant-Garde<br/>Diamonds</h3>
+          <p class="font-sans text-silver-mist font-light text-xs leading-relaxed max-w-xs" style="letter-spacing:0.05em;">
+            Conflict-free Type IIa diamonds, precision-cut to our proprietary 93-facet specification, set in architectural jewellery that defies convention.
+          </p>
+          <div class="card-action mt-2">
+            <a href="#" class="btn-gold-outline text-[0.58rem] px-4 py-2">View Collection →</a>
+          </div>
+        </div>
+        <!-- Badge -->
+        <div class="absolute top-6 right-6 bg-obsidian bg-opacity-75 border border-gold border-opacity-40 px-3 py-1.5">
+          <span class="font-sans text-gold text-[0.55rem] tracking-widest uppercase">New Season</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Bespoke Bridal Curation -->
+      <div class="collection-card group relative overflow-hidden cursor-pointer h-[70vh] md:h-[80vh] reveal reveal-delay-3">
+        <img
+          src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85"
+          alt="Bespoke Bridal Curation — Aura Chrono"
+          class="card-img absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="card-overlay absolute inset-0"></div>
+        <!-- Content -->
+        <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col gap-3">
+          <span class="font-sans text-gold text-[0.6rem] font-light tracking-widest uppercase">Collection III</span>
+          <h3 class="headline text-ivory font-light leading-tight" style="font-size: clamp(1.6rem, 2.5vw, 2.2rem);">Bespoke Bridal<br/>Curation</h3>
+          <p class="font-sans text-silver-mist font-light text-xs leading-relaxed max-w-xs" style="letter-spacing:0.05em;">
+            A deeply personal journey through stone selection, band design, and engraving — concluding with a piece that carries your singular story for eternity.
+          </p>
+          <div class="card-action mt-2">
+            <a href="#concierge" class="btn-gold-outline text-[0.58rem] px-4 py-2">Begin Journey →</a>
+          </div>
+        </div>
+        <!-- Badge -->
+        <div class="absolute top-6 right-6 bg-obsidian bg-opacity-75 border border-gold border-opacity-40 px-3 py-1.5">
+          <span class="font-sans text-gold text-[0.55rem] tracking-widest uppercase">By Appointment</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     HERITAGE SECTION — Editorial full-width imagery + stats
+════════════════════════════════════════════════════ -->
+<section id="heritage" class="relative py-0 overflow-hidden bg-charcoal">
+
+  <!-- Full-Width Editorial Image -->
+  <div class="relative w-full h-[55vh] lg:h-[65vh] overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?auto=format&fit=crop&w=2000&q=80"
+      alt="Aura Chrono Heritage — Watchmaking Atelier"
+      class="w-full h-full object-cover object-center"
+      style="filter: brightness(0.55) saturate(0.8);"
+    />
+    <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(11,11,12,0.9) 0%, rgba(11,11,12,0.3) 50%, rgba(11,11,12,0.9) 100%);"></div>
+
+    <!-- Centered Text Overlay -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+      <div class="reveal">
+        <div class="ornament mb-6 text-[0.55rem] w-48 mx-auto">Our Heritage</div>
+        <h2 class="headline text-ivory font-light mb-4" style="font-size: clamp(2.5rem, 6vw, 5.5rem); text-shadow: 0 2px 40px rgba(0,0,0,0.6);">
+          One Hundred &amp; Thirty<br />
+          <em class="text-gold">Years in the Making</em>
+        </h2>
+        <p class="font-sans text-platinum font-light text-sm max-w-xl mx-auto leading-relaxed" style="letter-spacing:0.06em;">
+          Founded in Geneva in 1892, our maison has dressed the wrists of monarchs, heads of state, and the world's most discerning collectors — yet our philosophy has never wavered: never compromise on a single component.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Bar -->
+  <div class="bg-graphite border-t border-gold border-opacity-15">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-12 py-16">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <div class="flex flex-col items-center text-center reveal reveal-delay-1">
+          <span class="stat-number">130+</span>
+          <span class="gold-rule mx-auto my-3"></span>
+          <span class="font-sans text-platinum text-[0.65rem] font-light tracking-widest uppercase">Years of Excellence</span>
+        </div>
+
+        <div class="flex flex-col items-center text-center reveal reveal-delay-2">
+          <span class="stat-number">6</span>
+          <span class="gold-rule mx-auto my-3"></span>
+          <span class="font-sans text-platinum text-[0.65rem] font-light tracking-widest uppercase">Global Boutiques</span>
+        </div>
+
+        <div class="flex flex-col items-center text-center reveal reveal-delay-3">
+          <span class="stat-number">400+</span>
+          <span class="gold-rule mx-auto my-3"></span>
+          <span class="font-sans text-platinum text-[0.65rem] font-light tracking-widest uppercase">Hours Per Timepiece</span>
+        </div>
+
+        <div class="flex flex-col items-center text-center reveal reveal-delay-4">
+          <span class="stat-number">12K</span>
+          <span class="gold-rule mx-auto my-3"></span>
+          <span class="font-sans text-platinum text-[0.65rem] font-light tracking-widest uppercase">Bespoke Commissions</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     BESPOKE CRAFTSMANSHIP — Split layout showcase
+════════════════════════════════════════════════════ -->
+<section id="bespoke" class="py-28 lg:py-36 bg-obsidian px-6 lg:px-12">
+  <div class="max-w-screen-xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
+
+      <!-- Left: Image Side -->
+      <div class="relative overflow-hidden h-[60vh] lg:h-auto reveal">
+        <img
+          src="https://images.unsplash.com/photo-1614704078596-5562cf88c1f5?auto=format&fit=crop&w=1200&q=85"
+          alt="Master Craftsman at work — Aura Chrono Atelier"
+          class="w-full h-full object-cover"
+          style="filter: brightness(0.65) saturate(0.75);"
+        />
+        <!-- Corner Detail Frame -->
+        <div class="absolute top-6 left-6 w-10 h-10 border-t border-l border-gold border-opacity-60"></div>
+        <div class="absolute bottom-6 right-6 w-10 h-10 border-b border-r border-gold border-opacity-60"></div>
+
+        <!-- Floating Credential Badge -->
+        <div class="absolute bottom-10 left-10 bg-obsidian bg-opacity-90 border border-gold border-opacity-30 p-5 max-w-xs">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-px bg-gold-gradient mt-3 flex-shrink-0"></div>
+            <div>
+              <p class="headline text-gold text-xl font-light leading-snug">"Each stone speaks.<br/>Our duty is to listen."</p>
+              <p class="font-sans text-platinum text-[0.6rem] tracking-widest uppercase mt-3">— Jean-Louis Marchand, Chief Lapidary</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Text Side -->
+      <div class="bg-graphite p-10 lg:p-16 xl:p-20 flex flex-col justify-center reveal reveal-delay-2">
+
+        <div class="ornament mb-10 text-[0.55rem] justify-start">
+          <span>Bespoke Service</span>
+          <span class="flex-1 max-w-[3rem]"></span>
+        </div>
+
+        <h2 class="headline text-ivory font-light leading-tight mb-8" style="font-size: clamp(2rem, 3.5vw, 3.2rem);">
+          The Art of Making<br /><em class="text-gold">Something Singular</em>
+        </h2>
+
+        <p class="font-sans text-platinum font-light text-sm leading-loose mb-6" style="letter-spacing:0.05em;">
+          Our Bespoke Programme invites you into the atelier — not as a customer, but as a collaborator. Guided by a dedicated Creative Consultant and Master Craftsman, you will select from our reserve of ethically certified diamonds, Burmese rubies, Colombian emeralds, and Kashmir sapphires.
+        </p>
+
+        <p class="font-sans text-platinum font-light text-sm leading-loose mb-12" style="letter-spacing:0.05em;">
+          Your chosen stone is then hand-set into a mounting sculpted from 18-carat hand-rolled gold, shaped using tools unchanged since 1924. The result is not merely jewellery — it is autobiography.
+        </p>
+
+        <!-- Process Steps -->
+        <div class="flex flex-col gap-6 mb-12">
+          <div class="flex items-start gap-5">
+            <div class="flex-shrink-0 w-8 h-8 border border-gold border-opacity-50 flex items-center justify-center">
+              <span class="headline text-gold text-sm font-light">I</span>
+            </div>
+            <div>
+              <p class="font-sans text-ivory text-xs font-medium tracking-widest uppercase mb-1">Private Consultation</p>
+              <p class="font-sans text-platinum text-xs font-light leading-relaxed">A confidential session to explore your vision, lifestyle, and preferred aesthetic language.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-5">
+            <div class="flex-shrink-0 w-8 h-8 border border-gold border-opacity-50 flex items-center justify-center">
+              <span class="headline text-gold text-sm font-light">II</span>
+            </div>
+            <div>
+              <p class="font-sans text-ivory text-xs font-medium tracking-widest uppercase mb-1">Stone &amp; Metal Curation</p>
+              <p class="font-sans text-platinum text-xs font-light leading-relaxed">Exclusive access to our reserve of GIA-certified, ethically sourced gemstones and precious alloys.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-5">
+            <div class="flex-shrink-0 w-8 h-8 border border-gold border-opacity-50 flex items-center justify-center">
+              <span class="headline text-gold text-sm font-light">III</span>
+            </div>
+            <div>
+              <p class="font-sans text-ivory text-xs font-medium tracking-widest uppercase mb-1">Atelier Presentation</p>
+              <p class="font-sans text-platinum text-xs font-light leading-relaxed">Delivery of your completed piece, accompanied by its provenance documentation and lifelong care covenant.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#concierge" class="btn-gold-solid self-start">Begin Your Commission</a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     TESTIMONIAL — Editorial pull-quote
+════════════════════════════════════════════════════ -->
+<section class="py-28 bg-charcoal px-6 lg:px-12 overflow-hidden">
+  <div class="max-w-screen-xl mx-auto">
+    <div class="relative max-w-4xl mx-auto text-center reveal">
+      <div class="quote-mark mb-0 leading-none select-none">"</div>
+      <blockquote class="headline text-ivory font-light leading-relaxed mt-[-1rem]" style="font-size: clamp(1.5rem, 3vw, 2.6rem);">
+        Aura Chrono did not simply create my engagement ring — they gave form to a feeling I had no language for. The craftsmanship is extraordinary; the experience, irreplaceable.
+      </blockquote>
+      <div class="flex items-center justify-center gap-4 mt-10">
+        <span class="gold-rule"></span>
+        <span class="font-sans text-gold text-[0.6rem] font-light tracking-widest uppercase">Lady Arabella Fontaine-Whitmore, London</span>
+        <span class="gold-rule"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     FEATURED EDITORIAL — Full-bleed watch close-up
+════════════════════════════════════════════════════ -->
+<section class="relative overflow-hidden h-[70vh] lg:h-[85vh]">
+  <img
+    src="https://images.unsplash.com/photo-1594576722512-582bcd3e3c42?auto=format&fit=crop&w=2000&q=80"
+    alt="Luxury watch close-up — Aura Chrono Signature Reference"
+    class="w-full h-full object-cover"
+    style="filter: brightness(0.5) saturate(0.7);"
+  />
+  <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(11,11,12,0.85) 0%, rgba(11,11,12,0.2) 100%);"></div>
+
+  <div class="absolute inset-0 flex items-center px-8 lg:px-20">
+    <div class="max-w-xl reveal">
+      <span class="font-sans text-gold text-[0.6rem] font-light tracking-widest uppercase block mb-5">Now Available — Limited to 12 Pieces</span>
+      <h2 class="headline text-ivory font-light leading-tight mb-6" style="font-size: clamp(2rem, 4vw, 3.8rem);">
+        The Aura Chrono<br />
+        <em class="text-gold">Perpetuel Noir</em>
+      </h2>
+      <p class="font-sans text-platinum font-light text-sm leading-loose mb-10 max-w-sm" style="letter-spacing:0.05em;">
+        A perpetual calendar dressed in a 42mm DLC-treated titanium case, housing our in-house Calibre AC-130 movement — 72-hour power reserve, hand-engraved rotor, and a lacquered obsidian dial.
+      </p>
+      <div class="flex items-center gap-5">
+        <a href="#concierge" class="btn-gold-solid">Reserve Your Reference</a>
+        <span class="font-sans text-gold text-[0.65rem] font-light tracking-widest uppercase">From £68,500</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CONCIERGE BOOKING — VIP service reservation form
+════════════════════════════════════════════════════ -->
+<section id="concierge" class="py-28 lg:py-36 bg-obsidian px-6 lg:px-12">
+  <div class="max-w-screen-xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-start">
+
+      <!-- Left: Introduction -->
+      <div class="reveal">
+        <div class="ornament mb-8 text-[0.55rem] justify-start">
+          <span>Private Concierge</span>
+        </div>
+
+        <h2 class="headline text-ivory font-light leading-tight mb-8" style="font-size: clamp(2.2rem, 4vw, 3.8rem);">
+          Reserve Your<br />
+          <em class="text-gold">Private Viewing</em>
+        </h2>
+
+        <p class="font-sans text-platinum font-light text-sm leading-loose mb-12" style="letter-spacing:0.05em;">
+          Our boutiques are intimate sanctuaries designed for complete discretion. A dedicated Maison Advisor will curate an experience around your preferences, with access to unpublished references and stones from our private reserve.
+        </p>
+
+        <!-- Service Highlights -->
+        <div class="flex flex-col gap-6 mb-12">
+          <div class="flex items-center gap-5">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="#c5a880" class="w-5 h-5 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            <span class="font-sans text-platinum font-light text-xs tracking-widest uppercase" style="letter-spacing:0.1em;">Dedicated One-to-One Maison Advisor</span>
+          </div>
+          <div class="flex items-center gap-5">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="#c5a880" class="w-5 h-5 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            <span class="font-sans text-platinum font-light text-xs tracking-widest uppercase" style="letter-spacing:0.1em;">Access to Unreleased &amp; Archive Pieces</span>
+          </div>
+          <div class="flex items-center gap-5">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="#c5a880" class="w-5 h-5 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            <span class="font-sans text-platinum font-light text-xs tracking-widest uppercase" style="letter-spacing:0.1em;">Champagne &amp; Private Dining Available</span>
+          </div>
+          <div class="flex items-center gap-5">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="#c5a880" class="w-5 h-5 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            <span class="font-sans text-platinum font-light text-xs tracking-widest uppercase" style="letter-spacing:0.1em;">Absolute Confidentiality Assured</span>
+          </div>
+        </div>
+
+        <!-- Contact Channels -->
+        <div class="border border-gold border-opacity-20 p-6 bg-graphite">
+          <p class="font-sans text-gold text-[0.6rem] tracking-widest uppercase mb-4">Immediate Enquiries</p>
+          <p class="font-sans text-platinum text-xs font-light mb-2" style="letter-spacing:0.08em;">+44 20 7946 0823 &nbsp;·&nbsp; London</p>
+          <p class="font-sans text-platinum text-xs font-light mb-2" style="letter-spacing:0.08em;">+971 4 385 7200 &nbsp;·&nbsp; Dubai</p>
+          <p class="font-sans text-platinum text-xs font-light" style="letter-spacing:0.08em;">concierge@aurachrono.com</p>
+        </div>
+      </div>
+
+      <!-- Right: Booking Form -->
+      <div class="reveal reveal-delay-2">
+        <div class="border border-gold border-opacity-20 bg-graphite p-10 lg:p-12 relative">
+
+          <!-- Corner Accents -->
+          <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gold border-opacity-50"></div>
+          <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gold border-opacity-50"></div>
+          <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gold border-opacity-50"></div>
+          <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gold border-opacity-50"></div>
+
+          <h3 class="headline text-gold font-light text-2xl mb-2">Private Viewing Request</h3>
+          <p class="font-sans text-platinum font-light text-[0.7rem] tracking-widest uppercase mb-10">Strictly by appointment</p>
+
+          <div class="flex flex-col gap-8">
+
+            <!-- Full Name -->
+            <div>
+              <label class="concierge-label">Full Name</label>
+              <input type="text" class="concierge-input" placeholder="Your full name" />
+            </div>
+
+            <!-- Email + Phone -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div>
+                <label class="concierge-label">Email Address</label>
+                <input type="email" class="concierge-input" placeholder="your@email.com" />
+              </div>
+              <div>
+                <label class="concierge-label">Telephone</label>
+                <input type="tel" class="concierge-input" placeholder="+1 (000) 000-0000" />
+              </div>
+            </div>
+
+            <!-- Boutique Location -->
+            <div>
+              <label class="concierge-label">Preferred Boutique</label>
+              <select class="concierge-input">
+                <option value="" disabled selected>Select a location</option>
+                <option value="london">London, Mayfair</option>
+                <option value="dubai">Dubai, DIFC</option>
+                <option value="colombo">Colombo, Cinnamon Life</option>
+                <option value="paris">Paris, Place Vendôme</option>
+                <option value="singapore">Singapore, Marina Bay</option>
+                <option value="newyork">New York, Fifth Avenue</option>
+              </select>
+            </div>
+
+            <!-- Curation Interest -->
+            <div>
+              <label class="concierge-label">Curation Interest</label>
+              <select class="concierge-input">
+                <option value="" disabled selected>Select your interest</option>
+                <option value="timepieces">Heritage Timepieces</option>
+                <option value="diamonds">Avant-Garde Diamond Jewellery</option>
+                <option value="bridal">Bespoke Bridal Commission</option>
+                <option value="mens">Men's Haute Joaillerie</option>
+                <option value="gift">Private Gift Curation</option>
+                <option value="other">General Enquiry</option>
+              </select>
+            </div>
+
+            <!-- Time Slot -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div>
+                <label class="concierge-label">Preferred Date</label>
+                <input type="date" class="concierge-input" />
+              </div>
+              <div>
+                <label class="concierge-label">Time Preference</label>
+                <select class="concierge-input">
+                  <option value="" disabled selected>Choose a slot</option>
+                  <option>Morning — 10:00 to 12:00</option>
+                  <option>Afternoon — 14:00 to 16:00</option>
+                  <option>Evening — 17:00 to 19:00</option>
+                  <option>After Hours — By Arrangement</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Additional Notes -->
+            <div>
+              <label class="concierge-label">Special Requests</label>
+              <textarea class="concierge-input resize-none" rows="3" placeholder="Champagne preference, dietary requirements, or any particulars we should know..."></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button type="button" class="btn-gold-solid w-full justify-center mt-2 py-4 text-[0.7rem]">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+              Confirm Private Viewing Request
+            </button>
+
+            <p class="font-sans text-platinum text-[0.6rem] text-center leading-relaxed" style="letter-spacing:0.06em;">
+              A Maison Concierge will confirm your appointment within 24 hours via your preferred contact. All enquiries are handled with the utmost discretion.
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER — Elegant dark footer with boutique locations
+════════════════════════════════════════════════════ -->
+<footer id="footer" class="bg-charcoal border-t border-gold border-opacity-15">
+
+  <!-- Top Footer -->
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12 py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+
+      <!-- Brand Column -->
+      <div class="lg:col-span-2">
+        <div class="mb-6">
+          <span class="headline text-gold text-2xl font-light tracking-ultra block">AURA</span>
+          <span class="font-sans text-ivory text-[0.55rem] font-light tracking-widest uppercase" style="letter-spacing:0.35em;">CHRONO &amp; CO.</span>
+        </div>
+        <p class="font-sans text-platinum font-light text-xs leading-loose max-w-xs mb-8" style="letter-spacing:0.05em;">
+          A maison rooted in the belief that true luxury is not purchased — it is inherited. Every piece we create is destined to outlive its first owner.
+        </p>
+        <!-- Social Icons -->
+        <div class="flex gap-5">
+          <a href="#" class="text-platinum hover:text-gold transition-colors duration-300" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="text-platinum hover:text-gold transition-colors duration-300" aria-label="Pinterest">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-4 h-4"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.22-5.17 1.22-5.17s-.31-.62-.31-1.54c0-1.45.84-2.53 1.88-2.53.89 0 1.32.67 1.32 1.47 0 .9-.57 2.23-.87 3.47-.25 1.04.52 1.88 1.54 1.88 1.84 0 3.08-2.37 3.08-5.18 0-2.14-1.44-3.64-3.51-3.64-2.39 0-3.79 1.79-3.79 3.64 0 .72.27 1.49.62 1.91.07.08.08.15.06.23l-.23.94c-.04.15-.13.18-.3.11-1.12-.52-1.82-2.16-1.82-3.48 0-2.83 2.06-5.43 5.93-5.43 3.11 0 5.53 2.22 5.53 5.18 0 3.09-1.95 5.57-4.65 5.57-.91 0-1.76-.47-2.05-1.03l-.56 2.09c-.2.78-.75 1.75-1.12 2.34.85.26 1.74.4 2.67.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          </a>
+          <a href="#" class="text-platinum hover:text-gold transition-colors duration-300" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Collections Column -->
+      <div>
+        <h4 class="font-sans text-gold text-[0.6rem] font-medium tracking-widest uppercase mb-6">Collections</h4>
+        <ul class="flex flex-col gap-3">
+          <li><a href="#" class="footer-link">Heritage Timepieces</a></li>
+          <li><a href="#" class="footer-link">Avant-Garde Diamonds</a></li>
+          <li><a href="#" class="footer-link">Bespoke Bridal</a></li>
+          <li><a href="#" class="footer-link">Men's Haute Joaillerie</a></li>
+          <li><a href="#" class="footer-link">Chronographs</a></li>
+          <li><a href="#" class="footer-link">Archive &amp; Vintage</a></li>
+        </ul>
+      </div>
+
+      <!-- Boutiques Column -->
+      <div>
+        <h4 class="font-sans text-gold text-[0.6rem] font-medium tracking-widest uppercase mb-6">World Boutiques</h4>
+        <ul class="flex flex-col gap-4">
+          <li>
+            <p class="footer-link block" style="color:#b8bcc2;">London</p>
+            <p class="font-sans text-[0.6rem] text-platinum opacity-50 font-light" style="letter-spacing:0.06em;">12 Grosvenor Square, Mayfair</p>
+          </li>
+          <li>
+            <p class="footer-link block" style="color:#b8bcc2;">Dubai</p>
+            <p class="font-sans text-[0.6rem] text-platinum opacity-50 font-light" style="letter-spacing:0.06em;">Gate Building, DIFC</p>
+          </li>
+          <li>
+            <p class="footer-link block" style="color:#b8bcc2;">Colombo</p>
+            <p class="font-sans text-[0.6rem] text-platinum opacity-50 font-light" style="letter-spacing:0.06em;">Cinnamon Life Atrium</p>
+          </li>
+          <li>
+            <p class="footer-link block" style="color:#b8bcc2;">Paris</p>
+            <p class="font-sans text-[0.6rem] text-platinum opacity-50 font-light" style="letter-spacing:0.06em;">6 Place Vendôme, 1er</p>
+          </li>
+          <li>
+            <p class="footer-link block" style="color:#b8bcc2;">Singapore</p>
+            <p class="font-sans text-[0.6rem] text-platinum opacity-50 font-light" style="letter-spacing:0.06em;">Marina Bay Sands, L2</p>
+          </li>
+          <li>
+            <p class="footer-link block" style="color:#b8bcc2;">New York</p>
+            <p class="font-sans text-[0.6rem] text-platinum opacity-50 font-light" style="letter-spacing:0.06em;">720 Fifth Avenue, NYC</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Maison Services Column -->
+      <div>
+        <h4 class="font-sans text-gold text-[0.6rem] font-medium tracking-widest uppercase mb-6">Maison Services</h4>
+        <ul class="flex flex-col gap-3 mb-8">
+          <li><a href="#" class="footer-link">Private Care Programme</a></li>
+          <li><a href="#" class="footer-link">Movement Servicing</a></li>
+          <li><a href="#" class="footer-link">Engraving &amp; Personalisation</a></li>
+          <li><a href="#" class="footer-link">Insurance &amp; Valuation</a></li>
+          <li><a href="#" class="footer-link">Gift Registry</a></li>
+          <li><a href="#" class="footer-link">Estate Consultation</a></li>
+        </ul>
+
+        <h4 class="font-sans text-gold text-[0.6rem] font-medium tracking-widest uppercase mb-4 mt-6">The Maison</h4>
+        <ul class="flex flex-col gap-3">
+          <li><a href="#" class="footer-link">Our Heritage</a></li>
+          <li><a href="#" class="footer-link">Sustainability Pledge</a></li>
+          <li><a href="#" class="footer-link">Careers</a></li>
+          <li><a href="#" class="footer-link">Press &amp; Media</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Newsletter Strip -->
+  <div class="border-t border-gold border-opacity-10 bg-graphite">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-12 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <p class="font-sans text-ivory text-xs font-medium tracking-widest uppercase mb-1">The Aura Dispatch</p>
+          <p class="font-sans text-platinum text-[0.7rem] font-light" style="letter-spacing:0.05em;">Receive invitations to private events, new collection previews, and notes from the atelier.</p>
+        </div>
+        <div class="flex gap-0 w-full md:w-auto md:min-w-[380px]">
+          <input type="email" placeholder="Your email address" class="flex-1 bg-carbon border border-gold border-opacity-25 border-r-0 text-ivory font-sans text-xs font-light px-5 py-3 outline-none placeholder-platinum placeholder-opacity-40 focus:border-gold focus:border-opacity-60 transition-colors" style="letter-spacing:0.08em;" />
+          <button class="btn-gold-solid text-[0.6rem] px-6 py-3 flex-shrink-0">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Footer: Legal + Credits -->
+  <div class="border-t border-gold border-opacity-10">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-12 py-7">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+        <div class="flex flex-wrap items-center gap-5">
+          <a href="#" class="footer-link text-[0.58rem]">Privacy Policy</a>
+          <span class="text-gold opacity-25 text-xs">·</span>
+          <a href="#" class="footer-link text-[0.58rem]">Terms of Service</a>
+          <span class="text-gold opacity-25 text-xs">·</span>
+          <a href="#" class="footer-link text-[0.58rem]">Cookie Preferences</a>
+          <span class="text-gold opacity-25 text-xs">·</span>
+          <a href="#" class="footer-link text-[0.58rem]">Accessibility</a>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-3 text-center">
+          <p class="font-sans text-platinum text-[0.6rem] font-light" style="letter-spacing:0.06em;">
+            © 2025 Aura Chrono &amp; Co. All Rights Reserved.
+          </p>
+          <span class="hidden md:block text-gold opacity-25 text-xs">·</span>
+          <!-- Agency Credit -->
+          <p class="font-sans text-[0.6rem] font-light" style="letter-spacing:0.08em;">
+            <span class="text-platinum opacity-60">Designed &amp; Developed by </span>
+            <a href="https://aurailabs.ai" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-gold-bright transition-colors duration-300 font-medium">AURA AI Labs.ai</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════
+     JAVASCRIPT — Navbar scroll, burger menu, scroll reveal
+════════════════════════════════════════════════════ -->
+<script>
+  // ─── Navbar Scroll State ───
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+
+  // ─── Mobile Burger Menu Toggle ───
+  const burger       = document.getElementById('burger');
+  const mobileMenu   = document.getElementById('mobile-menu');
+  const mobileLinks  = document.querySelectorAll('.mobile-nav-link');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close on any mobile nav link click
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+
+  // ─── Intersection Observer: Scroll Reveal ───
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+
+
+  // ─── Smooth Scroll for anchor links ───
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 80; // navbar height offset
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+
+  // ─── Active nav link highlight on scroll ───
+  const sections   = document.querySelectorAll('section[id], footer[id]');
+  const navLinks   = document.querySelectorAll('nav a[href^="#"]');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.style.color = '';
+      if (link.getAttribute('href') === `#${current}`) {
+        link.style.color = '#c5a880';
+      }
+    });
+  }, { passive: true });
+</script>
+
+</body>
+</html>

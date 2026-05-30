@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CHANGE PAGE TITLE / BUSINESS NAME HERE -->
+  <title>Lumière Beauty Salon — Luxury Beauty & Wellness</title>
+  <meta name="description" content="Lumière Beauty Salon — Premium hair, skin, and beauty treatments in a luxurious setting." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- REPLACE FAVICON HERE -->
+  <!-- <link rel="icon" href="images/favicon.png" /> -->
+</head>
+<body data-page="home">
+
+  <!-- ======================================================
+       LOADING SCREEN
+       ====================================================== -->
+  <div class="loader">
+    <!-- CHANGE BUSINESS NAME HERE -->
+    <div class="loader__name">Lumi<span>è</span>re</div>
+    <div class="loader__bar"></div>
+  </div>
+
+  <!-- ======================================================
+       NAVIGATION
+       ====================================================== -->
+  <nav class="nav">
+    <div class="nav__inner">
+
+      <!-- LOGO: Replace <a> text with your business name, or swap for an <img> tag -->
+      <!-- CHANGE BUSINESS NAME HERE -->
+      <a href="index.html" class="nav__logo">
+        <!-- REPLACE LOGO IMAGE HERE: remove the text below and use:
+             <img src="images/logo.png" alt="Your Salon Name" style="height:50px;"> -->
+        <span class="nav__logo-name">Lumière</span>
+        <span class="nav__logo-tagline">Beauty Salon</span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+        <li><a href="pricing.html" class="nav__link">Pricing</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+
+      <a href="booking.html" class="btn btn--primary nav__book"><span>Book Now</span></a>
+
+      <button class="nav__hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======================================================
+       HERO SECTION
+       ====================================================== -->
+  <section class="hero">
+    <div class="hero__bg">
+      <!-- REPLACE HERO BACKGROUND IMAGE HERE:
+           Add this to .hero__bg in style.css (or use inline style):
+           background-image: url('images/hero.jpg');
+           background-size: cover;
+           background-position: center; -->
+    </div>
+    <div class="hero__deco"></div>
+
+    <div class="hero__content">
+      <span class="eyebrow">Welcome to Lumière</span>
+      <!-- CHANGE BUSINESS NAME / HEADLINE HERE -->
+      <h1 class="hero__title">
+        Where Beauty<br>
+        Becomes <em>Art</em>
+      </h1>
+      <p class="hero__desc">
+        Step into a world of refined luxury. Expert stylists, premium treatments, and an experience designed entirely for you.
+      </p>
+      <div class="hero__actions">
+        <a href="booking.html" class="btn btn--primary"><span>Book an Appointment</span></a>
+        <a href="services.html" class="btn btn--outline-white"><span>Explore Services</span></a>
+      </div>
+    </div>
+
+    <div class="hero__scroll">Scroll</div>
+  </section>
+
+  <!-- ======================================================
+       MARQUEE STRIP
+       ====================================================== -->
+  <div class="intro-strip">
+    <div class="intro-strip__track">
+      <span class="intro-strip__item">Hair Styling<span class="intro-strip__dot"></span></span>
+      <span class="intro-strip__item">Skin Treatments<span class="intro-strip__dot"></span></span>
+      <span class="intro-strip__item">Nail Art<span class="intro-strip__dot"></span></span>
+      <span class="intro-strip__item">Makeup<span class="intro-strip__dot"></span></span>
+      <span class="intro-strip__item">Bridal Packages<span class="intro-strip__dot"></span></span>
+      <span class="intro-strip__item">Spa & Wellness<span class="intro-strip__dot"></span></span>
+      <span class="intro-strip__item">Lash Extensions<span class="intro-strip__dot"></span></span>
+      <span class="intro-strip__item">Color & Highlights<span class="intro-strip__dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       WHY CHOOSE US
+       ====================================================== -->
+  <section class="features section--dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">The Lumière Experience</span>
+        <h2 style="color:#faf8f5">Crafted for <em style="font-style:italic;color:#c9a96e">Perfection</em></h2>
+        <div class="divider"></div>
+        <p>Every visit is an indulgence. We combine expert technique with premium products and a deeply personal approach.</p>
+      </div>
+
+      <div class="features__grid">
+        <div class="feature-card reveal delay-1">
+          <div class="feature-card__num">01</div>
+          <div class="feature-card__icon">✦</div>
+          <h3 class="feature-card__title">Master Stylists</h3>
+          <p>Our team trained at world-class academies and bring years of experience to every service.</p>
+        </div>
+        <div class="feature-card reveal delay-2">
+          <div class="feature-card__num">02</div>
+          <div class="feature-card__icon">◈</div>
+          <h3 class="feature-card__title">Luxury Products</h3>
+          <p>Only the finest, cruelty-free professional-grade products touch your hair and skin.</p>
+        </div>
+        <div class="feature-card reveal delay-3">
+          <div class="feature-card__num">03</div>
+          <div class="feature-card__icon">❋</div>
+          <h3 class="feature-card__title">Personalized Care</h3>
+          <p>Every treatment begins with a private consultation tailored to your unique needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       SERVICES PREVIEW
+       ====================================================== -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Our Specialties</span>
+        <h2>Signature <em style="font-style:italic">Services</em></h2>
+        <div class="divider"></div>
+        <p>From transformative hair color to rejuvenating skin rituals — every service is a masterpiece.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal delay-1">
+          <span class="service-card__icon">💇</span>
+          <h3 class="service-card__title">Hair Styling</h3>
+          <p>Precision cuts, blowouts, and styling that frames your face and expresses your personality.</p>
+          <span class="service-card__price">From $65</span>
+        </div>
+        <div class="service-card reveal delay-2">
+          <span class="service-card__icon">🎨</span>
+          <h3 class="service-card__title">Color & Highlights</h3>
+          <p>Full color, balayage, ombré, and creative color techniques by our certified colorists.</p>
+          <span class="service-card__price">From $95</span>
+        </div>
+        <div class="service-card reveal delay-3">
+          <span class="service-card__icon">✨</span>
+          <h3 class="service-card__title">Skin Treatments</h3>
+          <p>Facials, peels, and hydrating rituals to restore your skin's natural radiance.</p>
+          <span class="service-card__price">From $80</span>
+        </div>
+        <div class="service-card reveal delay-1">
+          <span class="service-card__icon">💅</span>
+          <h3 class="service-card__title">Nail Artistry</h3>
+          <p>Manicures, pedicures, gel, acrylic, and intricate nail art by skilled technicians.</p>
+          <span class="service-card__price">From $35</span>
+        </div>
+        <div class="service-card reveal delay-2">
+          <span class="service-card__icon">👁</span>
+          <h3 class="service-card__title">Lash & Brow</h3>
+          <p>Lash extensions, lifts, lamination, and brow shaping to define your gaze.</p>
+          <span class="service-card__price">From $55</span>
+        </div>
+        <div class="service-card reveal delay-3">
+          <span class="service-card__icon">💍</span>
+          <h3 class="service-card__title">Bridal Packages</h3>
+          <p>Complete wedding day beauty packages for you and your bridal party.</p>
+          <span class="service-card__price">From $250</span>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:3rem">
+        <a href="services.html" class="btn btn--outline">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       GALLERY PREVIEW
+       ====================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Our Portfolio</span>
+        <h2>Beauty We've <em style="font-style:italic">Created</em></h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <!-- REPLACE GALLERY IMAGES HERE - replace the placeholder divs with actual <img> tags -->
+        <!-- Example: <img src="images/gallery-1.jpg" alt="Hair styling result" class="gallery-item__img"> -->
+
+        <div class="gallery-item">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#2a1a1a,#3d2828)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-1.jpg" alt="Balayage Hair"> -->
+            <span style="position:absolute;bottom:16px;left:16px;color:rgba(201,169,110,0.6);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Balayage</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#f2d4d0,#e8c98a)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-2.jpg" alt="Nail Art"> -->
+            <span style="position:absolute;bottom:16px;left:16px;color:rgba(0,0,0,0.4);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Nail Art</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#1a0f0f,#2d1c1c)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-3.jpg" alt="Bridal Makeup"> -->
+            <span style="position:absolute;bottom:16px;left:16px;color:rgba(201,169,110,0.6);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Bridal Makeup</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#c9a96e,#e8c98a)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-4.jpg" alt="Color Treatment"> -->
+            <span style="position:absolute;bottom:16px;left:16px;color:rgba(0,0,0,0.5);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Color</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#f0ebe3,#f2d4d0)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-5.jpg" alt="Facial Treatment"> -->
+            <span style="position:absolute;bottom:16px;left:16px;color:rgba(0,0,0,0.4);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Facial</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#2a1a1a,#1a1212)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-6.jpg" alt="Lash Extensions"> -->
+            <span style="position:absolute;bottom:16px;left:16px;color:rgba(201,169,110,0.6);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Lashes</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#e8c98a,#c9a96e)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-7.jpg" alt="Hair Cut"> -->
+            <span style="position:absolute;bottom:16px;left:16px;color:rgba(0,0,0,0.5);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Hair Cut</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#f2d4d0,#d4a0a0)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-8.jpg" alt="Spa Treatment"> -->
+            <span style="position:absolute;bottom:16px;left:16px;color:rgba(0,0,0,0.4);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Spa</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:2rem">
+        <a href="gallery.html" class="btn btn--outline">View Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       TESTIMONIALS
+       ====================================================== -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Client Love</span>
+        <h2 style="color:#faf8f5">What They <em style="font-style:italic;color:#c9a96e">Say</em></h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal delay-1">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <span class="testimonial-card__quote">"</span>
+          <p class="testimonial-card__text">My hair has never looked so beautiful. The balayage treatment was absolutely flawless — I get compliments everywhere I go.</p>
+          <span class="testimonial-card__author">— Sofia Laurent</span>
+        </div>
+        <div class="testimonial-card reveal delay-2">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <span class="testimonial-card__quote">"</span>
+          <p class="testimonial-card__text">The bridal package exceeded every expectation. The team made me feel like royalty on my wedding day. Truly magical.</p>
+          <span class="testimonial-card__author">— Amelia Chen</span>
+        </div>
+        <div class="testimonial-card reveal delay-3">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <span class="testimonial-card__quote">"</span>
+          <p class="testimonial-card__text">The facial treatment transformed my skin. Such a calming, luxurious experience. I leave every time feeling renewed.</p>
+          <span class="testimonial-card__author">— Isabella Rossi</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CTA SECTION
+       ====================================================== -->
+  <section class="cta-section">
+    <div class="container container--narrow reveal">
+      <span class="eyebrow">Ready for Your Transformation?</span>
+      <h2>Book Your Visit<br><em style="font-style:italic;color:#c9a96e">Today</em></h2>
+      <div class="divider"></div>
+      <p>Experience the difference of true luxury beauty care. Our team is ready to welcome you.</p>
+      <a href="booking.html" class="btn btn--primary"><span>Reserve Your Appointment</span></a>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <!-- CHANGE BUSINESS NAME HERE -->
+          <span class="footer__brand-name">Lumière</span>
+          <span class="footer__brand-tagline">Beauty Salon</span>
+          <p class="footer__brand-desc">
+            A sanctuary of beauty and elegance. We're dedicated to making every client feel their most beautiful self.
+          </p>
+          <!-- CHANGE SOCIAL MEDIA LINKS HERE -->
+          <div class="footer__social">
+            <a href="https://instagram.com/YOUR_INSTAGRAM" class="footer__social-link" aria-label="Instagram" target="_blank">📷</a>
+            <a href="https://facebook.com/YOUR_FACEBOOK" class="footer__social-link" aria-label="Facebook" target="_blank">f</a>
+            <a href="https://tiktok.com/@YOUR_TIKTOK" class="footer__social-link" aria-label="TikTok" target="_blank">♪</a>
+            <a href="https://pinterest.com/YOUR_PINTEREST" class="footer__social-link" aria-label="Pinterest" target="_blank">P</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="gallery.html" class="footer__link">Gallery</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="booking.html" class="footer__link">Book Now</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Services</h4>
+          <ul class="footer__links">
+            <li><a href="services.html" class="footer__link">Hair Styling</a></li>
+            <li><a href="services.html" class="footer__link">Color & Highlights</a></li>
+            <li><a href="services.html" class="footer__link">Skin Treatments</a></li>
+            <li><a href="services.html" class="footer__link">Nail Artistry</a></li>
+            <li><a href="services.html" class="footer__link">Lash & Brow</a></li>
+            <li><a href="services.html" class="footer__link">Bridal Packages</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <!-- CHANGE PHONE NUMBER HERE -->
+          <div class="footer__contact-item">
+            <span>📞</span>
+            <a href="tel:+15551234567">+1 (555) 123-4567</a>
+          </div>
+          <!-- CHANGE EMAIL ADDRESS HERE -->
+          <div class="footer__contact-item">
+            <span>✉</span>
+            <a href="mailto:hello@lumieresalon.com">hello@lumieresalon.com</a>
+          </div>
+          <!-- CHANGE ADDRESS HERE -->
+          <div class="footer__contact-item">
+            <span>📍</span>
+            <span>123 Elegance Avenue,<br>Beverly Hills, CA 90210</span>
+          </div>
+          <div class="footer__contact-item">
+            <span>🕐</span>
+            <span>Mon–Sat: 9am–7pm<br>Sun: 10am–5pm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <!-- CHANGE BUSINESS NAME HERE -->
+        <span>© 2025 Lumière Beauty Salon. All rights reserved.</span>
+        <span>Made with ❤ for beauty lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <div class="back-to-top" aria-label="Back to top">↑</div>
+
+  <!-- Lightbox -->
+  <div class="lightbox">
+    <span class="lightbox__close">✕</span>
+    <img class="lightbox__img" src="" alt="" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

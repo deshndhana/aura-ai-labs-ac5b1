@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura Moments Events | Luxury Wedding & Event Planning</title>
+  <meta name="description" content="Aura Moments Events crafts unforgettable weddings, corporate galas, and luxury celebrations with meticulous detail and timeless elegance." />
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Cormorant Garamond + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:     '#faf9f6',
+            'cream-dark': '#f2ede4',
+            rosegold:  '#b76e79',
+            'rosegold-light': '#d4949d',
+            'rosegold-dark':  '#8f4f58',
+            blush:     '#f0d6d9',
+            'blush-dark':    '#e4bfc4',
+            sage:      '#8fa98a',
+            'sage-light': '#c2d5be',
+            'sage-dark':  '#5a7a55',
+            charcoal:  '#2c2825',
+            muted:     '#7a746e',
+          },
+          fontFamily: {
+            serif:  ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans:   ['DM Sans', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            widest2: '0.25em',
+          },
+          backgroundImage: {
+            'grain': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E\")",
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* ── Global ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background-color: #faf9f6;
+      color: #2c2825;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Typography ───────────────────────────────────── */
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* ── Navbar ───────────────────────────────────────── */
+    #navbar {
+      transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(250, 249, 246, 0.97) !important;
+      box-shadow: 0 2px 24px rgba(44,40,37,0.07);
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+
+    /* ── Mobile Menu ──────────────────────────────────── */
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+      opacity: 0;
+    }
+    #mobile-menu.open {
+      max-height: 480px;
+      opacity: 1;
+    }
+
+    /* ── Burger Icon ──────────────────────────────────── */
+    .burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #2c2825;
+      margin: 5px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Nav Links ────────────────────────────────────── */
+    .nav-link {
+      position: relative;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2c2825;
+      padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: #b76e79;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(44,40,37,0.30) 0%,
+        rgba(44,40,37,0.15) 40%,
+        rgba(44,40,37,0.55) 100%
+      );
+    }
+
+    /* ── Section Divider ──────────────────────────────── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+      margin: 0.5rem 0 1.5rem;
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #b76e79);
+    }
+    .ornament::after {
+      background: linear-gradient(to left, transparent, #b76e79);
+    }
+
+    /* ── Service Cards ────────────────────────────────── */
+    .service-card {
+      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(183,110,121,0.15);
+    }
+    .service-card .card-img {
+      overflow: hidden;
+    }
+    .service-card .card-img img {
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .service-card:hover .card-img img {
+      transform: scale(1.06);
+    }
+
+    /* ── Timeline ─────────────────────────────────────── */
+    .timeline-step {
+      position: relative;
+    }
+    .timeline-connector {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, #b76e79, #c2d5be);
+    }
+
+    /* ── Gallery ──────────────────────────────────────── */
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44,40,37,0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* ── CTA Button ───────────────────────────────────── */
+    .btn-primary {
+      display: inline-block;
+      background: #b76e79;
+      color: #faf9f6;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.875rem 2.25rem;
+      border: 1px solid #b76e79;
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #8f4f58;
+      border-color: #8f4f58;
+      box-shadow: 0 8px 24px rgba(183,110,121,0.25);
+    }
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: #faf9f6;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.875rem 2.25rem;
+      border: 1px solid rgba(250,249,246,0.6);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    .btn-ghost:hover {
+      background: rgba(250,249,246,0.12);
+      border-color: #faf9f6;
+    }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: #b76e79;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.75rem;
+      border: 1px solid #b76e79;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .btn-outline:hover {
+      background: #b76e79;
+      color: #faf9f6;
+    }
+
+    /* ── Fade-in on scroll ────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+    .fade-up.delay-3 { transition-delay: 0.3s; }
+    .fade-up.delay-4 { transition-delay: 0.4s; }
+
+    /* ── Footer ───────────────────────────────────────── */
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(250,249,246,0.25);
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .social-link:hover {
+      border-color: #b76e79;
+      background: rgba(183,110,121,0.15);
+    }
+
+    /* ── Contact Form ─────────────────────────────────── */
+    .form-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(44,40,37,0.25);
+      padding: 0.625rem 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: #2c2825;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    .form-input::placeholder { color: #7a746e; }
+    .form-input:focus { border-color: #b76e79; }
+
+    /* ── Scrollbar ─────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #faf9f6; }
+    ::-webkit-scrollbar-thumb { background: #d4949d; border-radius: 3px; }
+  </style>
+</head>
+
+<body class="bg-cream text-charcoal font-sans">
+
+  <!-- ═══════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-5 transition-all duration-400">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#home" class="flex flex-col leading-none group">
+        <span class="font-display text-2xl font-light tracking-widest text-charcoal group-hover:text-rosegold transition-colors duration-300">Aura</span>
+        <span class="font-display text-xs font-medium tracking-widest2 text-rosegold uppercase" style="letter-spacing:0.22em;">Moments Events</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="hidden lg:flex items-center gap-9">
+        <li><a href="#home"     class="nav-link">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#timeline" class="nav-link">Experience</a></li>
+        <li><a href="#gallery"  class="nav-link">Gallery</a></li>
+        <li><a href="#contact"  class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- CTA + Burger -->
+      <div class="flex items-center gap-5">
+        <a href="#contact" class="hidden md:inline-block btn-primary text-xs">Let's Celebrate</a>
+        <!-- Burger -->
+        <button id="burger-btn" class="burger lg:hidden flex flex-col justify-center items-end" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden bg-cream/97 backdrop-blur-sm">
+      <ul class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5 border-t border-blush mt-3">
+        <li><a href="#home"     class="nav-link block" onclick="closeMobileMenu()">Home</a></li>
+        <li><a href="#services" class="nav-link block" onclick="closeMobileMenu()">Services</a></li>
+        <li><a href="#timeline" class="nav-link block" onclick="closeMobileMenu()">Experience</a></li>
+        <li><a href="#gallery"  class="nav-link block" onclick="closeMobileMenu()">Gallery</a></li>
+        <li><a href="#contact"  class="nav-link block" onclick="closeMobileMenu()">Contact</a></li>
+        <li class="pt-2"><a href="#contact" class="btn-primary inline-block" onclick="closeMobileMenu()">Let's Celebrate</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section id="home" class="relative w-full h-screen min-h-[680px] flex items-center justify-center overflow-hidden">
+
+    <!-- Background Image -->
+    <img
+      src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1920&q=85&auto=format&fit=crop"
+      alt="Elegant wedding venue with floral arch and fairy lights"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+    />
+
+    <!-- Overlay -->
+    <div class="hero-overlay absolute inset-0"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <!-- Pre-heading -->
+      <p class="font-sans text-xs tracking-widest2 uppercase text-blush mb-6 opacity-90" style="letter-spacing:0.28em;">
+        Luxury Wedding &amp; Event Design
+      </p>
+
+      <!-- Headline -->
+      <h1 class="font-display font-light text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-tight mb-6">
+        Crafting<br />
+        <em class="italic font-light">Unforgettable</em><br />
+        Moments
+      </h1>
+
+      <!-- Sub-headline -->
+      <p class="font-sans font-light text-base md:text-lg text-white/85 max-w-xl mx-auto mb-10 leading-relaxed">
+        From intimate ceremonies to grand galas — we design experiences that live in the hearts of those who attend, long after the last dance.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#services" class="btn-primary">View Our Packages</a>
+        <a href="#contact"  class="btn-ghost">Book a Consultation</a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60">
+      <span class="font-sans text-xs tracking-widest uppercase" style="font-size:0.65rem; letter-spacing:0.2em;">Scroll</span>
+      <div class="w-px h-10 bg-gradient-to-b from-white/40 to-transparent animate-bounce"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       INTRO / ABOUT STRIP
+  ═══════════════════════════════════════════════════ -->
+  <section class="py-20 md:py-28 bg-cream px-6">
+    <div class="max-w-5xl mx-auto text-center fade-up">
+      <p class="font-sans text-xs tracking-widest2 uppercase text-rosegold mb-4" style="letter-spacing:0.22em;">About the Studio</p>
+      <h2 class="font-display font-light text-4xl md:text-5xl text-charcoal mb-6 leading-snug">
+        Where Vision Meets <em class="italic">Artistry</em>
+      </h2>
+      <div class="ornament"><span class="text-rosegold text-lg">✦</span></div>
+      <p class="font-sans font-light text-muted text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
+        Aura Moments Events is a boutique planning and design studio rooted in the belief that every celebration deserves to be extraordinary. With over a decade of experience orchestrating weddings across five continents, corporate galas for Fortune 500 companies, and intimate milestone gatherings, our team of passionate curators brings a meticulous eye and a warm heart to every single detail.
+      </p>
+
+      <!-- Stats -->
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="fade-up delay-1">
+          <p class="font-display font-light text-5xl text-rosegold">450<span class="text-3xl">+</span></p>
+          <p class="font-sans text-xs uppercase tracking-widest text-muted mt-1" style="letter-spacing:0.15em;">Events Executed</p>
+        </div>
+        <div class="fade-up delay-2">
+          <p class="font-display font-light text-5xl text-rosegold">12</p>
+          <p class="font-sans text-xs uppercase tracking-widest text-muted mt-1" style="letter-spacing:0.15em;">Years of Excellence</p>
+        </div>
+        <div class="fade-up delay-3">
+          <p class="font-display font-light text-5xl text-rosegold">5</p>
+          <p class="font-sans text-xs uppercase tracking-widest text-muted mt-1" style="letter-spacing:0.15em;">Continents Served</p>
+        </div>
+        <div class="fade-up delay-4">
+          <p class="font-display font-light text-5xl text-rosegold">98<span class="text-3xl">%</span></p>
+          <p class="font-sans text-xs uppercase tracking-widest text-muted mt-1" style="letter-spacing:0.15em;">Client Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section id="services" class="py-20 md:py-28 bg-cream-dark px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section Header -->
+      <div class="text-center mb-16 fade-up">
+        <p class="font-sans text-xs tracking-widest2 uppercase text-rosegold mb-4" style="letter-spacing:0.22em;">What We Offer</p>
+        <h2 class="font-display font-light text-4xl md:text-5xl text-charcoal leading-snug">
+          Our <em class="italic">Signature</em> Services
+        </h2>
+        <div class="ornament mt-4"><span class="text-rosegold text-lg">✦</span></div>
+        <p class="font-sans font-light text-muted text-base max-w-xl mx-auto mt-2">
+          Three pillars of excellence, each crafted with the same devotion to beauty, precision, and emotion.
+        </p>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Card 1: Luxury Weddings -->
+        <div class="service-card bg-cream rounded-none shadow-sm fade-up delay-1">
+          <div class="card-img h-64">
+            <img
+              src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80&auto=format&fit=crop"
+              alt="Luxury wedding ceremony with floral arrangements"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-8">
+            <!-- Icon -->
+            <div class="w-12 h-12 mb-5 flex items-center justify-center border border-blush-dark">
+              <svg class="w-6 h-6 text-rosegold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-medium text-2xl text-charcoal mb-2">Luxury Weddings</h3>
+            <p class="font-sans text-xs uppercase tracking-widest text-rosegold mb-4" style="letter-spacing:0.15em;">Full-Service Bridal Planning</p>
+            <p class="font-sans font-light text-muted text-sm leading-relaxed mb-6">
+              From your first proposal daydream to the final farewell dance, we orchestrate every thread of your love story with artful precision and a deeply personal touch.
+            </p>
+            <ul class="space-y-2 mb-8">
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-rosegold mt-0.5 text-base leading-none">✦</span>
+                <span>Venue scouting &amp; styling across Sri Lanka and abroad</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-rosegold mt-0.5 text-base leading-none">✦</span>
+                <span>Bespoke floral design and bespoke table landscapes</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-rosegold mt-0.5 text-base leading-none">✦</span>
+                <span>Full catering curation &amp; bridal suite coordination</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-rosegold mt-0.5 text-base leading-none">✦</span>
+                <span>Live music, photography &amp; cinematic videography</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-rosegold mt-0.5 text-base leading-none">✦</span>
+                <span>Dedicated day-of coordinator &amp; setup crew</span>
+              </li>
+            </ul>
+            <a href="#contact" class="btn-outline text-xs">Inquire About Weddings</a>
+          </div>
+        </div>
+
+        <!-- Card 2: Corporate Galas -->
+        <div class="service-card bg-cream rounded-none shadow-sm fade-up delay-2">
+          <div class="card-img h-64">
+            <img
+              src="https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80&auto=format&fit=crop"
+              alt="Elegant corporate gala event setup with stage lighting"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-8">
+            <div class="w-12 h-12 mb-5 flex items-center justify-center border border-sage-light">
+              <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+              </svg>
+            </div>
+            <h3 class="font-display font-medium text-2xl text-charcoal mb-2">Corporate Galas</h3>
+            <p class="font-sans text-xs uppercase tracking-widest text-sage mb-4" style="letter-spacing:0.15em;">Premium Business Events</p>
+            <p class="font-sans font-light text-muted text-sm leading-relaxed mb-6">
+              We transform corporate milestones — product launches, annual awards, and board retreats — into powerfully branded experiences that inspire, impress, and endure.
+            </p>
+            <ul class="space-y-2 mb-8">
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-sage mt-0.5 text-base leading-none">✦</span>
+                <span>End-to-end production: AV, staging &amp; lighting design</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-sage mt-0.5 text-base leading-none">✦</span>
+                <span>Custom branded environments &amp; experiential activations</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-sage mt-0.5 text-base leading-none">✦</span>
+                <span>Guest management, RSVPs &amp; VIP hospitality suites</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-sage mt-0.5 text-base leading-none">✦</span>
+                <span>Catering from intimate dinners to 1,000+ pax banquets</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-sage mt-0.5 text-base leading-none">✦</span>
+                <span>Keynote speaker sourcing &amp; entertainment curation</span>
+              </li>
+            </ul>
+            <a href="#contact" class="btn-outline text-xs" style="color:#5a7a55; border-color:#8fa98a;">Inquire About Galas</a>
+          </div>
+        </div>
+
+        <!-- Card 3: Milestone Celebrations -->
+        <div class="service-card bg-cream rounded-none shadow-sm fade-up delay-3">
+          <div class="card-img h-64">
+            <img
+              src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&auto=format&fit=crop"
+              alt="Champagne toast at private luxury celebration"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-8">
+            <div class="w-12 h-12 mb-5 flex items-center justify-center border border-blush-dark">
+              <svg class="w-6 h-6 text-rosegold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-medium text-2xl text-charcoal mb-2">Milestone Parties</h3>
+            <p class="font-sans text-xs uppercase tracking-widest text-rosegold mb-4" style="letter-spacing:0.15em;">Private Luxury Celebrations</p>
+            <p class="font-sans font-light text-muted text-sm leading-relaxed mb-6">
+              Birthdays, anniversaries, baby showers, and beyond — we craft deeply personal, intimate gatherings where every guest feels like the guest of honour.
+            </p>
+            <ul class="space-y-2 mb-8">
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-rosegold mt-0.5 text-base leading-none">✦</span>
+                <span>Bespoke theme design &amp; personalised decor narratives</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-rosegold mt-0.5 text-base leading-none">✦</span>
+                <span>Artisanal catering, custom cakes &amp; dessert installations</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-rosegold mt-0.5 text-base leading-none">✦</span>
+                <span>Premium gifting &amp; personalised guest favour curation</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-rosegold mt-0.5 text-base leading-none">✦</span>
+                <span>Photography &amp; social-ready content packages</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-muted font-light">
+                <span class="text-rosegold mt-0.5 text-base leading-none">✦</span>
+                <span>Surprise reveal logistics &amp; secret guest coordination</span>
+              </li>
+            </ul>
+            <a href="#contact" class="btn-outline text-xs">Inquire About Celebrations</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       THE EXPERIENCE TIMELINE
+  ═══════════════════════════════════════════════════ -->
+  <section id="timeline" class="py-20 md:py-28 bg-cream px-6 overflow-hidden">
+    <div class="max-w-5xl mx-auto">
+
+      <!-- Section Header -->
+      <div class="text-center mb-20 fade-up">
+        <p class="font-sans text-xs tracking-widest2 uppercase text-rosegold mb-4" style="letter-spacing:0.22em;">The Aura Journey</p>
+        <h2 class="font-display font-light text-4xl md:text-5xl text-charcoal leading-snug">
+          Your Event, <em class="italic">Our Craft</em>
+        </h2>
+        <div class="ornament mt-4"><span class="text-rosegold text-lg">✦</span></div>
+        <p class="font-sans font-light text-muted text-base max-w-xl mx-auto mt-2">
+          A seamless, transparent process designed to take every worry off your plate and every beautiful detail into our hands.
+        </p>
+      </div>
+
+      <!-- Timeline Steps -->
+      <div class="relative">
+        <!-- Vertical line -->
+        <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blush via-rosegold-light to-sage-light hidden md:block"></div>
+
+        <!-- Step 1 -->
+        <div class="relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0 mb-16 fade-up">
+          <div class="md:w-1/2 md:pr-16 md:text-right order-2 md:order-1">
+            <span class="inline-block font-sans text-xs uppercase tracking-widest text-rosegold mb-2" style="letter-spacing:0.2em;">Step 01</span>
+            <h3 class="font-display font-medium text-3xl text-charcoal mb-3">The First Consultation</h3>
+            <p class="font-sans font-light text-muted text-sm leading-relaxed">
+              We begin with a warm, unhurried discovery call or in-person meeting. We listen deeply to your vision, preferences, and non-negotiables, understand your story as a couple or an organisation, and outline a realistic scope and honest investment range tailored specifically to you.
+            </p>
+          </div>
+          <!-- Centre Node -->
+          <div class="relative z-10 flex-shrink-0 w-14 h-14 rounded-full bg-cream border-2 border-rosegold flex items-center justify-center shadow-sm order-1 md:order-2">
+            <svg class="w-6 h-6 text-rosegold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+            </svg>
+          </div>
+          <div class="md:w-1/2 md:pl-16 order-3 hidden md:block"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0 mb-16 fade-up delay-1">
+          <div class="md:w-1/2 md:pr-16 hidden md:block order-1"></div>
+          <!-- Centre Node -->
+          <div class="relative z-10 flex-shrink-0 w-14 h-14 rounded-full bg-cream border-2 border-rosegold flex items-center justify-center shadow-sm order-1 md:order-2">
+            <svg class="w-6 h-6 text-rosegold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
+            </svg>
+          </div>
+          <div class="md:w-1/2 md:pl-16 order-2 md:order-3 md:text-left text-center md:text-left">
+            <span class="inline-block font-sans text-xs uppercase tracking-widest text-rosegold mb-2" style="letter-spacing:0.2em;">Step 02</span>
+            <h3 class="font-display font-medium text-3xl text-charcoal mb-3">Conceptual Design</h3>
+            <p class="font-sans font-light text-muted text-sm leading-relaxed">
+              Our creative team develops a full mood board, colour palette, and spatial design concept unique to your event. We present three distinct creative directions, then refine the chosen vision into a detailed design blueprint complete with material samples, floral previews, and lighting concepts.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0 mb-16 fade-up delay-2">
+          <div class="md:w-1/2 md:pr-16 md:text-right order-2 md:order-1">
+            <span class="inline-block font-sans text-xs uppercase tracking-widest text-rosegold mb-2" style="letter-spacing:0.2em;">Step 03</span>
+            <h3 class="font-display font-medium text-3xl text-charcoal mb-3">Vendor Coordination</h3>
+            <p class="font-sans font-light text-muted text-sm leading-relaxed">
+              We tap our exclusive network of vetted florists, caterers, photographers, entertainers, and venue partners to bring your vision to life. Every contract is negotiated and managed by us. You receive a single, clear client portal with a transparent event timeline, vendor contacts, and real-time updates.
+            </p>
+          </div>
+          <div class="relative z-10 flex-shrink-0 w-14 h-14 rounded-full bg-cream border-2 border-rosegold flex items-center justify-center shadow-sm order-1 md:order-2">
+            <svg class="w-6 h-6 text-rosegold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+            </svg>
+          </div>
+          <div class="md:w-1/2 md:pl-16 order-3 hidden md:block"></div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0 fade-up delay-3">
+          <div class="md:w-1/2 md:pr-16 hidden md:block order-1"></div>
+          <div class="relative z-10 flex-shrink-0 w-14 h-14 rounded-full bg-rosegold border-2 border-rosegold flex items-center justify-center shadow-md order-1 md:order-2">
+            <svg class="w-6 h-6 text-cream" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+            </svg>
+          </div>
+          <div class="md:w-1/2 md:pl-16 order-2 md:order-3 text-center md:text-left">
+            <span class="inline-block font-sans text-xs uppercase tracking-widest text-rosegold mb-2" style="letter-spacing:0.2em;">Step 04</span>
+            <h3 class="font-display font-medium text-3xl text-charcoal mb-3">Grand Day Execution</h3>
+            <p class="font-sans font-light text-muted text-sm leading-relaxed">
+              The day arrives and you arrive as a guest at your own event. Our lead coordinator and dedicated team are on-site from the first delivery to the final toast, managing every moving piece with military precision and invisible grace — so the only thing you need to do is be fully present and soak in every magical moment.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       TESTIMONIAL STRIP
+  ═══════════════════════════════════════════════════ -->
+  <section class="py-20 bg-charcoal px-6 relative overflow-hidden">
+    <!-- Decorative background text -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+      <span class="font-display text-white/4 font-light whitespace-nowrap" style="font-size: clamp(80px, 15vw, 200px);">Aura Moments</span>
+    </div>
+    <div class="max-w-3xl mx-auto text-center relative z-10 fade-up">
+      <div class="text-rosegold-light text-3xl mb-6 font-display">"</div>
+      <blockquote class="font-display font-light text-2xl md:text-3xl text-white/90 leading-relaxed italic mb-8">
+        Working with Aura Moments was the single best decision we made for our wedding. They took a rough idea and turned it into the most breathtakingly beautiful day of our lives. Every guest still talks about it.
+      </blockquote>
+      <p class="font-sans text-xs uppercase tracking-widest text-rosegold-light" style="letter-spacing:0.2em;">— Isabelle &amp; Marcus Fernández, Tuscany Wedding, 2024</p>
+      <!-- Stars -->
+      <div class="flex justify-center gap-1 mt-4">
+        <span class="text-rosegold">★</span>
+        <span class="text-rosegold">★</span>
+        <span class="text-rosegold">★</span>
+        <span class="text-rosegold">★</span>
+        <span class="text-rosegold">★</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       GALLERY SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section id="gallery" class="py-20 md:py-28 bg-cream px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section Header -->
+      <div class="text-center mb-14 fade-up">
+        <p class="font-sans text-xs tracking-widest2 uppercase text-rosegold mb-4" style="letter-spacing:0.22em;">Portfolio</p>
+        <h2 class="font-display font-light text-4xl md:text-5xl text-charcoal leading-snug">
+          Moments <em class="italic">We've Woven</em>
+        </h2>
+        <div class="ornament mt-4"><span class="text-rosegold text-lg">✦</span></div>
+        <p class="font-sans font-light text-muted text-base max-w-lg mx-auto mt-2">
+          A curated glance into the celebrations we've had the honour of bringing to life.
+        </p>
+      </div>
+
+      <!-- 4-Column Gallery Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+
+        <!-- Row 1 — Tall item + 2 regular + 1 tall -->
+        <div class="gallery-item row-span-2 h-64 md:h-auto" style="min-height:280px;">
+          <img
+            src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80&auto=format&fit=crop"
+            alt="Romantic outdoor banquet with fairy lights"
+          />
+          <div class="gallery-overlay">
+            <p class="font-display italic text-white text-lg leading-none">Garden Wedding</p>
+          </div>
+        </div>
+
+        <div class="gallery-item h-52 md:h-64">
+          <img
+            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80&auto=format&fit=crop"
+            alt="Champagne toast at luxury gala"
+          />
+          <div class="gallery-overlay">
+            <p class="font-display italic text-white text-lg leading-none">Champagne Gala</p>
+          </div>
+        </div>
+
+        <div class="gallery-item h-52 md:h-64">
+          <img
+            src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80&auto=format&fit=crop"
+            alt="Luxury table setting with candles and flowers"
+          />
+          <div class="gallery-overlay">
+            <p class="font-display italic text-white text-lg leading-none">Tablescape Design</p>
+          </div>
+        </div>
+
+        <div class="gallery-item row-span-2 h-64 md:h-auto" style="min-height:280px;">
+          <img
+            src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80&auto=format&fit=crop"
+            alt="Bride and groom first dance"
+          />
+          <div class="gallery-overlay">
+            <p class="font-display italic text-white text-lg leading-none">First Dance</p>
+          </div>
+        </div>
+
+        <div class="gallery-item h-52 md:h-64">
+          <img
+            src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&q=80&auto=format&fit=crop"
+            alt="Floral arch ceremony backdrop"
+          />
+          <div class="gallery-overlay">
+            <p class="font-display italic text-white text-lg leading-none">Floral Arch Ceremony</p>
+          </div>
+        </div>
+
+        <div class="gallery-item h-52 md:h-64">
+          <img
+            src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=600&q=80&auto=format&fit=crop"
+            alt="Corporate award stage with dramatic lighting"
+          />
+          <div class="gallery-overlay">
+            <p class="font-display italic text-white text-lg leading-none">Corporate Awards</p>
+          </div>
+        </div>
+
+        <!-- Row 2 continuations -->
+        <div class="gallery-item h-52 md:h-64">
+          <img
+            src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80&auto=format&fit=crop"
+            alt="Wedding cake with florals"
+          />
+          <div class="gallery-overlay">
+            <p class="font-display italic text-white text-lg leading-none">Artisan Cake Design</p>
+          </div>
+        </div>
+
+        <div class="gallery-item h-52 md:h-64">
+          <img
+            src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80&auto=format&fit=crop"
+            alt="Outdoor sunset celebration"
+          />
+          <div class="gallery-overlay">
+            <p class="font-display italic text-white text-lg leading-none">Sunset Soirée</p>
+          </div>
+        </div>
+
+        <div class="gallery-item h-52 md:h-64">
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop"
+            alt="Groom portrait in luxury venue"
+          />
+          <div class="gallery-overlay">
+            <p class="font-display italic text-white text-lg leading-none">Bridal Portraits</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA under gallery -->
+      <div class="text-center mt-12 fade-up">
+        <a href="#contact" class="btn-outline">Commission Your Event</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       CONTACT / BOOKING SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section id="contact" class="py-20 md:py-28 bg-cream-dark px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Left: Info -->
+        <div class="fade-up">
+          <p class="font-sans text-xs tracking-widest2 uppercase text-rosegold mb-4" style="letter-spacing:0.22em;">Let's Begin</p>
+          <h2 class="font-display font-light text-4xl md:text-5xl text-charcoal leading-snug mb-6">
+            Tell Us About<br /><em class="italic">Your Dream</em>
+          </h2>
+          <div class="ornament justify-start"><span class="text-rosegold text-lg">✦</span></div>
+          <p class="font-sans font-light text-muted text-base leading-relaxed mb-10 mt-4">
+            Whether you have a fully formed vision or just a feeling you'd like to capture, we'd love to hear from you. Reach out and one of our senior planners will personally respond within 24 hours.
+          </p>
+
+          <!-- Contact Details -->
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 border border-blush-dark flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-rosegold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-sans font-medium text-sm text-charcoal mb-0.5">Our Studio</p>
+                <p class="font-sans font-light text-sm text-muted leading-relaxed">
+                  No. 42, Galle Road, Colombo 03<br />
+                  Western Province, Sri Lanka 00300
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 border border-blush-dark flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-rosegold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-sans font-medium text-sm text-charcoal mb-0.5">Phone</p>
+                <p class="font-sans font-light text-sm text-muted">+94 11 456 7890</p>
+                <p class="font-sans font-light text-sm text-muted">+94 77 234 5678 (WhatsApp)</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 border border-blush-dark flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-rosegold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-sans font-medium text-sm text-charcoal mb-0.5">Email</p>
+                <p class="font-sans font-light text-sm text-muted">hello@auramoments.com</p>
+                <p class="font-sans font-light text-sm text-muted">bookings@auramoments.com</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 border border-blush-dark flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-rosegold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-sans font-medium text-sm text-charcoal mb-0.5">Studio Hours</p>
+                <p class="font-sans font-light text-sm text-muted">Monday – Saturday: 9:00 AM – 6:00 PM</p>
+                <p class="font-sans font-light text-sm text-muted">Sunday: By appointment only</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="bg-cream p-8 md:p-10 shadow-sm fade-up delay-2">
+          <h3 class="font-display font-light text-2xl text-charcoal mb-8">Send Us a Message</h3>
+          <div class="space-y-7">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-7">
+              <div>
+                <label class="block font-sans text-xs uppercase tracking-widest text-muted mb-2" style="letter-spacing:0.12em;">First Name</label>
+                <input type="text" placeholder="Your first name" class="form-input" />
+              </div>
+              <div>
+                <label class="block font-sans text-xs uppercase tracking-widest text-muted mb-2" style="letter-spacing:0.12em;">Last Name</label>
+                <input type="text" placeholder="Your last name" class="form-input" />
+              </div>
+            </div>
+            <div>
+              <label class="block font-sans text-xs uppercase tracking-widest text-muted mb-2" style="letter-spacing:0.12em;">Email Address</label>
+              <input type="email" placeholder="hello@youremail.com" class="form-input" />
+            </div>
+            <div>
+              <label class="block font-sans text-xs uppercase tracking-widest text-muted mb-2" style="letter-spacing:0.12em;">Event Type</label>
+              <select class="form-input cursor-pointer appearance-none bg-transparent">
+                <option value="" disabled selected>Please select an event type</option>
+                <option>Luxury Wedding</option>
+                <option>Corporate Gala</option>
+                <option>Milestone Celebration</option>
+                <option>Other / Multiple Events</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-sans text-xs uppercase tracking-widest text-muted mb-2" style="letter-spacing:0.12em;">Event Date</label>
+              <input type="text" placeholder="e.g. December 2025 or a specific date" class="form-input" />
+            </div>
+            <div>
+              <label class="block font-sans text-xs uppercase tracking-widest text-muted mb-2" style="letter-spacing:0.12em;">Tell Us Your Vision</label>
+              <textarea rows="4" placeholder="Share anything that inspires you — a feeling, a colour, a moment you've imagined..." class="form-input resize-none leading-relaxed"></textarea>
+            </div>
+            <button type="button" class="btn-primary w-full text-center justify-center" style="display:block; width:100%; text-align:center;">
+              Send Your Enquiry
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer class="bg-charcoal text-white/80 px-6 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Footer Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
+
+        <!-- Brand Column -->
+        <div class="lg:col-span-1">
+          <a href="#home" class="flex flex-col leading-none mb-5 group">
+            <span class="font-display text-2xl font-light tracking-widest text-white group-hover:text-rosegold-light transition-colors duration-300">Aura</span>
+            <span class="font-display text-xs font-medium tracking-widest2 text-rosegold uppercase" style="letter-spacing:0.22em;">Moments Events</span>
+          </a>
+          <p class="font-sans font-light text-sm text-white/55 leading-relaxed mb-6">
+            Crafting extraordinary celebrations for extraordinary people. Based in Sri Lanka, planning across the world.
+          </p>
+          <!-- Social Links -->
+          <div class="flex gap-3">
+            <!-- Instagram -->
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg class="w-4 h-4 text-white/70" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <!-- Pinterest -->
+            <a href="#" aria-label="Pinterest" class="social-link">
+              <svg class="w-4 h-4 text-white/70" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="#" aria-label="Facebook" class="social-link">
+              <svg class="w-4 h-4 text-white/70" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services Column -->
+        <div>
+          <h4 class="font-sans text-xs uppercase tracking-widest text-white/50 mb-5" style="letter-spacing:0.2em;">Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="#services" class="font-sans font-light text-sm text-white/70 hover:text-rosegold-light transition-colors duration-300">Luxury Weddings</a></li>
+            <li><a href="#services" class="font-sans font-light text-sm text-white/70 hover:text-rosegold-light transition-colors duration-300">Corporate Galas &amp; Events</a></li>
+            <li><a href="#services" class="font-sans font-light text-sm text-white/70 hover:text-rosegold-light transition-colors duration-300">Milestone Celebrations</a></li>
+            <li><a href="#services" class="font-sans font-light text-sm text-white/70 hover:text-rosegold-light transition-colors duration-300">Destination Events</a></li>
+            <li><a href="#contact" class="font-sans font-light text-sm text-white/70 hover:text-rosegold-light transition-colors duration-300">Floral &amp; Décor Design</a></li>
+            <li><a href="#contact" class="font-sans font-light text-sm text-white/70 hover:text-rosegold-light transition-colors duration-300">Day-Of Coordination</a></li>
+          </ul>
+        </div>
+
+        <!-- Areas Served -->
+        <div>
+          <h4 class="font-sans text-xs uppercase tracking-widest text-white/50 mb-5" style="letter-spacing:0.2em;">Areas We Serve</h4>
+          <ul class="space-y-3">
+            <li class="font-sans font-light text-sm text-white/70">Sri Lanka (Island-wide)</li>
+            <li class="font-sans font-light text-sm text-white/70">The Maldives</li>
+            <li class="font-sans font-light text-sm text-white/70">Bali &amp; Southeast Asia</li>
+            <li class="font-sans font-light text-sm text-white/70">Dubai &amp; UAE</li>
+            <li class="font-sans font-light text-sm text-white/70">Europe (Tuscany, Santorini, Côte d'Azur)</li>
+            <li class="font-sans font-light text-sm text-white/70">Worldwide — upon request</li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h4 class="font-sans text-xs uppercase tracking-widest text-white/50 mb-5" style="letter-spacing:0.2em;">Get In Touch</h4>
+          <ul class="space-y-4">
+            <li class="font-sans font-light text-sm text-white/70 leading-relaxed">
+              No. 42, Galle Road, Colombo 03<br />
+              Sri Lanka 00300
+            </li>
+            <li>
+              <a href="tel:+94114567890" class="font-sans font-light text-sm text-white/70 hover:text-rosegold-light transition-colors">+94 11 456 7890</a>
+            </li>
+            <li>
+              <a href="mailto:hello@auramoments.com" class="font-sans font-light text-sm text-white/70 hover:text-rosegold-light transition-colors">hello@auramoments.com</a>
+            </li>
+          </ul>
+          <!-- Newsletter -->
+          <div class="mt-7">
+            <p class="font-sans text-xs text-white/40 uppercase tracking-widest mb-3" style="letter-spacing:0.15em;">Stay Inspired</p>
+            <div class="flex border border-white/20">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="flex-1 bg-transparent text-xs text-white/70 placeholder-white/30 px-3 py-2.5 outline-none font-sans"
+              />
+              <button class="px-4 py-2.5 bg-rosegold hover:bg-rosegold-dark transition-colors duration-300 flex-shrink-0">
+                <svg class="w-3.5 h-3.5 text-cream" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-sans font-light text-xs text-white/35">
+          © 2025 Aura Moments Events. All rights reserved.
+        </p>
+        <p class="font-sans font-light text-xs text-white/35 text-center">
+          Designed &amp; Developed by
+          <a href="#" class="text-rosegold hover:text-rosegold-light transition-colors duration-300 font-medium ml-1">AURA AI Labs.ai</a>
+        </p>
+        <div class="flex gap-5">
+          <a href="#" class="font-sans font-light text-xs text-white/35 hover:text-white/60 transition-colors duration-300">Privacy Policy</a>
+          <a href="#" class="font-sans font-light text-xs text-white/35 hover:text-white/60 transition-colors duration-300">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════════ -->
+  <script>
+    /* ── Navbar: Scroll Effect ──────────────────────── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    /* ── Mobile Menu: Burger Toggle ─────────────────── */
+    const burgerBtn   = document.getElementById('burger-btn');
+    const mobileMenu  = document.getElementById('mobile-menu');
+
+    burgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('open');
+      if (isOpen) {
+        mobileMenu.classList.remove('open');
+        burgerBtn.classList.remove('open');
+      } else {
+        mobileMenu.classList.add('open');
+        burgerBtn.classList.add('open');
+      }
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      burgerBtn.classList.remove('open');
+    }
+
+    /* ── Fade-Up on Scroll (IntersectionObserver) ───── */
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px',
+    });
+    fadeEls.forEach(el => observer.observe(el));
+
+    /* ── Close menu on outside click ───────────────── */
+    document.addEventListener('click', (e) => {
+      if (!burgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+  </script>
+
+</body>
+</html>

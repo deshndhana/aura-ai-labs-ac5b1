@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VANTAGE | Luxury Real Estate</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --navy: #0A192F;
+    --navy-light: #112240;
+    --gold: #D4AF37;
+    --white: #FFFFFF;
+    --off-white: #F8F9FA;
+    --gray: #8892B0;
+    
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background-color: var(--off-white); color: var(--navy); overflow-x: hidden; }
+
+  /* -- PRELOADER -- */
+  .preloader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--navy); display: flex;
+    justify-content: center; align-items: center;
+    transition: opacity 0.8s ease;
+  }
+  .preloader.hidden { opacity: 0; pointer-events: none; }
+  .loader-brand { font-family: var(--font-heading); color: var(--white); font-size: 2.5rem; letter-spacing: 10px; animation: glow 2s infinite; }
+  @keyframes glow { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; text-shadow: 0 0 20px rgba(212,175,55,0.5); } }
+
+  /* -- NAVBAR -- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 30px 5%; transition: all 0.5s ease;
+    background: transparent;
+  }
+  nav.scrolled { background: rgba(255, 255, 255, 0.98); box-shadow: 0 5px 30px rgba(0,0,0,0.05); padding: 20px 5%; }
+  .nav-logo {
+    font-family: var(--font-heading); font-size: 1.8rem;
+    color: var(--white); text-decoration: none; letter-spacing: 5px;
+    transition: color 0.5s;
+  }
+  nav.scrolled .nav-logo { color: var(--navy); }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--white);
+    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px;
+    transition: color 0.3s;
+  }
+  nav.scrolled .nav-links a { color: var(--navy); }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    border: 1px solid var(--white); color: var(--white);
+    padding: 12px 30px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px;
+    font-size: 0.8rem; transition: all 0.4s;
+  }
+  nav.scrolled .nav-cta { border-color: var(--navy); color: var(--navy); }
+  .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+  
+  .hamburger { display: none; cursor: pointer; color: var(--white); font-size: 1.5rem; }
+  nav.scrolled .hamburger { color: var(--navy); }
+
+  /* -- HERO -- */
+  #hero {
+    height: 100vh; position: relative;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: -1;
+    background: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+    transform: scale(1.05); animation: zoomOut 15s ease forwards;
+  }
+  @keyframes zoomOut { to { transform: scale(1); } }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(to bottom, rgba(10,25,47,0.7) 0%, rgba(10,25,47,0.3) 100%);
+  }
+  .hero-content { color: var(--white); position: relative; z-index: 1; padding: 0 5%; }
+  .hero-sub {
+    font-family: var(--font-body); text-transform: uppercase; letter-spacing: 6px;
+    font-size: 0.85rem; margin-bottom: 20px; display: block; color: var(--gold);
+    animation: fadeUp 1s 0.5s both;
+  }
+  .hero-title {
+    font-family: var(--font-heading); font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 1.1; margin-bottom: 30px; font-weight: 400; letter-spacing: 2px;
+    animation: fadeUp 1s 0.7s both;
+  }
+  .hero-desc {
+    font-size: 1.1rem; line-height: 1.8; color: #E0E0E0;
+    margin: 0 auto 40px; max-width: 600px; font-weight: 300;
+    animation: fadeUp 1s 0.9s both;
+  }
+  .hero-btns { animation: fadeUp 1s 1.1s both; }
+  .btn-solid {
+    background: var(--gold); color: var(--white);
+    padding: 18px 45px; text-decoration: none; text-transform: uppercase;
+    letter-spacing: 2px; font-size: 0.85rem; transition: all 0.4s; display: inline-block;
+  }
+  .btn-solid:hover { background: #b5952f; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+  
+  .scroll-down {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    color: var(--white); font-size: 1.5rem; animation: bounce 2s infinite; text-decoration: none;
+  }
+  @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); } 40% { transform: translateY(-20px) translateX(-50%); } 60% { transform: translateY(-10px) translateX(-50%); } }
+
+  /* -- SEARCH BOX -- */
+  .search-container {
+    max-width: 1000px; margin: -50px auto 0; position: relative; z-index: 10;
+    background: var(--white); padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    display: flex; gap: 20px; align-items: flex-end;
+  }
+  .search-group { flex: 1; }
+  .search-group label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-bottom: 10px; }
+  .search-group select, .search-group input { width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #E0E0E0; font-family: var(--font-body); font-size: 1rem; color: var(--navy); outline: none; background: transparent; }
+  .btn-search { background: var(--navy); color: var(--white); border: none; padding: 15px 40px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; height: 48px; }
+  .btn-search:hover { background: var(--gold); }
+
+  /* -- ABOUT -- */
+  #about { padding: 120px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1400px; margin: 0 auto; }
+  .section-label { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; display: block; margin-bottom: 15px; font-weight: 600; }
+  .section-title { font-family: var(--font-heading); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.2; margin-bottom: 30px; color: var(--navy); }
+  .about-text p { font-size: 1.05rem; line-height: 1.8; color: var(--gray); margin-bottom: 20px; font-weight: 300; }
+  
+  .about-img-wrap { position: relative; height: 600px; }
+  .about-img-1 { width: 80%; height: 80%; object-fit: cover; position: absolute; top: 0; left: 0; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+  .about-img-2 { width: 60%; height: 60%; object-fit: cover; position: absolute; bottom: 0; right: 0; border: 15px solid var(--off-white); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+  /* -- FEATURED LISTINGS -- */
+  #listings { padding: 120px 0; background: var(--white); }
+  .listings-header { text-align: center; margin-bottom: 60px; padding: 0 5%; }
+  
+  .property-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; padding: 0 5%; max-width: 1400px; margin: 0 auto; }
+  .property-card { background: var(--white); border: 1px solid #EFEFEF; transition: transform 0.4s, box-shadow 0.4s; overflow: hidden; cursor: pointer; }
+  .property-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  
+  .prop-img-wrap { position: relative; height: 300px; overflow: hidden; }
+  .prop-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+  .property-card:hover .prop-img { transform: scale(1.08); }
+  .prop-badge { position: absolute; top: 20px; left: 20px; background: var(--navy); color: var(--white); padding: 5px 15px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+  
+  .prop-info { padding: 30px; }
+  .prop-price { color: var(--gold); font-size: 1.5rem; font-family: var(--font-heading); margin-bottom: 10px; }
+  .prop-title { font-size: 1.2rem; margin-bottom: 15px; color: var(--navy); font-weight: 600; }
+  .prop-location { color: var(--gray); font-size: 0.9rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+  .prop-meta { display: flex; gap: 20px; border-top: 1px solid #EFEFEF; padding-top: 20px; color: var(--navy-light); font-size: 0.9rem; }
+  .prop-meta span { display: flex; align-items: center; gap: 8px; }
+  .prop-meta i { color: var(--gold); }
+
+  /* -- SERVICES -- */
+  #services { padding: 120px 5%; background: var(--navy); color: var(--white); text-align: center; }
+  #services .section-title { color: var(--white); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; max-width: 1200px; margin: 60px auto 0; }
+  .service-box { padding: 40px 20px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s; }
+  .service-box:hover { background: var(--navy-light); border-color: var(--gold); transform: translateY(-5px); }
+  .service-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 25px; }
+  .service-title { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 15px; letter-spacing: 1px; }
+  .service-desc { color: var(--gray); font-size: 0.95rem; line-height: 1.7; font-weight: 300; }
+
+  /* -- CTA -- */
+  .cta-section { padding: 120px 5%; background: url('https://images.unsplash.com/photo-1628611225249-6c4c000f5c1d?q=80&w=1920&auto=format&fit=crop') center/cover fixed; position: relative; text-align: center; }
+  .cta-overlay { position: absolute; inset: 0; background: rgba(10,25,47,0.85); }
+  .cta-content { position: relative; z-index: 1; color: var(--white); max-width: 800px; margin: 0 auto; }
+  .cta-content h2 { font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; font-weight: 400; }
+  .cta-content p { font-size: 1.1rem; color: var(--gray); margin-bottom: 40px; font-weight: 300; line-height: 1.8; }
+
+  /* -- FOOTER -- */
+  footer { background: var(--off-white); padding: 100px 5% 0; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 80px; border-bottom: 1px solid #EFEFEF; padding-bottom: 80px; max-width: 1400px; margin-inline: auto; }
+  .footer-about .nav-logo { color: var(--navy); margin-bottom: 20px; display: inline-block; }
+  .footer-about p { color: var(--gray); line-height: 1.8; max-width: 400px; margin-bottom: 30px; font-weight: 300; }
+  
+  .footer-title { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 30px; letter-spacing: 1px; color: var(--navy); }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 15px; }
+  .footer-links a { color: var(--gray); text-decoration: none; transition: color 0.3s; font-size: 0.95rem; }
+  .footer-links a:hover { color: var(--gold); }
+
+  .contact-info li { display: flex; gap: 15px; margin-bottom: 20px; color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
+  .contact-info i { color: var(--gold); font-size: 1.2rem; margin-top: 3px; }
+
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; color: #999; font-size: 0.85rem; max-width: 1400px; margin: 0 auto; }
+
+  /* -- ANIMATIONS (SCROLL) -- */
+  .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.5, 0, 0, 1); }
+  .reveal.active { opacity: 1; transform: translateY(0); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* -- RESPONSIVE -- */
+  @media(max-width: 1000px) {
+    #about { grid-template-columns: 1fr; }
+    .about-img-wrap { height: 400px; margin-top: 40px; }
+    .search-container { flex-direction: column; align-items: stretch; }
+    .btn-search { margin-top: 20px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media(max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: block; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="loader-brand">VANTAGE</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">VANTAGE</a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#listings">Properties</a></li>
+      <li><a href="#services">Services</a></li>
+    </ul>
+    <a href="https://wa.me/+94700000000" class="nav-cta" target="_blank">Contact Agent</a>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-sub">Exclusive Properties</span>
+      <h1 class="hero-title">Find Your Next<br>Luxury Home</h1>
+      <p class="hero-desc">We specialize in finding the most exquisite properties in prime locations. Discover a home that perfectly matches your exceptional lifestyle.</p>
+      <div class="hero-btns">
+        <a href="#listings" class="btn-solid">Explore Properties</a>
+      </div>
+    </div>
+    <a href="#search" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+  </section>
+
+  <!-- SEARCH BOX -->
+  <div class="search-container" id="search" style="animation: fadeUp 1s 1.3s both;">
+    <div class="search-group">
+      <label>Location</label>
+      <select>
+        <option>All Locations</option>
+        <option>Colombo 07</option>
+        <option>Colombo 03</option>
+        <option>Nugegoda</option>
+      </select>
+    </div>
+    <div class="search-group">
+      <label>Property Type</label>
+      <select>
+        <option>All Types</option>
+        <option>Luxury Villa</option>
+        <option>Penthouse</option>
+        <option>Modern Apartment</option>
+      </select>
+    </div>
+    <div class="search-group">
+      <label>Max Price</label>
+      <select>
+        <option>No Limit</option>
+        <option>Rs. 50 Million</option>
+        <option>Rs. 100 Million</option>
+        <option>Rs. 500 Million</option>
+      </select>
+    </div>
+    <button class="btn-search"><i class="fas fa-search"></i> Search</button>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-text reveal">
+      <span class="section-label">Who We Are</span>
+      <h2 class="section-title">Redefining Luxury<br>Real Estate</h2>
+      <p>Vantage is a premier real estate agency dedicated to representing the most spectacular properties. With a deep understanding of the high-end market, we provide an unparalleled level of service to our discerning clients.</p>
+      <p>Our global network and innovative marketing strategies ensure that whether you are buying or selling, your experience will be nothing short of extraordinary. We don't just sell homes; we curate lifestyles.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Signature_placeholder.svg" alt="Signature" style="height: 60px; margin-top: 20px; opacity: 0.5;">
+    </div>
+    <div class="about-img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop" class="about-img-1" alt="Mansion">
+      <img src="https://images.unsplash.com/photo-1600607687920-4e2a09be1547?q=80&w=600&auto=format&fit=crop" class="about-img-2" alt="Interior">
+    </div>
+  </section>
+
+  <!-- LISTINGS -->
+  <section id="listings">
+    <div class="listings-header reveal">
+      <span class="section-label">Exclusive Portfolio</span>
+      <h2 class="section-title">Featured Properties</h2>
+    </div>
+    <div class="property-grid">
+      <!-- Property 1 -->
+      <div class="property-card reveal">
+        <div class="prop-img-wrap">
+          <div class="prop-badge">For Sale</div>
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop" class="prop-img" alt="Property">
+        </div>
+        <div class="prop-info">
+          <div class="prop-price">Rs. 150 Million</div>
+          <h3 class="prop-title">The Royal Penthouse</h3>
+          <div class="prop-location"><i class="fas fa-map-marker-alt"></i> Colombo 07, Sri Lanka</div>
+          <div class="prop-meta">
+            <span><i class="fas fa-bed"></i> 4 Beds</span>
+            <span><i class="fas fa-bath"></i> 4 Baths</span>
+            <span><i class="fas fa-vector-square"></i> 3,500 sqft</span>
+          </div>
+        </div>
+      </div>
+      <!-- Property 2 -->
+      <div class="property-card reveal" style="transition-delay: 0.1s;">
+        <div class="prop-img-wrap">
+          <div class="prop-badge">For Sale</div>
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop" class="prop-img" alt="Property">
+        </div>
+        <div class="prop-info">
+          <div class="prop-price">Rs. 85 Million</div>
+          <h3 class="prop-title">Modern Glass Villa</h3>
+          <div class="prop-location"><i class="fas fa-map-marker-alt"></i> Nawala, Sri Lanka</div>
+          <div class="prop-meta">
+            <span><i class="fas fa-bed"></i> 5 Beds</span>
+            <span><i class="fas fa-bath"></i> 5 Baths</span>
+            <span><i class="fas fa-vector-square"></i> 4,200 sqft</span>
+          </div>
+        </div>
+      </div>
+      <!-- Property 3 -->
+      <div class="property-card reveal" style="transition-delay: 0.2s;">
+        <div class="prop-img-wrap">
+          <div class="prop-badge">For Rent</div>
+          <img src="https://images.unsplash.com/photo-1628611225249-6c4c000f5c1d?q=80&w=800&auto=format&fit=crop" class="prop-img" alt="Property">
+        </div>
+        <div class="prop-info">
+          <div class="prop-price">Rs. 350,000 / mo</div>
+          <h3 class="prop-title">Oceanview Apartment</h3>
+          <div class="prop-location"><i class="fas fa-map-marker-alt"></i> Colombo 03, Sri Lanka</div>
+          <div class="prop-meta">
+            <span><i class="fas fa-bed"></i> 3 Beds</span>
+            <span><i class="fas fa-bath"></i> 2 Baths</span>
+            <span><i class="fas fa-vector-square"></i> 2,100 sqft</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="reveal">
+      <span class="section-label">Our Expertise</span>
+      <h2 class="section-title">Comprehensive Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-box reveal">
+        <i class="fas fa-home service-icon"></i>
+        <h3 class="service-title">Property Sales</h3>
+        <p class="service-desc">We represent buyers and sellers of luxury real estate, ensuring smooth transactions and optimal results.</p>
+      </div>
+      <div class="service-box reveal" style="transition-delay: 0.1s;">
+        <i class="fas fa-key service-icon"></i>
+        <h3 class="service-title">Luxury Rentals</h3>
+        <p class="service-desc">Find the perfect short-term or long-term rental property from our exclusive, unlisted portfolio.</p>
+      </div>
+      <div class="service-box reveal" style="transition-delay: 0.2s;">
+        <i class="fas fa-chart-line service-icon"></i>
+        <h3 class="service-title">Investment Advisory</h3>
+        <p class="service-desc">Strategic advice for real estate investments, portfolio management, and market analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section reveal">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+      <h2>Let Us Find Your Dream Home</h2>
+      <p>Contact our elite agents today to schedule a private viewing or discuss your real estate requirements in complete confidentiality.</p>
+      <a href="https://wa.me/+94700000000" class="btn-solid" target="_blank">Contact on WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#" class="nav-logo">VANTAGE</a>
+        <p>Vantage is the leading luxury real estate agency, specializing in the sale and rental of premium properties.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#listings">Properties</a></li>
+          <li><a href="#services">Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Properties</h4>
+        <ul class="footer-links">
+          <li><a href="#">Luxury Villas</a></li>
+          <li><a href="#">Penthouses</a></li>
+          <li><a href="#">Commercial</a></li>
+          <li><a href="#">New Developments</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Contact Us</h4>
+        <ul class="contact-info" style="list-style: none; padding: 0;">
+          <li><i class="fas fa-map-marker-alt"></i> Level 10, One Galle Face, Colombo</li>
+          <li><i class="fab fa-whatsapp"></i> +94 70 000 0000</li>
+          <li><i class="fas fa-envelope"></i> contact@vantage.lk</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Vantage Real Estate. All rights reserved.</p>
+      <p>Designed by You</p>
+    </div>
+  </footer>
+
+  <script>
+    // Preloader
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('preloader').classList.add('hidden');
+      }, 1000);
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll Reveal Animation
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 100;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+  </script>
+</body>
+</html>

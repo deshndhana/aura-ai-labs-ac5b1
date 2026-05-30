@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuraCare Medical & Dental Center | Premium Healthcare</title>
+  <meta name="description" content="AuraCare Medical & Dental Center — Sri Lanka's leading premium multi-specialty clinic offering General Medicine, Advanced Dentistry, Pediatrics, and Preventive Health Check-ups." />
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: DM Sans (body) + Playfair Display (display headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'trust-blue':  { DEFAULT: '#1e40af', light: '#3b5fc0', dark: '#162f82' },
+            'med-teal':    { DEFAULT: '#0d9488', light: '#14b8a6', dark: '#0a7870' },
+            'slate-bg':    '#f8fafc',
+            'divider':     '#e2e8f0',
+          },
+          fontFamily: {
+            sans:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+          },
+          boxShadow: {
+            'card':    '0 1px 3px 0 rgba(0,0,0,.06), 0 4px 16px 0 rgba(0,0,0,.06)',
+            'card-hover': '0 8px 30px 0 rgba(30,64,175,.12)',
+            'nav':     '0 2px 20px 0 rgba(30,64,175,.08)',
+          },
+          keyframes: {
+            fadein: { from: { opacity: '0', transform: 'translateY(18px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+            scalein: { from: { opacity: '0', transform: 'scale(.96)' }, to: { opacity: '1', transform: 'scale(1)' } },
+            pulse2: { '0%,100%': { opacity:'1' }, '50%': { opacity:'.55' } },
+          },
+          animation: {
+            fadein:  'fadein .7s ease both',
+            fadein2: 'fadein .7s .18s ease both',
+            fadein3: 'fadein .7s .35s ease both',
+            scalein: 'scalein .75s .1s ease both',
+            pulse2:  'pulse2 2s infinite',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ─── Base ─── */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #ffffff; color: #1e293b; -webkit-font-smoothing: antialiased; }
+
+    /* ─── Smooth scroll offset for sticky nav ─── */
+    :target { scroll-margin-top: 88px; }
+
+    /* ─── Emergency bar ticker ─── */
+    .ticker-wrap { overflow: hidden; position: relative; }
+    .ticker-content { display: inline-flex; gap: 3rem; white-space: nowrap; animation: ticker 28s linear infinite; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ─── Nav link underline ─── */
+    .nav-link { position: relative; padding-bottom: 2px; }
+    .nav-link::after { content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background: #0d9488; border-radius:2px; transition: width .25s ease; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+    /* ─── Hero gradient overlay ─── */
+    .hero-overlay { background: linear-gradient(105deg, rgba(255,255,255,.97) 0%, rgba(248,250,252,.93) 45%, rgba(248,250,252,.55) 72%, rgba(248,250,252,.0) 100%); }
+
+    /* ─── Service card hover ─── */
+    .service-card { transition: transform .3s ease, box-shadow .3s ease; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(13,148,136,.13); }
+    .service-card:hover .card-icon-wrap { background: #0d9488; }
+    .service-card:hover .card-icon-wrap svg { color: #ffffff; }
+
+    /* ─── Doctor card ─── */
+    .doctor-card { transition: transform .28s ease, box-shadow .28s ease; }
+    .doctor-card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(30,64,175,.11); }
+
+    /* ─── Stat counter ─── */
+    .stat-num { font-variant-numeric: tabular-nums; }
+
+    /* ─── Mobile menu ─── */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+  </style>
+</head>
+<body class="antialiased">
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 0 · TOP EMERGENCY / ANNOUNCEMENT BAR
+════════════════════════════════════════════════════════════════ -->
+<div class="bg-trust-blue text-white text-xs font-medium" role="banner" aria-label="Emergency contact information">
+  <div class="ticker-wrap py-2">
+    <div class="ticker-content select-none">
+      <!-- Repeated twice so ticker loops seamlessly -->
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-red-400 animate-pulse2 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9v-2h2v2zm0-4H9V7h2v2z"/></svg>
+        Emergency Hotline: <strong class="text-red-300">+94 11 2XXX XXX</strong>
+      </span>
+      <span>|</span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-med-teal-light shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Mon–Fri: 7:00 AM – 9:00 PM &nbsp;·&nbsp; Sat: 8:00 AM – 5:00 PM &nbsp;·&nbsp; Sun: 9:00 AM – 1:00 PM
+      </span>
+      <span>|</span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-yellow-300 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12zm-.5-9h1v4h-1V7zm0 5h1v1h-1v-1z"/></svg>
+        Walk-ins Welcome &nbsp;·&nbsp; Fully Air-Conditioned &nbsp;·&nbsp; Free Parking Available
+      </span>
+      <span>|</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-red-400 animate-pulse2 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9v-2h2v2zm0-4H9V7h2v2z"/></svg>
+        Emergency Hotline: <strong class="text-red-300">+94 11 2XXX XXX</strong>
+      </span>
+      <span>|</span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-med-teal-light shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Mon–Fri: 7:00 AM – 9:00 PM &nbsp;·&nbsp; Sat: 8:00 AM – 5:00 PM &nbsp;·&nbsp; Sun: 9:00 AM – 1:00 PM
+      </span>
+      <span>|</span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-yellow-300 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12zm-.5-9h1v4h-1V7zm0 5h1v1h-1v-1z"/></svg>
+        Walk-ins Welcome &nbsp;·&nbsp; Fully Air-Conditioned &nbsp;·&nbsp; Free Parking Available
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 1 · STICKY NAVIGATION BAR
+════════════════════════════════════════════════════════════════ -->
+<header id="main-nav" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-nav border-b border-divider">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-2.5 shrink-0" aria-label="AuraCare Home">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-trust-blue to-med-teal flex items-center justify-center shadow">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5h3l2-5 3 10 2-7 2 4h3"/>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <span class="block text-base font-bold text-trust-blue tracking-tight">AuraCare</span>
+          <span class="block text-[10px] font-medium text-slate-500 tracking-widest uppercase">Medical & Dental</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-7" aria-label="Primary navigation">
+        <a href="#home"    class="nav-link text-sm font-medium text-slate-700 hover:text-trust-blue transition-colors">Home</a>
+        <a href="#services" class="nav-link text-sm font-medium text-slate-700 hover:text-trust-blue transition-colors">Services</a>
+        <a href="#doctors"  class="nav-link text-sm font-medium text-slate-700 hover:text-trust-blue transition-colors">Find a Doctor</a>
+        <a href="#about"    class="nav-link text-sm font-medium text-slate-700 hover:text-trust-blue transition-colors">About</a>
+        <a href="#contact"  class="nav-link text-sm font-medium text-slate-700 hover:text-trust-blue transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="tel:+9411200000" class="flex items-center gap-1.5 text-sm font-medium text-trust-blue hover:text-trust-blue-dark transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25A2.25 2.25 0 0021.75 19.5v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          +94 11 2XXX XXX
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-trust-blue text-white text-sm font-semibold hover:bg-trust-blue-dark active:scale-95 transition-all shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          Book Appointment
+        </a>
+      </div>
+
+      <!-- Mobile Burger Button -->
+      <button id="burger-btn" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="burger-icon" class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 text-slate-700 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+    </div><!-- /flex row -->
+  </div><!-- /container -->
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="lg:hidden border-t border-divider bg-white shadow-lg" aria-label="Mobile navigation">
+    <nav class="flex flex-col px-4 py-3 gap-1">
+      <a href="#home"     class="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-bg hover:text-trust-blue transition-colors" onclick="closeMobileMenu()">Home</a>
+      <a href="#services"  class="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-bg hover:text-trust-blue transition-colors" onclick="closeMobileMenu()">Services</a>
+      <a href="#doctors"   class="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-bg hover:text-trust-blue transition-colors" onclick="closeMobileMenu()">Find a Doctor</a>
+      <a href="#about"     class="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-bg hover:text-trust-blue transition-colors" onclick="closeMobileMenu()">About</a>
+      <a href="#contact"   class="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-bg hover:text-trust-blue transition-colors" onclick="closeMobileMenu()">Contact</a>
+      <div class="mt-2 pt-3 border-t border-divider">
+        <a href="#contact" onclick="closeMobileMenu()" class="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-trust-blue text-white text-sm font-semibold hover:bg-trust-blue-dark transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          Book Appointment
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 2 · HERO SECTION
+════════════════════════════════════════════════════════════════ -->
+<section id="home" class="relative min-h-[88vh] flex items-center overflow-hidden bg-slate-bg">
+
+  <!-- Background Hero Image (right side) -->
+  <div class="absolute inset-0 lg:left-[46%] left-0">
+    <img
+      src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1400&q=85&auto=format&fit=crop"
+      alt="Professional medical team at AuraCare"
+      class="w-full h-full object-cover object-center opacity-30 lg:opacity-100"
+      loading="eager"
+    />
+    <!-- Mobile dimmer -->
+    <div class="absolute inset-0 lg:hidden bg-white/70"></div>
+    <!-- Gradient fade to white on left -->
+    <div class="hero-overlay absolute inset-0 hidden lg:block"></div>
+  </div>
+
+  <!-- Decorative circles -->
+  <div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-med-teal/5 blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-1/3 w-64 h-64 rounded-full bg-trust-blue/5 blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
+    <div class="max-w-xl lg:max-w-2xl">
+
+      <!-- Badge -->
+      <div class="animate-fadein inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-med-teal/10 border border-med-teal/20 mb-6">
+        <span class="w-2 h-2 rounded-full bg-med-teal animate-pulse2"></span>
+        <span class="text-xs font-semibold text-med-teal tracking-wide uppercase">Colombo's Most Trusted Clinic</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="animate-fadein2 font-display text-4xl sm:text-5xl lg:text-6xl font-700 leading-tight text-slate-900 mb-5">
+        Your Health,<br/>
+        <span class="text-trust-blue">Our Absolute</span><br/>
+        <span class="italic text-med-teal">Priority.</span>
+      </h1>
+
+      <!-- Sub-headline -->
+      <p class="animate-fadein3 text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-lg">
+        At AuraCare, our board-certified physicians and dental surgeons combine compassionate care with advanced clinical technology — so every patient receives world-class treatment in a calm, welcoming environment.
+      </p>
+
+      <!-- Trust badges row -->
+      <div class="animate-fadein3 flex flex-wrap gap-3 mb-9">
+        <div class="flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-white border border-divider rounded-full px-3 py-1.5 shadow-sm">
+          <svg class="w-4 h-4 text-trust-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1a9 9 0 100 18A9 9 0 0010 1zm4.338 12.773a.75.75 0 01-1.06.043L9 9.706l-2.278 2.11a.75.75 0 01-1.02-1.1l2.8-2.594a.75.75 0 011.02-.001l4.773 4.591a.75.75 0 01.043 1.061z" clip-rule="evenodd"/></svg>
+          SLMC Accredited
+        </div>
+        <div class="flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-white border border-divider rounded-full px-3 py-1.5 shadow-sm">
+          <svg class="w-4 h-4 text-med-teal" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          4.9 / 5 · 3,200+ Reviews
+        </div>
+        <div class="flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-white border border-divider rounded-full px-3 py-1.5 shadow-sm">
+          <svg class="w-4 h-4 text-trust-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          3 Clinic Locations
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="animate-fadein3 flex flex-wrap gap-3">
+        <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-trust-blue text-white font-semibold text-sm hover:bg-trust-blue-dark active:scale-95 transition-all shadow-md hover:shadow-lg">
+          <svg class="w-4.5 h-4.5 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          Schedule a Visit
+        </a>
+        <a href="#services" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-trust-blue font-semibold text-sm border border-trust-blue/20 hover:border-trust-blue/50 hover:bg-slate-bg active:scale-95 transition-all shadow-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/></svg>
+          Our Services
+        </a>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /container -->
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 3 · TRUST STATS BAND
+════════════════════════════════════════════════════════════════ -->
+<section class="bg-trust-blue py-10" aria-label="Clinic statistics">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/20">
+
+      <div class="flex flex-col items-center text-center px-4 py-2">
+        <span class="stat-num text-4xl lg:text-5xl font-bold text-white mb-1">18<span class="text-med-teal-light">+</span></span>
+        <span class="text-sm font-medium text-blue-200">Years of Excellence</span>
+      </div>
+
+      <div class="flex flex-col items-center text-center px-4 py-2">
+        <span class="stat-num text-4xl lg:text-5xl font-bold text-white mb-1">42<span class="text-med-teal-light">+</span></span>
+        <span class="text-sm font-medium text-blue-200">Expert Specialists</span>
+      </div>
+
+      <div class="flex flex-col items-center text-center px-4 py-2">
+        <span class="stat-num text-4xl lg:text-5xl font-bold text-white mb-1">95<span class="text-med-teal-light">k</span></span>
+        <span class="text-sm font-medium text-blue-200">Patients Treated</span>
+      </div>
+
+      <div class="flex flex-col items-center text-center px-4 py-2">
+        <span class="stat-num text-4xl lg:text-5xl font-bold text-white mb-1">4.9<span class="text-med-teal-light">★</span></span>
+        <span class="text-sm font-medium text-blue-200">Patient Satisfaction</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 4 · CORE SERVICES GRID
+════════════════════════════════════════════════════════════════ -->
+<section id="services" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Header -->
+    <div class="text-center mb-14">
+      <span class="inline-block text-xs font-semibold text-med-teal tracking-widest uppercase mb-3">What We Offer</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-700 text-slate-900 mb-4">
+        Comprehensive Medical <span class="text-trust-blue">&amp; Dental</span> Services
+      </h2>
+      <p class="text-slate-500 text-base max-w-xl mx-auto leading-relaxed">
+        From routine check-ups to complex specialist consultations, every service at AuraCare is delivered with clinical precision and genuine compassion.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Card 1 · General Medicine -->
+      <article class="service-card bg-white rounded-2xl border border-divider p-6 shadow-card flex flex-col">
+        <div class="card-icon-wrap w-12 h-12 rounded-xl bg-trust-blue/10 flex items-center justify-center mb-5 transition-colors duration-300">
+          <svg class="w-6 h-6 text-trust-blue transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">General Medicine</h3>
+        <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-5">
+          Primary care consultations, chronic disease management, full blood-work panels, and personalised health plans by experienced physicians who know you by name.
+        </p>
+        <!-- Features list -->
+        <ul class="text-xs text-slate-500 space-y-1 mb-5">
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Same-day appointments available</li>
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>On-site lab &amp; radiology</li>
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Telehealth follow-ups</li>
+        </ul>
+        <a href="#contact" class="inline-flex items-center gap-1 text-sm font-semibold text-med-teal hover:text-trust-blue transition-colors mt-auto">
+          Learn More
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 2 · Advanced Dentistry -->
+      <article class="service-card bg-white rounded-2xl border border-divider p-6 shadow-card flex flex-col relative overflow-hidden">
+        <!-- Popular ribbon -->
+        <div class="absolute top-4 right-4 bg-med-teal text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Popular</div>
+        <div class="card-icon-wrap w-12 h-12 rounded-xl bg-med-teal/10 flex items-center justify-center mb-5 transition-colors duration-300">
+          <svg class="w-6 h-6 text-med-teal transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">Advanced Dentistry</h3>
+        <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-5">
+          From professional cleaning and orthodontics to dental implants and smile makeovers — our specialist dental surgeons deliver painless, precision care using CAD/CAM technology.
+        </p>
+        <ul class="text-xs text-slate-500 space-y-1 mb-5">
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Digital X-ray &amp; 3D scanning</li>
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Invisalign &amp; clear aligners</li>
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Titanium implants &amp; veneers</li>
+        </ul>
+        <a href="#contact" class="inline-flex items-center gap-1 text-sm font-semibold text-med-teal hover:text-trust-blue transition-colors mt-auto">
+          Learn More
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 3 · Pediatrics -->
+      <article class="service-card bg-white rounded-2xl border border-divider p-6 shadow-card flex flex-col">
+        <div class="card-icon-wrap w-12 h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center mb-5 transition-colors duration-300">
+          <svg class="w-6 h-6 text-yellow-500 transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">Pediatrics</h3>
+        <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-5">
+          A child-friendly environment with board-certified pediatricians who specialise in newborn care, childhood immunisations, developmental screenings, and adolescent medicine.
+        </p>
+        <ul class="text-xs text-slate-500 space-y-1 mb-5">
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Newborn to 18-year specialist care</li>
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Vaccine &amp; immunisation schedule</li>
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Dedicated child-friendly wards</li>
+        </ul>
+        <a href="#contact" class="inline-flex items-center gap-1 text-sm font-semibold text-med-teal hover:text-trust-blue transition-colors mt-auto">
+          Learn More
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 4 · Preventive Check-ups -->
+      <article class="service-card bg-white rounded-2xl border border-divider p-6 shadow-card flex flex-col">
+        <div class="card-icon-wrap w-12 h-12 rounded-xl bg-trust-blue/10 flex items-center justify-center mb-5 transition-colors duration-300">
+          <svg class="w-6 h-6 text-trust-blue transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">Preventive Check-ups</h3>
+        <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-5">
+          Comprehensive wellness packages including cardiac screenings, cancer markers, diabetes profiling, and executive health panels — because prevention is always better than cure.
+        </p>
+        <ul class="text-xs text-slate-500 space-y-1 mb-5">
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Full-body wellness packages</li>
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Cardiac &amp; cancer biomarker tests</li>
+          <li class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-med-teal shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>Personalised nutrition counselling</li>
+        </ul>
+        <a href="#contact" class="inline-flex items-center gap-1 text-sm font-semibold text-med-teal hover:text-trust-blue transition-colors mt-auto">
+          Learn More
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </article>
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 5 · CLINIC FEATURE BAND (IMAGE + COPY)
+════════════════════════════════════════════════════════════════ -->
+<section id="about" class="bg-slate-bg py-20 lg:py-28 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Image cluster -->
+      <div class="relative">
+        <!-- Main image -->
+        <div class="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+          <img
+            src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=900&q=80&auto=format&fit=crop"
+            alt="Modern AuraCare clinic interior with advanced equipment"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <!-- Floating accent image -->
+        <div class="absolute -bottom-6 -right-4 lg:-right-8 w-40 h-40 lg:w-48 lg:h-48 rounded-xl overflow-hidden shadow-lg border-4 border-white">
+          <img
+            src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&q=80&auto=format&fit=crop"
+            alt="Stethoscope — symbol of care"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <!-- Floating stat card -->
+        <div class="absolute top-4 -left-4 lg:-left-6 bg-white rounded-xl shadow-card p-3 border border-divider flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-lg bg-med-teal/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-med-teal" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-slate-900">98% Satisfaction</div>
+            <div class="text-[11px] text-slate-500">Based on 3,200+ reviews</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div>
+        <span class="inline-block text-xs font-semibold text-med-teal tracking-widest uppercase mb-4">About AuraCare</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-700 text-slate-900 mb-5 leading-tight">
+          Where Clinical Excellence Meets <span class="text-trust-blue">Human Compassion</span>
+        </h2>
+        <p class="text-slate-600 text-base leading-relaxed mb-5">
+          Founded in 2006, AuraCare Medical &amp; Dental Center has grown from a single Colombo clinic to a network of three state-of-the-art facilities, serving over 95,000 patients across Sri Lanka. We hold full accreditation from the Sri Lanka Medical Council and maintain international standards of sterility, diagnostic accuracy, and patient privacy.
+        </p>
+        <p class="text-slate-600 text-base leading-relaxed mb-8">
+          Our multi-disciplinary team of 42 specialist physicians works collaboratively — ensuring that every patient receives a holistic, coordinated care plan that addresses both immediate health concerns and long-term wellness goals.
+        </p>
+        <!-- Pillar list -->
+        <div class="grid sm:grid-cols-2 gap-4 mb-8">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-trust-blue/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-trust-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-slate-800 mb-0.5">ISO 9001 Certified</div>
+              <div class="text-xs text-slate-500">International quality management standards</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-med-teal/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-med-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-slate-800 mb-0.5">Patient-First Culture</div>
+              <div class="text-xs text-slate-500">Every decision guided by your wellbeing</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-trust-blue/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-trust-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-slate-800 mb-0.5">Advanced Technology</div>
+              <div class="text-xs text-slate-500">3T MRI, digital X-ray, CAD/CAM labs</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-med-teal/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-med-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3 12c0 .778.099 1.533.284 2.253"/></svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-slate-800 mb-0.5">Multi-lingual Staff</div>
+              <div class="text-xs text-slate-500">Sinhala, Tamil, and English consultations</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-trust-blue text-white font-semibold text-sm hover:bg-trust-blue-dark transition-all shadow-md">
+          Request a Consultation
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 6 · EXPERT DOCTORS / SPECIALISTS GRID
+════════════════════════════════════════════════════════════════ -->
+<section id="doctors" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Header -->
+    <div class="text-center mb-14">
+      <span class="inline-block text-xs font-semibold text-med-teal tracking-widest uppercase mb-3">Our Team</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-700 text-slate-900 mb-4">
+        Meet Our <span class="text-trust-blue">Specialist Physicians</span>
+      </h2>
+      <p class="text-slate-500 text-base max-w-xl mx-auto leading-relaxed">
+        Each AuraCare specialist holds a minimum of 15 years of clinical experience, advanced international fellowships, and an unwavering commitment to patient-centred medicine.
+      </p>
+    </div>
+
+    <!-- Doctors Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Doctor 1 · Cardiologist -->
+      <article class="doctor-card bg-white rounded-2xl border border-divider shadow-card overflow-hidden">
+        <!-- Photo -->
+        <div class="relative h-64 overflow-hidden bg-slate-bg">
+          <img
+            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80&auto=format&fit=crop&face"
+            alt="Dr. Rohan Perera — Senior Cardiologist"
+            class="w-full h-full object-cover object-top"
+            loading="lazy"
+          />
+          <!-- Available badge -->
+          <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-green-500 text-white text-[11px] font-semibold px-2.5 py-1 rounded-full shadow">
+            <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse2"></span>
+            Available Today
+          </div>
+          <!-- Specialty colour strip -->
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-trust-blue to-med-teal"></div>
+        </div>
+        <!-- Info -->
+        <div class="p-5">
+          <div class="flex items-start justify-between mb-1">
+            <h3 class="text-base font-bold text-slate-900">Dr. Rohan S. Perera</h3>
+            <span class="text-[11px] font-medium text-trust-blue bg-trust-blue/8 border border-trust-blue/15 rounded-full px-2 py-0.5">MBBS · MD</span>
+          </div>
+          <p class="text-sm font-semibold text-med-teal mb-1">Senior Cardiologist</p>
+          <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+            Fellowship — National Heart Institute, New Delhi. 22 years of expertise in interventional cardiology, heart failure management, and preventive cardiac care.
+          </p>
+          <!-- Star rating -->
+          <div class="flex items-center gap-1.5 mb-4">
+            <div class="flex">
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="text-xs text-slate-500">5.0 · 218 reviews</span>
+          </div>
+          <a href="#contact" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl border border-trust-blue/25 text-trust-blue text-sm font-semibold hover:bg-trust-blue hover:text-white transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+            Book Appointment
+          </a>
+        </div>
+      </article>
+
+      <!-- Doctor 2 · Chief Dental Surgeon -->
+      <article class="doctor-card bg-white rounded-2xl border border-divider shadow-card overflow-hidden">
+        <div class="relative h-64 overflow-hidden bg-slate-bg">
+          <img
+            src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80&auto=format&fit=crop&face"
+            alt="Dr. Amali Fernando — Chief Dental Surgeon"
+            class="w-full h-full object-cover object-top"
+            loading="lazy"
+          />
+          <!-- Available badge -->
+          <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-green-500 text-white text-[11px] font-semibold px-2.5 py-1 rounded-full shadow">
+            <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse2"></span>
+            Available Today
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-med-teal to-trust-blue"></div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between mb-1">
+            <h3 class="text-base font-bold text-slate-900">Dr. Amali R. Fernando</h3>
+            <span class="text-[11px] font-medium text-trust-blue bg-trust-blue/8 border border-trust-blue/15 rounded-full px-2 py-0.5">BDS · MDS</span>
+          </div>
+          <p class="text-sm font-semibold text-med-teal mb-1">Chief Dental Surgeon</p>
+          <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+            International Fellowship in Implantology — BACD, London. 19 years specialising in full-mouth rehabilitation, smile design, and sedation dentistry for anxious patients.
+          </p>
+          <div class="flex items-center gap-1.5 mb-4">
+            <div class="flex">
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="text-xs text-slate-500">5.0 · 341 reviews</span>
+          </div>
+          <a href="#contact" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl border border-trust-blue/25 text-trust-blue text-sm font-semibold hover:bg-trust-blue hover:text-white transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+            Book Appointment
+          </a>
+        </div>
+      </article>
+
+      <!-- Doctor 3 · Pediatrician -->
+      <article class="doctor-card bg-white rounded-2xl border border-divider shadow-card overflow-hidden">
+        <div class="relative h-64 overflow-hidden bg-slate-bg">
+          <img
+            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=80&auto=format&fit=crop&face"
+            alt="Dr. Kamal Jayawickrama — Consultant Pediatrician"
+            class="w-full h-full object-cover object-top"
+            loading="lazy"
+          />
+          <!-- Next available badge (not today) -->
+          <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-amber-500 text-white text-[11px] font-semibold px-2.5 py-1 rounded-full shadow">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10" stroke-linecap="round"/></svg>
+            Next: Tomorrow
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-med-teal"></div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between mb-1">
+            <h3 class="text-base font-bold text-slate-900">Dr. Kamal N. Jayawickrama</h3>
+            <span class="text-[11px] font-medium text-trust-blue bg-trust-blue/8 border border-trust-blue/15 rounded-full px-2 py-0.5">MBBS · DCH</span>
+          </div>
+          <p class="text-sm font-semibold text-med-teal mb-1">Consultant Pediatrician</p>
+          <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+            Post-Doctoral Fellowship — Great Ormond Street Hospital, UK. 17 years specialising in neonatology, childhood respiratory conditions, and complex developmental disorders.
+          </p>
+          <div class="flex items-center gap-1.5 mb-4">
+            <div class="flex">
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="text-xs text-slate-500">4.9 · 187 reviews</span>
+          </div>
+          <a href="#contact" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl border border-trust-blue/25 text-trust-blue text-sm font-semibold hover:bg-trust-blue hover:text-white transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+            Book Appointment
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /grid -->
+
+    <!-- View all link -->
+    <div class="text-center mt-10">
+      <a href="#contact" class="inline-flex items-center gap-2 text-sm font-semibold text-trust-blue hover:text-med-teal transition-colors">
+        View All 42 Specialists
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 7 · TESTIMONIALS / PATIENT STORIES
+════════════════════════════════════════════════════════════════ -->
+<section class="py-20 lg:py-24 bg-slate-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block text-xs font-semibold text-med-teal tracking-widest uppercase mb-3">Patient Stories</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-700 text-slate-900">
+        Real Experiences, <span class="text-trust-blue">Real Results</span>
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Testimonial 1 -->
+      <blockquote class="bg-white rounded-2xl border border-divider shadow-card p-6 flex flex-col gap-4">
+        <div class="flex gap-0.5">
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="text-sm text-slate-600 leading-relaxed flex-1">
+          "Dr. Perera diagnosed my condition in a single consultation after months of inconclusive tests elsewhere. The care I received at AuraCare genuinely saved my life. I cannot recommend this clinic highly enough."
+        </p>
+        <footer class="flex items-center gap-3 pt-3 border-t border-divider">
+          <div class="w-9 h-9 rounded-full bg-trust-blue/15 flex items-center justify-center text-trust-blue font-bold text-sm">SP</div>
+          <div>
+            <div class="text-sm font-semibold text-slate-800">Suresh Pathirana</div>
+            <div class="text-xs text-slate-500">Cardiac Patient · Kandy</div>
+          </div>
+        </footer>
+      </blockquote>
+
+      <!-- Testimonial 2 -->
+      <blockquote class="bg-white rounded-2xl border border-divider shadow-card p-6 flex flex-col gap-4">
+        <div class="flex gap-0.5">
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="text-sm text-slate-600 leading-relaxed flex-1">
+          "My son was terrified of dentists until we found Dr. Fernando. She completely transformed his relationship with dental care — painless, patient, and always reassuring. The clinic itself is spotlessly clean and modern."
+        </p>
+        <footer class="flex items-center gap-3 pt-3 border-t border-divider">
+          <div class="w-9 h-9 rounded-full bg-med-teal/15 flex items-center justify-center text-med-teal font-bold text-sm">NW</div>
+          <div>
+            <div class="text-sm font-semibold text-slate-800">Nirosha Wijesinghe</div>
+            <div class="text-xs text-slate-500">Dental Patient (Parent) · Colombo 7</div>
+          </div>
+        </footer>
+      </blockquote>
+
+      <!-- Testimonial 3 -->
+      <blockquote class="bg-white rounded-2xl border border-divider shadow-card p-6 flex flex-col gap-4">
+        <div class="flex gap-0.5">
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="text-sm text-slate-600 leading-relaxed flex-1">
+          "The executive health package was comprehensive beyond expectation — full blood panel, ECG, ultrasound, and a personalised nutrition plan all in a single morning. I now book annually. Best investment in my health."
+        </p>
+        <footer class="flex items-center gap-3 pt-3 border-t border-divider">
+          <div class="w-9 h-9 rounded-full bg-trust-blue/15 flex items-center justify-center text-trust-blue font-bold text-sm">AR</div>
+          <div>
+            <div class="text-sm font-semibold text-slate-800">Ashan Ratnayake</div>
+            <div class="text-xs text-slate-500">Executive Health Patient · Nugegoda</div>
+          </div>
+        </footer>
+      </blockquote>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 8 · APPOINTMENT / CONTACT FORM
+════════════════════════════════════════════════════════════════ -->
+<section id="contact" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+      <!-- Left copy + info -->
+      <div>
+        <span class="inline-block text-xs font-semibold text-med-teal tracking-widest uppercase mb-4">Book Now</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-700 text-slate-900 mb-5 leading-tight">
+          Schedule Your <span class="text-trust-blue">Appointment</span> Today
+        </h2>
+        <p class="text-slate-600 text-base leading-relaxed mb-8">
+          Our team typically confirms bookings within 2 business hours. You may also walk in during clinic hours — no referral needed for general consultations.
+        </p>
+
+        <!-- Contact cards -->
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-bg border border-divider">
+            <div class="w-10 h-10 rounded-lg bg-trust-blue/10 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-trust-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25A2.25 2.25 0 0021.75 19.5v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-slate-800 mb-0.5">General Appointments</div>
+              <a href="tel:+9411200000" class="text-sm text-trust-blue hover:underline">+94 11 2XXX XXX</a>
+              <div class="text-xs text-slate-500 mt-0.5">Mon–Fri 7AM–9PM · Sat 8AM–5PM</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-bg border border-divider">
+            <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9v-2h2v2zm0-4H9V7h2v2z"/></svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-slate-800 mb-0.5">24/7 Emergency Hotline</div>
+              <a href="tel:+9411200001" class="text-sm text-red-600 font-semibold hover:underline">+94 11 2XXX XXX (Ext. 9)</a>
+              <div class="text-xs text-slate-500 mt-0.5">Always open — no appointment needed</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-bg border border-divider">
+            <div class="w-10 h-10 rounded-lg bg-med-teal/10 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-med-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-slate-800 mb-0.5">Email Enquiries</div>
+              <a href="mailto:appointments@auracare.lk" class="text-sm text-med-teal hover:underline">appointments@auracare.lk</a>
+              <div class="text-xs text-slate-500 mt-0.5">Response within 2 business hours</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clinic image -->
+        <div class="rounded-xl overflow-hidden h-44 shadow-card">
+          <img
+            src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80&auto=format&fit=crop"
+            alt="AuraCare Clinic reception — welcoming interior"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Right form -->
+      <div class="bg-slate-bg border border-divider rounded-2xl p-6 sm:p-8 shadow-card">
+        <h3 class="text-lg font-bold text-slate-900 mb-6">Request an Appointment</h3>
+        <!-- Note: form is UI-only for portfolio. Action/backend integration required for production. -->
+        <div class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1.5" for="fname">First Name</label>
+              <input id="fname" type="text" placeholder="Rohan" class="w-full px-4 py-2.5 rounded-xl border border-divider bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-trust-blue/30 focus:border-trust-blue transition-all" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1.5" for="lname">Last Name</label>
+              <input id="lname" type="text" placeholder="Perera" class="w-full px-4 py-2.5 rounded-xl border border-divider bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-trust-blue/30 focus:border-trust-blue transition-all" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1.5" for="phone">Phone Number</label>
+            <input id="phone" type="tel" placeholder="+94 77 XXX XXXX" class="w-full px-4 py-2.5 rounded-xl border border-divider bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-trust-blue/30 focus:border-trust-blue transition-all" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1.5" for="email">Email Address</label>
+            <input id="email" type="email" placeholder="rohan@email.com" class="w-full px-4 py-2.5 rounded-xl border border-divider bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-trust-blue/30 focus:border-trust-blue transition-all" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1.5" for="service">Select Service</label>
+            <select id="service" class="w-full px-4 py-2.5 rounded-xl border border-divider bg-white text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-trust-blue/30 focus:border-trust-blue transition-all appearance-none cursor-pointer">
+              <option value="" disabled selected>Choose a department…</option>
+              <option>General Medicine</option>
+              <option>Advanced Dentistry</option>
+              <option>Cardiology</option>
+              <option>Pediatrics</option>
+              <option>Preventive Check-up</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1.5" for="date">Preferred Date</label>
+            <input id="date" type="date" class="w-full px-4 py-2.5 rounded-xl border border-divider bg-white text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-trust-blue/30 focus:border-trust-blue transition-all" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1.5" for="message">Brief Description of Concern <span class="font-normal text-slate-400">(optional)</span></label>
+            <textarea id="message" rows="3" placeholder="Please describe your symptoms or reason for visit…" class="w-full px-4 py-2.5 rounded-xl border border-divider bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-trust-blue/30 focus:border-trust-blue transition-all resize-none"></textarea>
+          </div>
+          <p class="text-[11px] text-slate-400 leading-relaxed">
+            By submitting this form, you consent to AuraCare contacting you to confirm your appointment. Your personal data is handled in accordance with our Privacy Policy.
+          </p>
+          <button type="button" class="w-full py-3.5 rounded-xl bg-trust-blue text-white text-sm font-semibold hover:bg-trust-blue-dark active:scale-[.99] transition-all shadow-md flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+            Confirm Appointment Request
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 9 · FOOTER
+════════════════════════════════════════════════════════════════ -->
+<footer class="bg-slate-900 text-slate-300" role="contentinfo">
+
+  <!-- Main footer grid -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Column 1 · Brand & About -->
+      <div class="sm:col-span-2 lg:col-span-1">
+        <!-- Logo repeat -->
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-trust-blue to-med-teal flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5h3l2-5 3 10 2-7 2 4h3"/>
+            </svg>
+          </div>
+          <div class="leading-tight">
+            <span class="block text-base font-bold text-white">AuraCare</span>
+            <span class="block text-[10px] font-medium text-slate-400 tracking-widest uppercase">Medical & Dental</span>
+          </div>
+        </div>
+        <p class="text-sm leading-relaxed mb-5">
+          Sri Lanka's most trusted multi-specialty clinic, delivering compassionate, world-class healthcare since 2006 across three state-of-the-art facilities.
+        </p>
+        <!-- Emergency note -->
+        <div class="flex items-start gap-2 bg-red-950/50 border border-red-800/40 rounded-lg p-3">
+          <svg class="w-4 h-4 text-red-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9v-2h2v2zm0-4H9V7h2v2z"/></svg>
+          <div>
+            <p class="text-xs font-semibold text-red-400 mb-0.5">Medical Emergency?</p>
+            <a href="tel:+9411200001" class="text-xs text-red-300 hover:text-white transition-colors">Call +94 11 2XXX XXX — available 24/7</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2 · Clinic Locations -->
+      <div>
+        <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Our Locations</h4>
+        <div class="space-y-4">
+          <div>
+            <div class="text-xs font-semibold text-med-teal mb-1">Colombo 5 — Main Branch</div>
+            <address class="text-xs text-slate-400 not-italic leading-relaxed">
+              42 Havelock Road,<br/>Colombo 05, 00500<br/>Sri Lanka
+            </address>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-med-teal mb-1">Nugegoda — South Branch</div>
+            <address class="text-xs text-slate-400 not-italic leading-relaxed">
+              17 High Level Road,<br/>Nugegoda, 10250
+            </address>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-med-teal mb-1">Kandy — Central Branch</div>
+            <address class="text-xs text-slate-400 not-italic leading-relaxed">
+              8 Peradeniya Road,<br/>Kandy, 20000
+            </address>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3 · Quick Links -->
+      <div>
+        <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Quick Links</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#home"     class="text-sm text-slate-400 hover:text-med-teal transition-colors flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-med-teal/50 shrink-0"></span>Home</a></li>
+          <li><a href="#services"  class="text-sm text-slate-400 hover:text-med-teal transition-colors flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-med-teal/50 shrink-0"></span>Our Services</a></li>
+          <li><a href="#doctors"   class="text-sm text-slate-400 hover:text-med-teal transition-colors flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-med-teal/50 shrink-0"></span>Find a Doctor</a></li>
+          <li><a href="#about"     class="text-sm text-slate-400 hover:text-med-teal transition-colors flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-med-teal/50 shrink-0"></span>About Us</a></li>
+          <li><a href="#contact"   class="text-sm text-slate-400 hover:text-med-teal transition-colors flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-med-teal/50 shrink-0"></span>Book Appointment</a></li>
+          <li><a href="#"          class="text-sm text-slate-400 hover:text-med-teal transition-colors flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-med-teal/50 shrink-0"></span>Health Blog</a></li>
+          <li><a href="#"          class="text-sm text-slate-400 hover:text-med-teal transition-colors flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-med-teal/50 shrink-0"></span>Insurance Partners</a></li>
+          <li><a href="#"          class="text-sm text-slate-400 hover:text-med-teal transition-colors flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-med-teal/50 shrink-0"></span>Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 · Hours & Social -->
+      <div>
+        <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Opening Hours</h4>
+        <ul class="space-y-2 mb-6 text-sm">
+          <li class="flex justify-between gap-4"><span class="text-slate-400">Mon – Fri</span><span class="text-white font-medium">7:00 – 21:00</span></li>
+          <li class="flex justify-between gap-4"><span class="text-slate-400">Saturday</span><span class="text-white font-medium">8:00 – 17:00</span></li>
+          <li class="flex justify-between gap-4"><span class="text-slate-400">Sunday</span><span class="text-white font-medium">9:00 – 13:00</span></li>
+          <li class="flex justify-between gap-4"><span class="text-slate-400">Emergency</span><span class="text-red-400 font-semibold">24 / 7</span></li>
+        </ul>
+
+        <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Follow Us</h4>
+        <div class="flex gap-3">
+          <!-- Facebook -->
+          <a href="#" aria-label="AuraCare on Facebook" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-trust-blue flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" aria-label="AuraCare on Instagram" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-pink-600 flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" aria-label="AuraCare on LinkedIn" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-blue-700 flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" aria-label="AuraCare on YouTube" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-red-600 flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+  </div>
+
+  <!-- Divider -->
+  <div class="border-t border-slate-800"></div>
+
+  <!-- Bottom bar -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <p class="text-xs text-slate-500">
+        &copy; 2025 AuraCare Medical &amp; Dental Center. All rights reserved. &nbsp;|&nbsp;
+        <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="#" class="hover:text-slate-300 transition-colors">Terms of Use</a>
+      </p>
+      <!-- Legal disclaimer -->
+      <p class="text-xs text-slate-600 max-w-sm">
+        <strong class="text-slate-500">Disclaimer:</strong> Content on this website is for informational purposes only and does not constitute medical advice. Always consult a qualified physician.
+      </p>
+    </div>
+    <!-- Agency credit -->
+    <div class="mt-4 pt-4 border-t border-slate-800/60 text-center">
+      <p class="text-xs text-slate-600">
+        Designed &amp; Developed with ♥ by&nbsp;
+        <a href="#" class="text-med-teal font-semibold hover:text-white transition-colors tracking-wide">AURA AI Labs.ai</a>
+        &nbsp;— Premium Digital Experiences
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     JAVASCRIPT · MOBILE MENU TOGGLE (Vanilla JS)
+════════════════════════════════════════════════════════════════ -->
+<script>
+  // ── Mobile Burger Menu Toggle ──────────────────────────────────
+  const burgerBtn  = document.getElementById('burger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const burgerIcon = document.getElementById('burger-icon');
+  const closeIcon  = document.getElementById('close-icon');
+
+  function openMobileMenu() {
+    mobileMenu.classList.add('open');
+    burgerIcon.classList.add('hidden');
+    closeIcon.classList.remove('hidden');
+    burgerBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    burgerIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  burgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+  });
+
+  // Close menu on outside click
+  document.addEventListener('click', (e) => {
+    if (!burgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileMenu();
+  });
+
+  // ── Active Nav Link Highlight on Scroll ───────────────────────
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle(
+            'active',
+            link.getAttribute('href') === '#' + entry.target.id
+          );
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+
+  // ── Scroll-triggered fade-in for cards ────────────────────────
+  const cards = document.querySelectorAll('.service-card, .doctor-card, blockquote');
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(24px)';
+    card.style.transition = `opacity 0.55s ease ${i * 0.08}s, transform 0.55s ease ${i * 0.08}s`;
+    cardObserver.observe(card);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CHANGE BUSINESS NAME HERE -->
+  <title>Pricing — Lumière Beauty Salon</title>
+  <meta name="description" content="View full pricing for all services at Lumière Beauty Salon." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .pricing-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 4rem;
+      border: 1px solid rgba(201,169,110,0.3);
+      display: inline-flex;
+    }
+
+    .pricing-tab-wrap { text-align: center; }
+
+    .pricing-tab__btn {
+      padding: 12px 28px;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: rgba(255,255,255,0.5);
+      font-family: var(--font-body, 'Jost', sans-serif);
+      transition: all 0.3s;
+      border-right: 1px solid rgba(201,169,110,0.3);
+    }
+
+    .pricing-tab__btn:last-child { border-right: none; }
+    .pricing-tab__btn.active { background: #c9a96e; color: #0d0d0d; }
+    .pricing-tab__btn:hover:not(.active) { color: #c9a96e; }
+
+    .price-section { display: none; }
+    .price-section.active { display: block; }
+
+    .price-category {
+      margin-bottom: 3rem;
+    }
+
+    .price-category__title {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #c9a96e;
+      border-bottom: 1px solid rgba(201,169,110,0.3);
+      padding-bottom: 0.75rem;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body data-page="inner">
+
+  <div class="loader"><div class="loader__name">Lumi<span>è</span>re</div><div class="loader__bar"></div></div>
+
+  <!-- NAV -->
+  <nav class="nav scrolled">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <!-- CHANGE BUSINESS NAME / LOGO HERE -->
+        <span class="nav__logo-name">Lumière</span>
+        <span class="nav__logo-tagline">Beauty Salon</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+        <li><a href="pricing.html" class="nav__link">Pricing</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="booking.html" class="btn btn--primary nav__book"><span>Book Now</span></a>
+      <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Transparent Pricing</span>
+      <h1 class="page-hero__title">Service <em style="font-style:italic;color:#c9a96e">Pricing</em></h1>
+      <p class="page-hero__breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Pricing</p>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       MEMBERSHIP PACKAGES
+       ====================================================== -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Membership Packages</span>
+        <h2 style="color:#faf8f5">Choose Your <em style="font-style:italic;color:#c9a96e">Experience</em></h2>
+        <div class="divider"></div>
+        <p>Our membership packages offer the best value for regular visitors who appreciate consistent luxury.</p>
+      </div>
+
+      <div class="pricing-grid reveal">
+        <!-- PACKAGE 1 - CHANGE PRICES AND FEATURES HERE -->
+        <div class="pricing-card">
+          <p class="pricing-card__name">Essential</p>
+          <div class="pricing-card__price">$89</div>
+          <p class="pricing-card__period">per month</p>
+          <ul class="pricing-card__features">
+            <li>1 Haircut per month</li>
+            <li>10% off all color services</li>
+            <li>Priority booking</li>
+            <li>Complimentary blowout (1x/month)</li>
+            <li>Member newsletter</li>
+          </ul>
+          <a href="booking.html" class="btn btn--outline" style="width:100%;justify-content:center">Book Now</a>
+        </div>
+
+        <!-- PACKAGE 2 (FEATURED) - CHANGE PRICES AND FEATURES HERE -->
+        <div class="pricing-card pricing-card--featured">
+          <div class="pricing-card__badge">Most Popular</div>
+          <p class="pricing-card__name">Luxe</p>
+          <div class="pricing-card__price">$149</div>
+          <p class="pricing-card__period">per month</p>
+          <ul class="pricing-card__features">
+            <li>Unlimited haircuts</li>
+            <li>1 Color service/month</li>
+            <li>1 Facial per month</li>
+            <li>15% off all services</li>
+            <li>Priority same-day booking</li>
+            <li>Complimentary deep treatment</li>
+          </ul>
+          <a href="booking.html" class="btn btn--primary" style="width:100%;justify-content:center"><span>Book Now</span></a>
+        </div>
+
+        <!-- PACKAGE 3 - CHANGE PRICES AND FEATURES HERE -->
+        <div class="pricing-card">
+          <p class="pricing-card__name">Elite</p>
+          <div class="pricing-card__price">$249</div>
+          <p class="pricing-card__period">per month</p>
+          <ul class="pricing-card__features">
+            <li>All Luxe benefits</li>
+            <li>Unlimited facials</li>
+            <li>Monthly nail service</li>
+            <li>25% off all services</li>
+            <li>Dedicated personal stylist</li>
+            <li>Free product samples monthly</li>
+          </ul>
+          <a href="booking.html" class="btn btn--outline" style="width:100%;justify-content:center">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       À LA CARTE PRICING
+       ====================================================== -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Individual Services</span>
+        <h2>À La Carte <em style="font-style:italic">Pricing</em></h2>
+        <div class="divider"></div>
+        <p>All prices are starting prices. Final pricing is determined after consultation based on hair length, density, and complexity.</p>
+      </div>
+
+      <div class="pricing-tab-wrap reveal">
+        <div class="pricing-tabs">
+          <!-- TAB BUTTONS -->
+          <button class="pricing-tab__btn active" data-tab="hair-prices">Hair</button>
+          <button class="pricing-tab__btn" data-tab="skin-prices">Skin</button>
+          <button class="pricing-tab__btn" data-tab="nail-prices">Nails</button>
+          <button class="pricing-tab__btn" data-tab="lash-prices">Lash & Brow</button>
+          <button class="pricing-tab__btn" data-tab="bridal-prices">Bridal</button>
+        </div>
+      </div>
+
+      <!-- HAIR PRICING TAB -->
+      <!-- CHANGE ALL PRICES HERE -->
+      <div class="price-section active reveal" id="hair-prices">
+        <div class="price-category">
+          <h4 class="price-category__title">Cuts & Styling</h4>
+          <table class="price-table">
+            <thead><tr><th>Service</th><th>Description</th><th>Duration</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Women's Haircut</td><td>Cut, blow-dry, style</td><td>60 min</td><td>From $65</td></tr>
+              <tr><td>Men's Haircut</td><td>Cut & style</td><td>30 min</td><td>From $40</td></tr>
+              <tr><td>Children's Cut</td><td>Under 12 years</td><td>30 min</td><td>From $30</td></tr>
+              <tr><td>Blowout</td><td>Wash & blowdry, no cut</td><td>45 min</td><td>From $50</td></tr>
+              <tr><td>Updo / Special Occasion</td><td>Includes dry styling</td><td>60 min</td><td>From $75</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="price-category">
+          <h4 class="price-category__title">Color Services</h4>
+          <table class="price-table">
+            <thead><tr><th>Service</th><th>Description</th><th>Duration</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Full Color</td><td>Single process root to tip</td><td>2 hrs</td><td>From $95</td></tr>
+              <tr><td>Root Touch-Up</td><td>Root color only</td><td>90 min</td><td>From $75</td></tr>
+              <tr><td>Balayage</td><td>Hand-painted highlights</td><td>3 hrs</td><td>From $145</td></tr>
+              <tr><td>Full Highlights</td><td>Foil full head</td><td>2.5 hrs</td><td>From $135</td></tr>
+              <tr><td>Partial Highlights</td><td>Foil partial</td><td>2 hrs</td><td>From $95</td></tr>
+              <tr><td>Toner / Gloss</td><td>Shine & tone treatment</td><td>30 min</td><td>From $45</td></tr>
+              <tr><td>Color Correction</td><td>Consultation required</td><td>4+ hrs</td><td>From $250</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="price-category">
+          <h4 class="price-category__title">Treatments</h4>
+          <table class="price-table">
+            <thead><tr><th>Service</th><th>Description</th><th>Duration</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Deep Conditioning</td><td>Mask + treatment</td><td>30 min</td><td>From $45</td></tr>
+              <tr><td>Olaplex Treatment</td><td>Bond repair system</td><td>45 min</td><td>From $75</td></tr>
+              <tr><td>Keratin Smoothing</td><td>Long-lasting frizz control</td><td>3 hrs</td><td>From $185</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SKIN PRICING TAB -->
+      <div class="price-section" id="skin-prices">
+        <div class="price-category">
+          <h4 class="price-category__title">Facial Treatments</h4>
+          <table class="price-table">
+            <thead><tr><th>Service</th><th>Description</th><th>Duration</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Express Facial</td><td>Quick refresh & glow</td><td>30 min</td><td>From $55</td></tr>
+              <tr><td>Signature Facial</td><td>Full luxury experience</td><td>60 min</td><td>From $80</td></tr>
+              <tr><td>Anti-Aging Facial</td><td>Targeted lift & firm</td><td>75 min</td><td>From $110</td></tr>
+              <tr><td>Acne Treatment</td><td>Deep cleanse & clear</td><td>60 min</td><td>From $90</td></tr>
+              <tr><td>Hydrating Facial</td><td>Intense moisture boost</td><td>60 min</td><td>From $85</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="price-category">
+          <h4 class="price-category__title">Advanced Treatments</h4>
+          <table class="price-table">
+            <thead><tr><th>Service</th><th>Description</th><th>Duration</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Microdermabrasion</td><td>Crystal resurfacing</td><td>60 min</td><td>From $110</td></tr>
+              <tr><td>Chemical Peel</td><td>Exfoliating treatment</td><td>45 min</td><td>From $130</td></tr>
+              <tr><td>LED Light Therapy</td><td>Collagen & clarity boost</td><td>30 min</td><td>From $65</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- NAIL PRICING TAB -->
+      <div class="price-section" id="nail-prices">
+        <div class="price-category">
+          <h4 class="price-category__title">Manicure</h4>
+          <table class="price-table">
+            <thead><tr><th>Service</th><th>Description</th><th>Duration</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Classic Manicure</td><td>Shape, buff, polish</td><td>45 min</td><td>From $35</td></tr>
+              <tr><td>Gel Manicure</td><td>2-week lasting gel</td><td>60 min</td><td>From $50</td></tr>
+              <tr><td>Acrylic Extensions</td><td>Full set sculpted acrylic</td><td>90 min</td><td>From $75</td></tr>
+              <tr><td>Nail Art</td><td>Custom designs per nail</td><td>+30 min</td><td>From $5/nail</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="price-category">
+          <h4 class="price-category__title">Pedicure</h4>
+          <table class="price-table">
+            <thead><tr><th>Service</th><th>Description</th><th>Duration</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Classic Pedicure</td><td>Soak, shape, polish</td><td>45 min</td><td>From $45</td></tr>
+              <tr><td>Luxury Pedicure</td><td>Full spa foot treatment</td><td>75 min</td><td>From $65</td></tr>
+              <tr><td>Gel Pedicure</td><td>Gel polish finish</td><td>60 min</td><td>From $60</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- LASH & BROW PRICING TAB -->
+      <div class="price-section" id="lash-prices">
+        <div class="price-category">
+          <h4 class="price-category__title">Lash Services</h4>
+          <table class="price-table">
+            <thead><tr><th>Service</th><th>Description</th><th>Duration</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Classic Lash Extensions</td><td>1:1 natural look</td><td>90 min</td><td>From $95</td></tr>
+              <tr><td>Volume Lashes</td><td>2-6D full glamour</td><td>2 hrs</td><td>From $145</td></tr>
+              <tr><td>Lash Lift & Tint</td><td>Natural lash curl + color</td><td>60 min</td><td>From $75</td></tr>
+              <tr><td>Lash Infill</td><td>2-3 week maintenance</td><td>60 min</td><td>From $60</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="price-category">
+          <h4 class="price-category__title">Brow Services</h4>
+          <table class="price-table">
+            <thead><tr><th>Service</th><th>Description</th><th>Duration</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Brow Shaping</td><td>Wax or thread + tint</td><td>30 min</td><td>From $35</td></tr>
+              <tr><td>Brow Lamination</td><td>Defined, fluffy brows</td><td>60 min</td><td>From $65</td></tr>
+              <tr><td>Brow Tint</td><td>Color enhancement</td><td>20 min</td><td>From $25</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- BRIDAL PRICING TAB -->
+      <div class="price-section" id="bridal-prices">
+        <div class="price-category">
+          <h4 class="price-category__title">Bridal Services</h4>
+          <table class="price-table">
+            <thead><tr><th>Service</th><th>Description</th><th>Duration</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Bridal Hair Trial</td><td>Pre-wedding style test</td><td>90 min</td><td>From $95</td></tr>
+              <tr><td>Bridal Hair (Day Of)</td><td>Wedding day styling</td><td>2 hrs</td><td>From $175</td></tr>
+              <tr><td>Bridal Makeup Trial</td><td>Pre-wedding makeup test</td><td>90 min</td><td>From $100</td></tr>
+              <tr><td>Bridal Makeup (Day Of)</td><td>Wedding day glam</td><td>2 hrs</td><td>From $185</td></tr>
+              <tr><td>Bridesmaid Hair</td><td>Per person styling</td><td>60 min</td><td>From $85</td></tr>
+              <tr><td>Bridesmaid Makeup</td><td>Per person makeup</td><td>60 min</td><td>From $90</td></tr>
+              <tr><td>Complete Bridal Package</td><td>Hair + Makeup + Nails + Lashes</td><td>Full day</td><td>From $450</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:0.82rem;color:#888;margin-top:1rem">* All bridal bookings include complimentary consultation. Travel fees may apply. Minimum 50% deposit required to secure your date.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container container--narrow reveal">
+      <span class="eyebrow">Ready to Book?</span>
+      <h2>Treat Yourself <em style="font-style:italic;color:#c9a96e">Today</em></h2>
+      <div class="divider"></div>
+      <p>All prices are starting prices. Receive a personalized quote during your complimentary consultation.</p>
+      <a href="booking.html" class="btn btn--primary"><span>Book an Appointment</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <span class="footer__brand-name">Lumière</span><!-- CHANGE BUSINESS NAME -->
+          <span class="footer__brand-tagline">Beauty Salon</span>
+          <p class="footer__brand-desc">Luxury beauty services crafted to perfection.</p>
+          <div class="footer__social">
+            <a href="https://instagram.com/YOUR_INSTAGRAM" class="footer__social-link" target="_blank">📷</a><!-- CHANGE SOCIAL -->
+            <a href="https://facebook.com/YOUR_FACEBOOK" class="footer__social-link" target="_blank">f</a>
+            <a href="https://tiktok.com/@YOUR_TIKTOK" class="footer__social-link" target="_blank">♪</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="gallery.html" class="footer__link">Gallery</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Hours</h4>
+          <ul class="footer__links">
+            <li style="color:rgba(255,255,255,0.5);font-size:0.88rem">Mon–Fri: 9am – 7pm</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.88rem">Saturday: 9am – 6pm</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.88rem">Sunday: 10am – 5pm</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__contact-item"><span>📞</span><a href="tel:+15551234567">+1 (555) 123-4567</a></div><!-- CHANGE PHONE -->
+          <div class="footer__contact-item"><span>✉</span><a href="mailto:hello@lumieresalon.com">hello@lumieresalon.com</a></div><!-- CHANGE EMAIL -->
+          <div class="footer__contact-item"><span>📍</span><span>123 Elegance Avenue,<br>Beverly Hills, CA 90210</span></div><!-- CHANGE ADDRESS -->
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 Lumière Beauty Salon. All rights reserved.</span>
+        <span>Made with ❤ for beauty lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-to-top">↑</div>
+  <script src="script.js"></script>
+  <script>
+    // Pricing tab functionality
+    const tabBtns = document.querySelectorAll('.pricing-tab__btn');
+    const priceSections = document.querySelectorAll('.price-section');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        priceSections.forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab)?.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

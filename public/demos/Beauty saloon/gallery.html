@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CHANGE BUSINESS NAME HERE -->
+  <title>Gallery — Lumière Beauty Salon</title>
+  <meta name="description" content="Browse our gallery of hair, makeup, nail, and skin transformation photos." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Gallery page specific styles */
+    .gallery-filter {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-filter__btn {
+      padding: 9px 24px;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 1px solid rgba(201,169,110,0.3);
+      color: #6b5c5c;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: var(--font-body, 'Jost', sans-serif);
+    }
+
+    .gallery-filter__btn:hover,
+    .gallery-filter__btn.active {
+      background: #c9a96e;
+      border-color: #c9a96e;
+      color: #0d0d0d;
+    }
+
+    .gallery-full {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .gallery-full .gallery-item {
+      height: 260px;
+    }
+
+    .gallery-full .gallery-item:nth-child(5n+1) {
+      grid-column: span 2;
+      height: 320px;
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-full { grid-template-columns: repeat(2, 1fr); }
+      .gallery-full .gallery-item:nth-child(5n+1) { grid-column: span 2; }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-full { grid-template-columns: 1fr 1fr; }
+      .gallery-full .gallery-item { height: 180px; }
+      .gallery-full .gallery-item:nth-child(5n+1) { grid-column: span 2; height: 220px; }
+    }
+  </style>
+</head>
+<body data-page="inner">
+
+  <div class="loader"><div class="loader__name">Lumi<span>è</span>re</div><div class="loader__bar"></div></div>
+
+  <!-- NAV -->
+  <nav class="nav scrolled">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <!-- CHANGE BUSINESS NAME / LOGO HERE -->
+        <span class="nav__logo-name">Lumière</span>
+        <span class="nav__logo-tagline">Beauty Salon</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+        <li><a href="pricing.html" class="nav__link">Pricing</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="booking.html" class="btn btn--primary nav__book"><span>Book Now</span></a>
+      <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Our Portfolio</span>
+      <h1 class="page-hero__title">Beauty <em style="font-style:italic;color:#c9a96e">Gallery</em></h1>
+      <p class="page-hero__breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Gallery</p>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       GALLERY
+       ====================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Our Work</span>
+        <h2>Transformations We've <em style="font-style:italic">Created</em></h2>
+        <div class="divider"></div>
+        <p>Each photo tells the story of a client who left feeling extraordinary. Click any image to view it full-screen.</p>
+      </div>
+
+      <!-- FILTER BUTTONS -->
+      <div class="gallery-filter reveal">
+        <button class="gallery-filter__btn active" data-filter="all">All</button>
+        <button class="gallery-filter__btn" data-filter="hair">Hair</button>
+        <button class="gallery-filter__btn" data-filter="color">Color</button>
+        <button class="gallery-filter__btn" data-filter="nails">Nails</button>
+        <button class="gallery-filter__btn" data-filter="skin">Skin</button>
+        <button class="gallery-filter__btn" data-filter="bridal">Bridal</button>
+      </div>
+
+      <!-- ====================================================
+           GALLERY GRID
+           Replace each placeholder div with:
+           <img src="images/gallery-XX.jpg" alt="Description">
+           ==================================================== -->
+      <div class="gallery-full reveal">
+
+        <!-- Item 1 - REPLACE IMAGE HERE (data-category for filter) -->
+        <div class="gallery-item" data-category="hair">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#2a1a1a,#3d2828)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-1.jpg" alt="Balayage Hair"> -->
+            <span style="color:rgba(201,169,110,0.5);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Balayage</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 2 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="nails">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#f2d4d0,#e8c98a)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-2.jpg" alt="Nail Art"> -->
+            <span style="color:rgba(0,0,0,0.35);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Nail Art</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 3 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="bridal">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#1a0f0f,#2d1c1c)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-3.jpg" alt="Bridal Makeup"> -->
+            <span style="color:rgba(201,169,110,0.5);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Bridal</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 4 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="color">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#c9a96e,#e8c98a)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-4.jpg" alt="Color Treatment"> -->
+            <span style="color:rgba(0,0,0,0.4);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Color</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 5 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="skin">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#f0ebe3,#f2d4d0)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-5.jpg" alt="Facial Treatment"> -->
+            <span style="color:rgba(0,0,0,0.3);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Facial</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 6 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="hair">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#2a1a1a,#1a1212)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-6.jpg" alt="Lash Extensions"> -->
+            <span style="color:rgba(201,169,110,0.5);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Lashes</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 7 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="color">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#d4a0a0,#c9a96e)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-7.jpg" alt="Ombre Color"> -->
+            <span style="color:rgba(0,0,0,0.4);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Ombré</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 8 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="bridal">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#faf8f5,#e8c98a)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-8.jpg" alt="Bridal Updo"> -->
+            <span style="color:rgba(0,0,0,0.3);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Bridal Updo</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 9 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="nails">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#f2d4d0,#d4a0a0)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-9.jpg" alt="Gel Nails"> -->
+            <span style="color:rgba(0,0,0,0.3);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Gel Nails</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 10 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="hair">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#3d2828,#2a1a1a)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-10.jpg" alt="Blowout"> -->
+            <span style="color:rgba(201,169,110,0.5);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Blowout</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 11 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="skin">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#e8c98a,#f0ebe3)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-11.jpg" alt="Skin Glow"> -->
+            <span style="color:rgba(0,0,0,0.35);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Glow Facial</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+        <!-- Item 12 - REPLACE IMAGE HERE -->
+        <div class="gallery-item" data-category="bridal">
+          <div class="gallery-placeholder" style="background:linear-gradient(135deg,#1a0a0a,#2a1414)">
+            <!-- REPLACE IMAGE HERE: <img src="images/gallery-12.jpg" alt="Wedding Makeup"> -->
+            <span style="color:rgba(201,169,110,0.5);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase">Wedding Day</span>
+          </div>
+          <div class="gallery-item__overlay"><span>+</span></div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container container--narrow reveal">
+      <span class="eyebrow">Love What You See?</span>
+      <h2>Book Your <em style="font-style:italic;color:#c9a96e">Transformation</em></h2>
+      <div class="divider"></div>
+      <p>Let our artists create something beautiful just for you.</p>
+      <a href="booking.html" class="btn btn--primary"><span>Book an Appointment</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <span class="footer__brand-name">Lumière</span><!-- CHANGE BUSINESS NAME -->
+          <span class="footer__brand-tagline">Beauty Salon</span>
+          <p class="footer__brand-desc">A sanctuary of beauty and elegance.</p>
+          <div class="footer__social">
+            <a href="https://instagram.com/YOUR_INSTAGRAM" class="footer__social-link" target="_blank">📷</a><!-- CHANGE SOCIAL -->
+            <a href="https://facebook.com/YOUR_FACEBOOK" class="footer__social-link" target="_blank">f</a>
+            <a href="https://tiktok.com/@YOUR_TIKTOK" class="footer__social-link" target="_blank">♪</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="gallery.html" class="footer__link">Gallery</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Services</h4>
+          <ul class="footer__links">
+            <li><a href="services.html" class="footer__link">Hair Styling</a></li>
+            <li><a href="services.html" class="footer__link">Color & Highlights</a></li>
+            <li><a href="services.html" class="footer__link">Skin Treatments</a></li>
+            <li><a href="services.html" class="footer__link">Nail Artistry</a></li>
+            <li><a href="services.html" class="footer__link">Bridal Packages</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__contact-item"><span>📞</span><a href="tel:+15551234567">+1 (555) 123-4567</a></div><!-- CHANGE PHONE -->
+          <div class="footer__contact-item"><span>✉</span><a href="mailto:hello@lumieresalon.com">hello@lumieresalon.com</a></div><!-- CHANGE EMAIL -->
+          <div class="footer__contact-item"><span>📍</span><span>123 Elegance Avenue,<br>Beverly Hills, CA 90210</span></div><!-- CHANGE ADDRESS -->
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 Lumière Beauty Salon. All rights reserved.</span><!-- CHANGE BUSINESS NAME -->
+        <span>Made with ❤ for beauty lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-to-top">↑</div>
+
+  <!-- Lightbox -->
+  <div class="lightbox">
+    <span class="lightbox__close">✕</span>
+    <img class="lightbox__img" src="" alt="" />
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Gallery filter functionality
+    const filterBtns = document.querySelectorAll('.gallery-filter__btn');
+    const galleryItems = document.querySelectorAll('.gallery-full .gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.dataset.category === filter) {
+            item.style.display = '';
+            item.style.opacity = '0';
+            setTimeout(() => { item.style.opacity = '1'; }, 10);
+            item.style.transition = 'opacity 0.4s ease';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ========== CHANGE RESTAURANT NAME HERE ========== -->
+  <title>ගෙමිගෙදර හෙළ රස | Gemigedara Hela Rasa</title>
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Yaldevi:wght@400;600;700&family=Noto+Serif+Sinhala:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================================================
+       PAGE LOADER
+  =================================================== -->
+  <div id="page-loader">
+    <div class="loader-content">
+      <div class="loader-logo">🍛</div>
+      <div class="loader-text">ගෙමිගෙදර හෙළ රස</div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ===================================================
+       NAVIGATION BAR
+       Change logo text or add <img> tag for logo image
+  =================================================== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <!-- CHANGE LOGO HERE: Replace text or add <img src="your-logo.png"> -->
+      <a href="#home" class="nav-logo">
+        <span class="logo-sinhala">ගෙමිගෙදර</span>
+        <span class="logo-sub">හෙළ රස</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <!-- CHANGE WHATSAPP NUMBER HERE -->
+        <li><a href="https://wa.me/94771234567" class="nav-cta" target="_blank"><i class="fab fa-whatsapp"></i> Order Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================================================
+       HERO SECTION
+       CHANGE BACKGROUND IMAGE: In style.css, find #home and update background-image URL
+  =================================================== -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🌿 Sri Lankan Authentic Taste</div>
+      <h1 class="hero-title">
+        <span class="line1">Authentic Sri Lankan</span>
+        <span class="line2">Flavours</span>
+      </h1>
+      <p class="hero-subtitle">Best Kottu in Town 🔥</p>
+      <p class="hero-desc">Experience the warmth of home-cooked Sri Lankan cuisine — Rice, Kottu, Short Eats & More</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">View Menu <i class="fas fa-utensils"></i></a>
+        <!-- CHANGE WHATSAPP NUMBER HERE -->
+        <a href="https://wa.me/94771234567" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span>100%</span><p>Fresh Daily</p></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span>50+</span><p>Menu Items</p></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span>5★</span><p>Customer Love</p></div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint"><span></span>Scroll Down</div>
+  </section>
+
+  <!-- ===================================================
+       ABOUT SECTION
+       CHANGE: Restaurant story text below
+  =================================================== -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap" data-aos="fade-right" data-aos-duration="900">
+          <!-- CHANGE ABOUT IMAGE: Replace src URL below -->
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80" alt="Sri Lankan Kitchen" class="about-img" />
+          <div class="about-badge-float">
+            <span>🏡</span>
+            <p>Village Taste<br>Since 2010</p>
+          </div>
+          <div class="about-leaf about-leaf-1">🌿</div>
+          <div class="about-leaf about-leaf-2">🌶</div>
+        </div>
+        <div class="about-text" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+          <div class="section-tag">Our Story</div>
+          <h2 class="section-title">ගෙදර රසෙයි <br/><em>The Taste of Home</em></h2>
+          <!-- CHANGE RESTAURANT STORY TEXT HERE -->
+          <p>Welcome to <strong>ගෙමිගෙදර හෙළ රස</strong> — where every dish carries the soul of Sri Lanka. Born from a passion for authentic village cooking, we bring you the timeless flavours of traditional rice & curry, sizzling hot kottu, and crispy short eats.</p>
+          <p>Our recipes are passed down through generations — using fresh coconut milk, hand-ground spice mixes, and the finest local ingredients sourced from village markets every morning.</p>
+          <p>We believe food is more than nourishment — it is memory, culture, and love. Every plate we serve is made with the same care as a mother cooking for her family.</p>
+          <div class="about-features">
+            <div class="feature"><i class="fas fa-leaf"></i><span>Fresh Ingredients Daily</span></div>
+            <div class="feature"><i class="fas fa-fire"></i><span>Traditional Recipes</span></div>
+            <div class="feature"><i class="fas fa-heart"></i><span>Made with Love</span></div>
+            <div class="feature"><i class="fas fa-map-marker-alt"></i><span>Sri Lankan Village Taste</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       MENU SECTION
+       CHANGE: Food names, prices, descriptions, and image URLs
+  =================================================== -->
+  <section id="menu" class="menu">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-tag">Our Menu</div>
+        <h2 class="section-title">රස දේවල් <em>Taste Everything</em></h2>
+        <p class="section-desc">Fresh, traditional, and made with love every single day</p>
+      </div>
+
+      <!-- Menu Category Tabs -->
+      <div class="menu-tabs" data-aos="fade-up">
+        <button class="tab-btn active" data-cat="rice">🍛 Rice & Curry</button>
+        <button class="tab-btn" data-cat="kottu">🍴 Kottu</button>
+        <button class="tab-btn" data-cat="shorteats">🥐 Short Eats</button>
+        <button class="tab-btn" data-cat="beverages">🥤 Beverages</button>
+      </div>
+
+      <!-- RICE & CURRY -->
+      <div class="menu-grid active" id="cat-rice">
+        <!-- CHANGE food name, price, description, and image URL for each card -->
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80" alt="Rice & Curry" />
+            <span class="card-badge">Popular</span>
+          </div>
+          <div class="card-body">
+            <h3>Rice & Curry (Full Meal)</h3>
+            <p>Steamed rice with 4 curries, papadum & pickle</p>
+            <div class="card-footer">
+              <span class="price">Rs. 350</span>
+              <!-- CHANGE WHATSAPP NUMBER HERE -->
+              <a href="https://wa.me/94771234567?text=I want to order Rice %26 Curry Full Meal" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=600&q=80" alt="Chicken Curry" />
+          </div>
+          <div class="card-body">
+            <h3>Chicken Curry Rice</h3>
+            <p>Spicy chicken curry with fragrant rice & sides</p>
+            <div class="card-footer">
+              <span class="price">Rs. 450</span>
+              <a href="https://wa.me/94771234567?text=I want to order Chicken Curry Rice" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1669561400764-0d6e8cd8c7f6?w=600&q=80" alt="Fish Curry" />
+          </div>
+          <div class="card-body">
+            <h3>Fish Curry Rice</h3>
+            <p>Fresh fish in coconut milk curry served with rice</p>
+            <div class="card-footer">
+              <span class="price">Rs. 400</span>
+              <a href="https://wa.me/94771234567?text=I want to order Fish Curry Rice" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1567360425618-1594206637d2?w=600&q=80" alt="Vegetable Rice" />
+          </div>
+          <div class="card-body">
+            <h3>Vegetable Rice Plate</h3>
+            <p>Wholesome seasonal vegetables with steamed rice</p>
+            <div class="card-footer">
+              <span class="price">Rs. 280</span>
+              <a href="https://wa.me/94771234567?text=I want to order Vegetable Rice Plate" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KOTTU -->
+      <div class="menu-grid" id="cat-kottu">
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=600&q=80" alt="Chicken Kottu" />
+            <span class="card-badge">Best Seller</span>
+          </div>
+          <div class="card-body">
+            <h3>Chicken Kottu</h3>
+            <p>Crispy roti chopped with spicy chicken, egg & veggies</p>
+            <div class="card-footer">
+              <span class="price">Rs. 500</span>
+              <a href="https://wa.me/94771234567?text=I want to order Chicken Kottu" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&q=80" alt="Vegetable Kottu" />
+          </div>
+          <div class="card-body">
+            <h3>Vegetable Kottu</h3>
+            <p>Classic kottu with fresh vegetables & aromatic spices</p>
+            <div class="card-footer">
+              <span class="price">Rs. 380</span>
+              <a href="https://wa.me/94771234567?text=I want to order Vegetable Kottu" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80" alt="Egg Kottu" />
+          </div>
+          <div class="card-body">
+            <h3>Egg Kottu</h3>
+            <p>Fluffy eggs mixed with roti, leeks & chilli</p>
+            <div class="card-footer">
+              <span class="price">Rs. 420</span>
+              <a href="https://wa.me/94771234567?text=I want to order Egg Kottu" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80" alt="Cheese Kottu" />
+            <span class="card-badge">New</span>
+          </div>
+          <div class="card-body">
+            <h3>Cheese Kottu</h3>
+            <p>Melted cheese kottu with sweet chilli sauce</p>
+            <div class="card-footer">
+              <span class="price">Rs. 550</span>
+              <a href="https://wa.me/94771234567?text=I want to order Cheese Kottu" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHORT EATS -->
+      <div class="menu-grid" id="cat-shorteats">
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80" alt="Samosa" />
+            <span class="card-badge">Crispy</span>
+          </div>
+          <div class="card-body">
+            <h3>Vegetable Samosa</h3>
+            <p>Golden fried samosa with spiced potato filling</p>
+            <div class="card-footer">
+              <span class="price">Rs. 60</span>
+              <a href="https://wa.me/94771234567?text=I want to order Vegetable Samosa" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80" alt="Chicken Roll" />
+          </div>
+          <div class="card-body">
+            <h3>Chicken Roll</h3>
+            <p>Crispy crumb roll filled with spicy minced chicken</p>
+            <div class="card-footer">
+              <span class="price">Rs. 120</span>
+              <a href="https://wa.me/94771234567?text=I want to order Chicken Roll" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80" alt="Patties" />
+          </div>
+          <div class="card-body">
+            <h3>Chicken Patties</h3>
+            <p>Flaky pastry patties with seasoned chicken filling</p>
+            <div class="card-footer">
+              <span class="price">Rs. 100</span>
+              <a href="https://wa.me/94771234567?text=I want to order Chicken Patties" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=600&q=80" alt="Vadai" />
+          </div>
+          <div class="card-body">
+            <h3>Masala Vadai</h3>
+            <p>Crunchy lentil fritters with onion & curry leaves</p>
+            <div class="card-footer">
+              <span class="price">Rs. 50</span>
+              <a href="https://wa.me/94771234567?text=I want to order Masala Vadai" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BEVERAGES -->
+      <div class="menu-grid" id="cat-beverages">
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=600&q=80" alt="King Coconut" />
+            <span class="card-badge">Fresh</span>
+          </div>
+          <div class="card-body">
+            <h3>King Coconut Water</h3>
+            <p>Fresh thambili — nature's coolest refreshment</p>
+            <div class="card-footer">
+              <span class="price">Rs. 120</span>
+              <a href="https://wa.me/94771234567?text=I want to order King Coconut Water" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=600&q=80" alt="Mango Juice" />
+          </div>
+          <div class="card-body">
+            <h3>Fresh Mango Juice</h3>
+            <p>Chilled blended mango from local orchards</p>
+            <div class="card-footer">
+              <span class="price">Rs. 180</span>
+              <a href="https://wa.me/94771234567?text=I want to order Fresh Mango Juice" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1561443552-3f9dc43d9dd8?w=600&q=80" alt="Plain Tea" />
+          </div>
+          <div class="card-body">
+            <h3>Ceylon Plain Tea</h3>
+            <p>The finest Ceylon black tea, brewed perfectly</p>
+            <div class="card-footer">
+              <span class="price">Rs. 80</span>
+              <a href="https://wa.me/94771234567?text=I want to order Ceylon Tea" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=80" alt="Lassi" />
+          </div>
+          <div class="card-body">
+            <h3>Mango Lassi</h3>
+            <p>Creamy yogurt blended with sweet mango pulp</p>
+            <div class="card-footer">
+              <span class="price">Rs. 220</span>
+              <a href="https://wa.me/94771234567?text=I want to order Mango Lassi" class="btn-order" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================
+       GALLERY SECTION
+       CHANGE: Replace image URLs with your own food photos
+  =================================================== -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-tag">Gallery</div>
+        <h2 class="section-title">රස රූප <em>Food Gallery</em></h2>
+        <p class="section-desc">A feast for the eyes before the feast begins</p>
+      </div>
+      <div class="gallery-grid">
+        <!-- CHANGE each src URL to your food images -->
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="0" data-src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80" alt="Rice & Curry" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item tall" data-aos="zoom-in" data-aos-delay="60" data-src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=600&q=80" alt="Chicken Kottu" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="120" data-src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80" alt="Samosa" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item wide" data-aos="zoom-in" data-aos-delay="180" data-src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=600&q=80" alt="Chicken Curry" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="240" data-src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=600&q=80" alt="King Coconut" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" data-src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80" alt="Chicken Roll" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item tall" data-aos="zoom-in" data-aos-delay="360" data-src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80" alt="Sri Lankan Kitchen" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="420" data-src="https://images.unsplash.com/photo-1546173159-315724a31696?w=1200&q=90">
+          <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=600&q=80" alt="Mango Juice" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+    <button class="lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+    <img id="lightboxImg" src="" alt="Gallery Image" />
+  </div>
+
+  <!-- ===================================================
+       CONTACT SECTION
+       CHANGE: Phone, WhatsApp, address, Google Maps embed
+  =================================================== -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-tag">Contact Us</div>
+        <h2 class="section-title">අපව සොයා ගන්න <em>Find Us</em></h2>
+        <p class="section-desc">We'd love to hear from you — visit us or order online</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info" data-aos="fade-right">
+          <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <!-- CHANGE ADDRESS HERE -->
+            <div>
+              <h4>Location</h4>
+              <p>Gemigedara Hela Rasa,<br>Colombo Road, Kurunegala,<br>Sri Lanka</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h4>Call Us</h4>
+              <!-- CHANGE PHONE NUMBER HERE -->
+              <p><a href="tel:+94771234567">+94 77 123 4567</a></p>
+              <p><a href="tel:+94371234567">+94 37 123 4567</a></p>
+            </div>
+          </div>
+          <div class="contact-card whatsapp-card">
+            <i class="fab fa-whatsapp"></i>
+            <div>
+              <h4>WhatsApp Orders</h4>
+              <!-- CHANGE WHATSAPP NUMBER HERE -->
+              <a href="https://wa.me/94771234567?text=Hi! I would like to place an order." class="btn-whatsapp-big" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chat & Order Now
+              </a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h4>Opening Hours</h4>
+              <!-- CHANGE OPENING HOURS HERE -->
+              <p>Monday – Sunday</p>
+              <p><strong>7:00 AM – 9:00 PM</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form & Map -->
+        <div class="contact-right" data-aos="fade-left">
+          <!-- Contact Form -->
+          <form class="contact-form" id="contactForm">
+            <h3>Send a Message</h3>
+            <div class="form-group">
+              <input type="text" id="formName" placeholder="Your Name" required />
+              <label>Name</label>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="formPhone" placeholder="Your Phone Number" required />
+              <label>Phone</label>
+            </div>
+            <div class="form-group">
+              <textarea id="formMessage" placeholder="Your message or order..." rows="4" required></textarea>
+              <label>Message</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message <i class="fas fa-paper-plane"></i></button>
+            <div id="formStatus" class="form-status"></div>
+          </form>
+
+          <!-- Google Map Embed -->
+          <!-- CHANGE GOOGLE MAP: Replace the src URL with your own Google Maps embed link -->
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.58194940538!2d80.29889!3d7.48695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae33bf73f3a3b85%3A0xf33e7e843a43a9c!2sKurunegala!5e0!3m2!1sen!2slk!4v1700000000000"
+              width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" title="Our Location">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       FOOTER
+       CHANGE: Social media links, copyright year
+  =================================================== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-sinhala">ගෙමිගෙදර</span>
+            <span class="logo-sub">හෙළ රස</span>
+          </div>
+          <p>Authentic Sri Lankan village flavours served with love. Fresh, traditional, and unforgettable.</p>
+          <!-- CHANGE SOCIAL MEDIA LINKS HERE -->
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/94771234567" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Our Food</h4>
+          <ul>
+            <li><a href="#menu">Rice & Curry</a></li>
+            <li><a href="#menu">Chicken Kottu</a></li>
+            <li><a href="#menu">Vegetable Kottu</a></li>
+            <li><a href="#menu">Short Eats</a></li>
+            <li><a href="#menu">Beverages</a></li>
+          </ul>
+        </div>
+        <div class="footer-hours">
+          <h4>Opening Hours</h4>
+          <!-- CHANGE OPENING HOURS HERE -->
+          <table>
+            <tr><td>Mon – Fri</td><td>7:00 AM – 9:00 PM</td></tr>
+            <tr><td>Saturday</td><td>7:00 AM – 10:00 PM</td></tr>
+            <tr><td>Sunday</td><td>8:00 AM – 8:00 PM</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <!-- CHANGE YEAR AND NAME AS NEEDED -->
+      <p>&copy; 2024 ගෙමිගෙදර හෙළ රස (Gemigedara Hela Rasa). All Rights Reserved.</p>
+      <p>Made with ❤️ in Sri Lanka 🇱🇰</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

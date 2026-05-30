@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuraVeda Resort & Pavilion | Luxury Hotel & Spa, Sri Lanka</title>
+  <meta name="description" content="AuraVeda Resort & Pavilion — Where ancient Ayurvedic wisdom meets contemporary luxury on the shores of Sri Lanka." />
+
+  <!-- Tailwind CSS via Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Playfair Display + Cormorant Garamond + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              950: '#032117',
+              900: '#064E3B',
+              800: '#065F46',
+              700: '#047857',
+            },
+            gold: {
+              DEFAULT: '#C9A84C',
+              light: '#E2C97E',
+              dark: '#A07830',
+              pale: '#F5EDD8',
+            },
+            charcoal: {
+              DEFAULT: '#1C1C1E',
+              800: '#2C2C2E',
+              700: '#3A3A3C',
+              600: '#48484A',
+            },
+            cream: {
+              DEFAULT: '#FAF7F2',
+              100: '#FDF9F3',
+              200: '#F5EDD8',
+            },
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            'widest-xl': '0.3em',
+          },
+          backgroundImage: {
+            'gold-gradient': 'linear-gradient(135deg, #C9A84C 0%, #E2C97E 50%, #C9A84C 100%)',
+            'emerald-gradient': 'linear-gradient(135deg, #032117 0%, #065F46 100%)',
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.8s ease forwards',
+            'fade-in': 'fadeIn 1s ease forwards',
+            'shimmer': 'shimmer 2.5s linear infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% center' },
+              '100%': { backgroundPosition: '200% center' },
+            },
+          },
+          transitionDuration: {
+            '400': '400ms',
+            '600': '600ms',
+            '800': '800ms',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ============================
+       GLOBAL BASE STYLES
+    =============================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
+    body {
+      background-color: #FAF7F2;
+      color: #1C1C1E;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Gold shimmer text utility */
+    .text-gold-shimmer {
+      background: linear-gradient(90deg, #A07830 0%, #E2C97E 30%, #C9A84C 50%, #E2C97E 70%, #A07830 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* Divider ornament */
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .ornament-divider::before,
+    .ornament-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C9A84C, transparent);
+    }
+
+    /* Section label badge */
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #C9A84C;
+    }
+
+    /* Navbar glass effect */
+    .navbar-glass {
+      background: rgba(3, 33, 23, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    .navbar-scrolled {
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Nav link elegant underline */
+    .nav-link {
+      position: relative;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(250, 247, 242, 0.8);
+      transition: color 0.3s ease;
+      padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #C9A84C;
+      transition: width 0.4s ease;
+    }
+    .nav-link:hover {
+      color: #E2C97E;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero parallax overlay */
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(3, 33, 23, 0.35) 0%,
+        rgba(3, 33, 23, 0.2) 40%,
+        rgba(3, 33, 23, 0.55) 80%,
+        rgba(3, 33, 23, 0.75) 100%
+      );
+    }
+
+    /* Card hover zoom container */
+    .card-zoom-wrap {
+      overflow: hidden;
+    }
+    .card-zoom-img {
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .card-zoom-wrap:hover .card-zoom-img {
+      transform: scale(1.08);
+    }
+
+    /* Gold CTA button */
+    .btn-gold {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #032117;
+      background: linear-gradient(135deg, #C9A84C 0%, #E2C97E 50%, #C9A84C 100%);
+      background-size: 200% 200%;
+      padding: 0.85rem 2.2rem;
+      border: none;
+      cursor: pointer;
+      transition: background-position 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-gold:hover {
+      background-position: right center;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201, 168, 76, 0.45);
+    }
+
+    /* Outline ghost button */
+    .btn-outline-cream {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FAF7F2;
+      background: transparent;
+      padding: 0.85rem 2.2rem;
+      border: 1px solid rgba(250, 247, 242, 0.5);
+      cursor: pointer;
+      transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+    }
+    .btn-outline-cream:hover {
+      border-color: #C9A84C;
+      color: #C9A84C;
+      background: rgba(201, 168, 76, 0.07);
+    }
+
+    /* Emerald section button */
+    .btn-emerald-outline {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #032117;
+      background: transparent;
+      padding: 0.85rem 2.2rem;
+      border: 1px solid #065F46;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .btn-emerald-outline:hover {
+      background: #065F46;
+      color: #FAF7F2;
+    }
+
+    /* Testimonial card */
+    .testimonial-card {
+      background: #ffffff;
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(3, 33, 23, 0.1);
+      border-color: rgba(201, 168, 76, 0.5);
+    }
+
+    /* Split section image */
+    .split-img {
+      transition: transform 0.8s ease;
+    }
+    .split-wrap:hover .split-img {
+      transform: scale(1.04);
+    }
+
+    /* Feature icon circle */
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Gallery grid items */
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item img {
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s ease;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(3, 33, 23, 0);
+      transition: background 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-overlay-text {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    .gallery-item:hover .gallery-overlay {
+      background: rgba(3, 33, 23, 0.5);
+    }
+    .gallery-item:hover .gallery-overlay-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile menu */
+    #mobile-menu {
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    #mobile-menu.open {
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    /* Scroll reveal base */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* Star rating */
+    .stars { color: #C9A84C; letter-spacing: 2px; font-size: 0.9rem; }
+
+    /* Thin gold border accent */
+    .gold-border-l { border-left: 3px solid #C9A84C; }
+
+    /* Smooth section transitions */
+    section { position: relative; }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #FAF7F2; }
+    ::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 3px; }
+
+    /* Footer link hover */
+    .footer-link {
+      color: rgba(250, 247, 242, 0.55);
+      font-size: 0.85rem;
+      transition: color 0.3s ease;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .footer-link:hover { color: #E2C97E; }
+
+    /* Social icon circle */
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s, background 0.3s;
+      cursor: pointer;
+    }
+    .social-icon:hover {
+      border-color: #C9A84C;
+      background: rgba(201, 168, 76, 0.12);
+    }
+
+    /* Amenity pill */
+    .amenity-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      color: #48484A;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid rgba(6, 95, 70, 0.2);
+      background: rgba(6, 95, 70, 0.04);
+    }
+
+    /* Stat counter style */
+    .stat-number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: #C9A84C;
+      line-height: 1;
+    }
+
+    /* Horizontal rule gold */
+    .hr-gold {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201, 168, 76, 0.5), transparent);
+      margin: 0;
+    }
+
+    /* Price display */
+    .price-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #C9A84C;
+    }
+
+    /* Room card */
+    .room-card {
+      background: #ffffff;
+      box-shadow: 0 4px 24px rgba(3, 33, 23, 0.06);
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+      border: 1px solid rgba(201, 168, 76, 0.1);
+    }
+    .room-card:hover {
+      box-shadow: 0 16px 50px rgba(3, 33, 23, 0.14);
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+
+<body class="bg-cream font-sans">
+
+  <!-- ==============================
+       STICKY NAVIGATION HEADER
+  ================================ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 navbar-glass transition-all duration-400">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="#home" class="flex flex-col leading-none group">
+          <span class="font-display text-xl font-600 text-cream tracking-wide group-hover:text-gold-light transition-colors duration-300">AuraVeda</span>
+          <span class="section-label" style="font-size:0.55rem; letter-spacing:0.35em; color:rgba(201,168,76,0.8);">RESORT &amp; PAVILION</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#accommodations" class="nav-link">Accommodations</a>
+          <a href="#spa" class="nav-link">Spa &amp; Wellness</a>
+          <a href="#experiences" class="nav-link">Experiences</a>
+          <a href="#gallery" class="nav-link">Gallery</a>
+        </nav>
+
+        <!-- Book Now CTA (Desktop) -->
+        <div class="hidden lg:flex items-center gap-4">
+          <a href="#accommodations" class="btn-gold" style="padding: 0.65rem 1.8rem;">Book Now</a>
+        </div>
+
+        <!-- Mobile Burger Button -->
+        <button id="burger-btn" class="lg:hidden flex flex-col justify-center items-end gap-1.5 w-8 h-8 focus:outline-none" aria-label="Toggle navigation">
+          <span id="burger-line-1" class="block h-px bg-cream w-7 transition-all duration-300 origin-center"></span>
+          <span id="burger-line-2" class="block h-px bg-cream w-5 transition-all duration-300"></span>
+          <span id="burger-line-3" class="block h-px bg-cream w-7 transition-all duration-300 origin-center"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="navbar-glass lg:hidden border-t border-gold-dark border-opacity-20">
+      <nav class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
+        <a href="#home" class="nav-link text-sm" onclick="closeMobileMenu()">Home</a>
+        <a href="#accommodations" class="nav-link text-sm" onclick="closeMobileMenu()">Accommodations</a>
+        <a href="#spa" class="nav-link text-sm" onclick="closeMobileMenu()">Spa &amp; Wellness</a>
+        <a href="#experiences" class="nav-link text-sm" onclick="closeMobileMenu()">Experiences</a>
+        <a href="#gallery" class="nav-link text-sm" onclick="closeMobileMenu()">Gallery</a>
+        <a href="#accommodations" class="btn-gold inline-block w-fit mt-2" onclick="closeMobileMenu()">Book Your Stay</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ==============================
+       HERO SECTION — FULL SCREEN
+  ================================ -->
+  <section id="home" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1920&q=80&auto=format&fit=crop"
+        alt="AuraVeda Resort aerial view of luxury infinity pool at dusk"
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <!-- Ambient gold vignette bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-48 pointer-events-none" style="background: linear-gradient(to top, rgba(3,33,23,0.6), transparent);"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center max-w-5xl mx-auto px-6 pt-20">
+
+      <!-- Pre-heading label -->
+      <div class="ornament-divider mb-8 max-w-xs mx-auto">
+        <span class="section-label text-gold-light opacity-90" style="font-size:0.6rem;">Sri Lanka's Premier Luxury Retreat</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-cream leading-tight mb-6" style="font-weight:500; text-shadow: 0 4px 24px rgba(0,0,0,0.3);">
+        Where Serenity<br />
+        <em class="text-gold-shimmer not-italic" style="-webkit-text-fill-color: unset; background: linear-gradient(90deg,#A07830,#E2C97E,#C9A84C,#E2C97E,#A07830); background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation: shimmer 3s linear infinite;">Finds You</em>
+      </h1>
+
+      <!-- Sub-heading -->
+      <p class="font-serif text-xl md:text-2xl text-cream opacity-80 max-w-2xl mx-auto mb-4 leading-relaxed" style="font-weight:300;">
+        An ancient sanctuary reimagined — where Ayurvedic healing, crystalline waters, and timeless elegance converge on the shores of southern Sri Lanka.
+      </p>
+
+      <!-- Location badge -->
+      <div class="flex items-center justify-center gap-2 mb-10 opacity-70">
+        <svg class="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 20 20" style="color:#C9A84C;">
+          <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+        </svg>
+        <span class="font-sans text-cream text-xs tracking-widest uppercase" style="letter-spacing:0.2em; font-size:0.65rem;">Weligama Bay, Southern Province, Sri Lanka</span>
+      </div>
+
+      <!-- Dual CTA buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#accommodations" class="btn-gold">Explore Suites</a>
+        <a href="#spa" class="btn-outline-cream flex items-center gap-3">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+          </svg>
+          Discover Wellness
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 animate-bounce">
+      <span class="section-label" style="font-size:0.55rem; color: rgba(250,247,242,0.6);">SCROLL</span>
+      <svg class="w-5 h-5 text-cream" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       STATISTICS STRIP
+  ================================ -->
+  <section class="bg-emerald-950 py-12 border-t border-b border-gold-dark border-opacity-20">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div class="reveal">
+        <div class="stat-number">32</div>
+        <div class="section-label mt-2 text-cream opacity-50" style="font-size:0.6rem;">Exclusive Suites &amp; Villas</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="stat-number">18</div>
+        <div class="section-label mt-2 text-cream opacity-50" style="font-size:0.6rem;">Ayurvedic Treatments</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="stat-number">4.9</div>
+        <div class="section-label mt-2 text-cream opacity-50" style="font-size:0.6rem;">Guest Satisfaction Score</div>
+      </div>
+      <div class="reveal reveal-delay-3">
+        <div class="stat-number">12</div>
+        <div class="section-label mt-2 text-cream opacity-50" style="font-size:0.6rem;">Awards &amp; Recognitions</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       ACCOMMODATIONS SECTION
+  ================================ -->
+  <section id="accommodations" class="py-24 lg:py-32 bg-cream-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <!-- Section Header -->
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4">Curated Sanctuaries</p>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-charcoal mb-5" style="font-weight:500;">
+          Your Private <em class="italic" style="color:#065F46;">Retreat</em> Awaits
+        </h2>
+        <div class="hr-gold max-w-xs mx-auto my-6"></div>
+        <p class="font-serif text-lg text-charcoal-600 max-w-2xl mx-auto leading-relaxed opacity-75" style="font-weight:300;">
+          Each residence at AuraVeda has been crafted by award-winning architects to harmonise traditional Kandyan aesthetics with contemporary luxury — a living meditation in space and form.
+        </p>
+      </div>
+
+      <!-- Room Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Card 1: Deluxe Ocean Suite -->
+        <article class="room-card reveal reveal-delay-1">
+          <div class="card-zoom-wrap h-72">
+            <img
+              src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80&auto=format&fit=crop"
+              alt="Deluxe Ocean Suite with panoramic sea views"
+              class="card-zoom-img w-full h-full object-cover"
+            />
+            <!-- Category badge -->
+            <div class="absolute top-4 left-4 z-10">
+              <span class="btn-gold" style="padding:0.3rem 0.9rem; font-size:0.6rem;">Most Popular</span>
+            </div>
+          </div>
+          <div class="p-7">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="font-display text-xl font-500 text-charcoal mb-1">Deluxe Ocean Suite</h3>
+                <p class="font-sans text-xs text-charcoal-600 tracking-wide opacity-60 uppercase" style="letter-spacing:0.12em;">72 m² · Ocean Front</p>
+              </div>
+              <div class="text-right">
+                <div class="price-tag">$480</div>
+                <div class="font-sans text-xs text-charcoal-600 opacity-50 mt-0.5">per night</div>
+              </div>
+            </div>
+            <hr class="hr-gold mb-5" />
+            <ul class="space-y-2.5 mb-6">
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Private terrace with panoramic Indian Ocean views
+              </li>
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                King-size canopy bed with 600-thread linen
+              </li>
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Rainfall shower &amp; deep-soak marble bathtub
+              </li>
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Complimentary daily sunset aperitif service
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="amenity-pill">Free Wi-Fi</span>
+              <span class="amenity-pill">Butler Service</span>
+              <span class="amenity-pill">Breakfast</span>
+            </div>
+            <a href="#" class="btn-gold w-full block text-center">View Details &amp; Book</a>
+          </div>
+        </article>
+
+        <!-- Card 2: Private Pool Villa -->
+        <article class="room-card reveal reveal-delay-2">
+          <div class="card-zoom-wrap h-72 relative">
+            <img
+              src="https://images.unsplash.com/photo-1582610116397-edb72278e9bb?w=800&q=80&auto=format&fit=crop"
+              alt="Private Pool Villa with infinity pool surrounded by tropical garden"
+              class="card-zoom-img w-full h-full object-cover"
+            />
+            <div class="absolute top-4 left-4 z-10">
+              <span style="background: rgba(3,33,23,0.9); border: 1px solid rgba(201,168,76,0.5); color: #E2C97E; padding:0.3rem 0.9rem; font-size:0.6rem; font-family:'DM Sans',sans-serif; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; display:inline-block;">Signature Collection</span>
+            </div>
+          </div>
+          <div class="p-7">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="font-display text-xl font-500 text-charcoal mb-1">Private Pool Villa</h3>
+                <p class="font-sans text-xs text-charcoal-600 tracking-wide opacity-60 uppercase" style="letter-spacing:0.12em;">140 m² · Garden &amp; Ocean</p>
+              </div>
+              <div class="text-right">
+                <div class="price-tag">$890</div>
+                <div class="font-sans text-xs text-charcoal-600 opacity-50 mt-0.5">per night</div>
+              </div>
+            </div>
+            <hr class="hr-gold mb-5" />
+            <ul class="space-y-2.5 mb-6">
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Exclusive 12m private heated infinity pool
+              </li>
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Enclosed garden courtyard &amp; open-air living deck
+              </li>
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Dedicated 24-hour personal villa host
+              </li>
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                In-villa Ayurvedic consultation &amp; treatment
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="amenity-pill">Private Pool</span>
+              <span class="amenity-pill">Full Board</span>
+              <span class="amenity-pill">Airport Transfer</span>
+            </div>
+            <a href="#" class="btn-gold w-full block text-center">View Details &amp; Book</a>
+          </div>
+        </article>
+
+        <!-- Card 3: Wellness Penthouse -->
+        <article class="room-card reveal reveal-delay-3">
+          <div class="card-zoom-wrap h-72 relative">
+            <img
+              src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80&auto=format&fit=crop"
+              alt="Wellness Penthouse suite with floor-to-ceiling windows and panoramic views"
+              class="card-zoom-img w-full h-full object-cover"
+            />
+            <div class="absolute top-4 left-4 z-10">
+              <span style="background: linear-gradient(135deg,#C9A84C,#E2C97E); color:#032117; padding:0.3rem 0.9rem; font-size:0.6rem; font-family:'DM Sans',sans-serif; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; display:inline-block;">Pinnacle Suite</span>
+            </div>
+          </div>
+          <div class="p-7">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="font-display text-xl font-500 text-charcoal mb-1">Wellness Penthouse</h3>
+                <p class="font-sans text-xs text-charcoal-600 tracking-wide opacity-60 uppercase" style="letter-spacing:0.12em;">210 m² · Panoramic Top Floor</p>
+              </div>
+              <div class="text-right">
+                <div class="price-tag">$1,650</div>
+                <div class="font-sans text-xs text-charcoal-600 opacity-50 mt-0.5">per night</div>
+              </div>
+            </div>
+            <hr class="hr-gold mb-5" />
+            <ul class="space-y-2.5 mb-6">
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                360° rooftop terrace with panoramic bay views
+              </li>
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Private Ayurvedic treatment room &amp; meditation loft
+              </li>
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Personal chef with bespoke Sattvic cuisine menu
+              </li>
+              <li class="flex items-center gap-3 font-sans text-sm text-charcoal-700 opacity-75">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Dual en-suite bathrooms with copper bathtubs
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="amenity-pill">Roof Terrace</span>
+              <span class="amenity-pill">Private Chef</span>
+              <span class="amenity-pill">Spa Access</span>
+            </div>
+            <a href="#" class="btn-gold w-full block text-center">View Details &amp; Book</a>
+          </div>
+        </article>
+
+      </div><!-- /grid -->
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       WELLNESS & SPA SECTION (SPLIT)
+  ================================ -->
+  <section id="spa" class="bg-emerald-950 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen lg:min-h-0">
+
+        <!-- Left: Spa Image -->
+        <div class="split-wrap relative h-72 sm:h-96 lg:h-auto lg:min-h-[680px] order-1 lg:order-1 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=80&auto=format&fit=crop"
+            alt="AuraVeda spa therapist performing hot stone Ayurvedic treatment in serene pavilion"
+            class="split-img w-full h-full object-cover"
+          />
+          <!-- Gold overlay accent -->
+          <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, transparent 60%, rgba(3,33,23,0.5) 100%);"></div>
+
+          <!-- Floating badge -->
+          <div class="absolute bottom-8 left-8 right-8 lg:right-auto lg:max-w-xs p-6" style="background: rgba(3,33,23,0.85); border: 1px solid rgba(201,168,76,0.3); backdrop-filter: blur(10px);">
+            <div class="section-label mb-2" style="color: rgba(201,168,76,0.8); font-size:0.6rem;">Award Winning</div>
+            <p class="font-display text-cream text-lg leading-snug" style="font-weight:400;">"Best Destination Spa,<br/>South Asia 2024"</p>
+            <p class="font-sans text-xs mt-2 opacity-50 text-cream">— Condé Nast Traveller India</p>
+          </div>
+        </div>
+
+        <!-- Right: Spa Content -->
+        <div class="order-2 lg:order-2 flex flex-col justify-center px-8 py-16 lg:px-16 xl:px-20">
+
+          <p class="section-label mb-5" style="color:rgba(201,168,76,0.8); font-size:0.6rem;">Ancient Wisdom · Modern Healing</p>
+          <h2 class="font-display text-4xl md:text-5xl text-cream mb-6 leading-tight reveal" style="font-weight:500;">
+            The AuraVeda<br /><em class="italic" style="color:#C9A84C;">Healing Arts</em> Pavilion
+          </h2>
+          <div class="hr-gold max-w-[80px] mb-8" style="height:1px; background: linear-gradient(to right, #C9A84C, transparent);"></div>
+          <p class="font-serif text-lg text-cream opacity-65 mb-8 leading-relaxed reveal" style="font-weight:300;">
+            Rooted in 5,000 years of Ayurvedic philosophy, our healing sanctuary offers a holistic journey for mind, body, and spirit. Under the guidance of Sri Lanka's most revered Ayurvedic physicians, each treatment is personally curated to restore your innate balance.
+          </p>
+
+          <!-- Features list -->
+          <div class="space-y-5 mb-10 reveal">
+            <div class="flex items-start gap-4">
+              <div class="feature-icon" style="background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.25);">
+                <svg class="w-5 h-5" style="color:#C9A84C;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 12c0 6.627 5.373 12 12 12s12-5.373 12-12a11.955 11.955 0 00-.598-6 11.959 11.959 0 00-2.4-.864M9 3.75V6M15 3.75V6"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-display text-cream text-base mb-1" style="font-weight:500;">Panchakarma Detox Retreats</h4>
+                <p class="font-sans text-sm text-cream opacity-50 leading-relaxed">Our signature 3, 5, and 7-night purification therapies supervised by certified Panchakarma specialists using organically sourced medicinal oils and herbs.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="feature-icon" style="background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.25);">
+                <svg class="w-5 h-5" style="color:#C9A84C;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-display text-cream text-base mb-1" style="font-weight:500;">Vedic Sound &amp; Energy Therapy</h4>
+                <p class="font-sans text-sm text-cream opacity-50 leading-relaxed">Tibetan singing bowls, Nada Yoga, and Chakra balancing sessions conducted in our open-air teak pavilions overlooking Weligama Bay.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="feature-icon" style="background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.25);">
+                <svg class="w-5 h-5" style="color:#C9A84C;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a1.125 1.125 0 001.494-.23l.023-.038c.277-.441.318-.99.11-1.469L15.34 6.17a8.25 8.25 0 00-2.6-2.21 1.125 1.125 0 00-1.3.21l-.348.349A1.125 1.125 0 0110 5.25h-.75a1.125 1.125 0 00-.787.32L7.71 6.313a1.125 1.125 0 01-1.594-.123z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-display text-cream text-base mb-1" style="font-weight:500;">Personalised Herbal Wellness Plans</h4>
+                <p class="font-sans text-sm text-cream opacity-50 leading-relaxed">Begin with an in-depth Prakriti (body constitution) analysis and receive a bespoke plan incorporating diet, herbal medicine, yoga, and targeted therapies.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="btn-gold self-start reveal">Book a Treatment</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       EXPERIENCES SECTION
+  ================================ -->
+  <section id="experiences" class="py-24 lg:py-32 bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4">Beyond the Ordinary</p>
+        <h2 class="font-display text-4xl md:text-5xl text-charcoal mb-5" style="font-weight:500;">
+          Curated <em class="italic" style="color:#065F46;">Experiences</em>
+        </h2>
+        <div class="hr-gold max-w-xs mx-auto my-6"></div>
+        <p class="font-serif text-lg text-charcoal-600 max-w-2xl mx-auto leading-relaxed opacity-70" style="font-weight:300;">
+          Immerse yourself in the living culture, untouched nature, and soulful traditions of Sri Lanka — guided by passionate local experts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Experience 1 -->
+        <div class="group relative overflow-hidden reveal reveal-delay-1">
+          <div class="h-80 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80&auto=format&fit=crop" alt="Sunrise whale watching catamaran Sri Lanka" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          </div>
+          <div class="absolute inset-0 flex flex-col justify-end p-6" style="background: linear-gradient(to top, rgba(3,33,23,0.85) 0%, rgba(3,33,23,0.1) 60%, transparent 100%);">
+            <div class="section-label mb-2" style="color:rgba(201,168,76,0.8); font-size:0.55rem;">Ocean</div>
+            <h3 class="font-display text-cream text-lg mb-1" style="font-weight:500;">Sunrise Whale Watching</h3>
+            <p class="font-sans text-cream text-xs opacity-60 mb-3 leading-relaxed">Private catamaran excursion to Mirissa's world-renowned blue whale corridor.</p>
+            <a href="#" class="section-label text-gold" style="font-size:0.6rem; color:#C9A84C; letter-spacing:0.2em;">Reserve → </a>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="group relative overflow-hidden reveal reveal-delay-2">
+          <div class="h-80 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=80&auto=format&fit=crop" alt="Sacred Temple Tour Galle Sri Lanka" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          </div>
+          <div class="absolute inset-0 flex flex-col justify-end p-6" style="background: linear-gradient(to top, rgba(3,33,23,0.85) 0%, rgba(3,33,23,0.1) 60%, transparent 100%);">
+            <div class="section-label mb-2" style="color:rgba(201,168,76,0.8); font-size:0.55rem;">Culture</div>
+            <h3 class="font-display text-cream text-lg mb-1" style="font-weight:500;">Sacred Temple Journeys</h3>
+            <p class="font-sans text-cream text-xs opacity-60 mb-3 leading-relaxed">A curated spiritual circuit of Galle Fort's Buddhist temples with a learned scholar guide.</p>
+            <a href="#" class="section-label text-gold" style="font-size:0.6rem; color:#C9A84C; letter-spacing:0.2em;">Reserve → </a>
+          </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="group relative overflow-hidden reveal reveal-delay-3">
+          <div class="h-80 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=600&q=80&auto=format&fit=crop" alt="Rainforest Trekking and Spice Gardens Sri Lanka" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          </div>
+          <div class="absolute inset-0 flex flex-col justify-end p-6" style="background: linear-gradient(to top, rgba(3,33,23,0.85) 0%, rgba(3,33,23,0.1) 60%, transparent 100%);">
+            <div class="section-label mb-2" style="color:rgba(201,168,76,0.8); font-size:0.55rem;">Nature</div>
+            <h3 class="font-display text-cream text-lg mb-1" style="font-weight:500;">Rainforest &amp; Spice Trails</h3>
+            <p class="font-sans text-cream text-xs opacity-60 mb-3 leading-relaxed">Trek through Sinharaja UNESCO Biosphere Reserve with resident naturalists and botanists.</p>
+            <a href="#" class="section-label text-gold" style="font-size:0.6rem; color:#C9A84C; letter-spacing:0.2em;">Reserve → </a>
+          </div>
+        </div>
+
+        <!-- Experience 4 -->
+        <div class="group relative overflow-hidden reveal reveal-delay-4">
+          <div class="h-80 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80&auto=format&fit=crop" alt="Private dining fine cuisine Sri Lankan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          </div>
+          <div class="absolute inset-0 flex flex-col justify-end p-6" style="background: linear-gradient(to top, rgba(3,33,23,0.85) 0%, rgba(3,33,23,0.1) 60%, transparent 100%);">
+            <div class="section-label mb-2" style="color:rgba(201,168,76,0.8); font-size:0.55rem;">Gastronomy</div>
+            <h3 class="font-display text-cream text-lg mb-1" style="font-weight:500;">Private Moonlit Dining</h3>
+            <p class="font-sans text-cream text-xs opacity-60 mb-3 leading-relaxed">An exclusive beachside table for two, designed around your dietary needs by our Michelin-trained chef.</p>
+            <a href="#" class="section-label text-gold" style="font-size:0.6rem; color:#C9A84C; letter-spacing:0.2em;">Reserve → </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       GALLERY SECTION
+  ================================ -->
+  <section id="gallery" class="bg-charcoal py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4" style="color: rgba(201,168,76,0.8);">A Visual Journey</p>
+        <h2 class="font-display text-4xl md:text-5xl text-cream mb-5" style="font-weight:500;">
+          Life at <em class="italic" style="color:#C9A84C;">AuraVeda</em>
+        </h2>
+        <div class="hr-gold max-w-xs mx-auto"></div>
+      </div>
+
+      <!-- Masonry-style gallery grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+
+        <!-- Tall image -->
+        <div class="gallery-item col-span-1 row-span-2 h-80 md:h-[480px] reveal reveal-delay-1 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80&auto=format&fit=crop" alt="Resort pool at dusk with golden reflections" />
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-text text-center px-4">
+              <div class="section-label text-cream mb-2" style="font-size:0.55rem;">The Grand Pool</div>
+              <p class="font-serif text-cream text-sm opacity-80">Where the sky meets the sea</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regular -->
+        <div class="gallery-item h-40 md:h-[234px] reveal reveal-delay-2 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80&auto=format&fit=crop" alt="Spa steam room natural stones" />
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-text text-center">
+              <div class="section-label text-cream" style="font-size:0.55rem;">Thermal Spa</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item h-40 md:h-[234px] reveal reveal-delay-3 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=600&q=80&auto=format&fit=crop" alt="Luxury hotel bedroom with tropical view" />
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-text text-center">
+              <div class="section-label text-cream" style="font-size:0.55rem;">Ocean Suite</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wide spanning -->
+        <div class="gallery-item col-span-1 h-40 md:h-[234px] reveal reveal-delay-4 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80&auto=format&fit=crop" alt="Infinity pool overlooking ocean at sunset" />
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-text text-center">
+              <div class="section-label text-cream" style="font-size:0.55rem;">Infinity Terrace</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item h-40 md:h-[234px] reveal reveal-delay-1 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=600&q=80&auto=format&fit=crop" alt="Tropical resort architecture and gardens" />
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-text text-center">
+              <div class="section-label text-cream" style="font-size:0.55rem;">Garden Pavilion</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item h-40 md:h-[234px] reveal reveal-delay-2 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=600&q=80&auto=format&fit=crop" alt="Fine dining restaurant with ocean view" />
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-text text-center">
+              <div class="section-label text-cream" style="font-size:0.55rem;">The Cinnamon Table</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item h-40 md:h-[234px] reveal reveal-delay-3 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1561501878-aabd62634533?w=600&q=80&auto=format&fit=crop" alt="Ocean view yoga deck at sunrise" />
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-text text-center">
+              <div class="section-label text-cream" style="font-size:0.55rem;">Sunrise Yoga Deck</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       TESTIMONIALS SECTION
+  ================================ -->
+  <section class="py-24 lg:py-32 bg-cream-100 relative overflow-hidden">
+    <!-- Decorative background text -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+      <span class="font-display text-[12rem] lg:text-[18rem] font-700 text-charcoal opacity-[0.025] select-none whitespace-nowrap">REVIEWS</span>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4">Words from Our Guests</p>
+        <h2 class="font-display text-4xl md:text-5xl text-charcoal mb-5" style="font-weight:500;">
+          Extraordinary <em class="italic" style="color:#065F46;">Moments</em><br />Remembered Forever
+        </h2>
+        <div class="hr-gold max-w-xs mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card p-8 reveal reveal-delay-1">
+          <div class="stars mb-5">★★★★★</div>
+          <blockquote class="font-serif text-charcoal-700 text-lg leading-relaxed mb-6 italic" style="font-weight:300;">
+            "AuraVeda transcends every notion of a resort stay. The Panchakarma retreat quite literally changed my life — I arrived exhausted and left completely reborn. The level of care and personalisation is something I have never encountered anywhere in the world."
+          </blockquote>
+          <hr class="hr-gold mb-5" />
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0" style="border: 2px solid rgba(201,168,76,0.4);">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80&auto=format&fit=crop&face" alt="Victoria Hartwell" class="w-full h-full object-cover"/>
+            </div>
+            <div>
+              <p class="font-display text-charcoal text-sm font-500">Victoria Hartwell</p>
+              <p class="font-sans text-xs text-charcoal-600 opacity-50 mt-0.5">Wellness Director · London, United Kingdom</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card p-8 reveal reveal-delay-2">
+          <div class="stars mb-5">★★★★★</div>
+          <blockquote class="font-serif text-charcoal-700 text-lg leading-relaxed mb-6 italic" style="font-weight:300;">
+            "We celebrated our anniversary in the Private Pool Villa and it was the single most romantic experience of our marriage. The moonlit dining on the beach, the attentive staff who seemed to anticipate every wish — this is a place of genuine magic."
+          </blockquote>
+          <hr class="hr-gold mb-5" />
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0" style="border: 2px solid rgba(201,168,76,0.4);">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80&auto=format&fit=crop&face" alt="Hiroshi Yamamoto" class="w-full h-full object-cover"/>
+            </div>
+            <div>
+              <p class="font-display text-charcoal text-sm font-500">Hiroshi &amp; Mei Yamamoto</p>
+              <p class="font-sans text-xs text-charcoal-600 opacity-50 mt-0.5">Entrepreneurs · Tokyo, Japan</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card p-8 reveal reveal-delay-3">
+          <div class="stars mb-5">★★★★★</div>
+          <blockquote class="font-serif text-charcoal-700 text-lg leading-relaxed mb-6 italic" style="font-weight:300;">
+            "As a travel journalist who has reviewed over 200 luxury properties globally, AuraVeda stands firmly in a category of its own. The fusion of authentic Ayurvedic practice with architectural brilliance and impeccable service is simply peerless in South Asia."
+          </blockquote>
+          <hr class="hr-gold mb-5" />
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0" style="border: 2px solid rgba(201,168,76,0.4);">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80&auto=format&fit=crop&face" alt="Marcus Beaumont" class="w-full h-full object-cover"/>
+            </div>
+            <div>
+              <p class="font-display text-charcoal text-sm font-500">Marcus Beaumont</p>
+              <p class="font-sans text-xs text-charcoal-600 opacity-50 mt-0.5">Senior Editor, Luxury Traveller · Paris, France</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Logos strip -->
+      <div class="mt-16 pt-12 border-t border-charcoal border-opacity-10 reveal">
+        <p class="section-label text-center mb-8 text-charcoal opacity-40" style="font-size:0.6rem;">As Featured In</p>
+        <div class="flex flex-wrap items-center justify-center gap-8 lg:gap-14 opacity-30 grayscale">
+          <span class="font-display text-xl text-charcoal tracking-widest" style="font-weight:600;">CONDÉ NAST</span>
+          <span class="font-display text-xl text-charcoal tracking-widest" style="font-weight:600;">VOGUE</span>
+          <span class="font-display text-xl text-charcoal tracking-widest" style="font-weight:600;">FORBES</span>
+          <span class="font-display text-xl text-charcoal tracking-widest" style="font-weight:600;">TATLER</span>
+          <span class="font-display text-xl text-charcoal tracking-widest" style="font-weight:600;">ROBB REPORT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       CTA BANNER
+  ================================ -->
+  <section class="relative py-28 overflow-hidden" style="background: #032117;">
+    <div class="absolute inset-0 pointer-events-none">
+      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&q=60&auto=format&fit=crop" alt="" class="w-full h-full object-cover opacity-10" aria-hidden="true"/>
+    </div>
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 70%);"></div>
+
+    <div class="relative z-10 text-center max-w-3xl mx-auto px-6 reveal">
+      <p class="section-label mb-5" style="color: rgba(201,168,76,0.7); font-size:0.6rem;">Your Journey Begins Here</p>
+      <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-cream mb-6 leading-tight" style="font-weight:500;">
+        Reserve Your<br /><em class="italic text-gold-shimmer" style="background:linear-gradient(90deg,#A07830,#E2C97E,#C9A84C,#E2C97E,#A07830);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Sacred Escape</em>
+      </h2>
+      <p class="font-serif text-lg text-cream opacity-60 mb-10 leading-relaxed" style="font-weight:300;">
+        Let our dedicated reservations team craft your bespoke itinerary. Exclusive availability for 2025 is filling swiftly — we invite you to enquire now.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#accommodations" class="btn-gold">Reserve Your Suite</a>
+        <a href="tel:+94912234567" class="btn-outline-cream">+94 91 223 4567</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       FOOTER
+  ================================ -->
+  <footer class="bg-charcoal pt-20 pb-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+
+        <!-- Col 1: About / Brand -->
+        <div class="lg:col-span-1">
+          <div class="mb-5">
+            <span class="font-display text-2xl text-cream" style="font-weight:500;">AuraVeda</span><br/>
+            <span class="section-label" style="font-size:0.55rem; letter-spacing:0.35em; color:rgba(201,168,76,0.6);">RESORT &amp; PAVILION</span>
+          </div>
+          <p class="font-sans text-sm leading-relaxed mb-6" style="color: rgba(250,247,242,0.45); max-width: 220px;">
+            A living sanctuary where Ayurvedic heritage and contemporary refinement merge to redefine the art of luxurious rest.
+          </p>
+          <!-- Social icons -->
+          <div class="flex items-center gap-3">
+            <div class="social-icon" title="Instagram">
+              <svg class="w-4 h-4" style="color:rgba(201,168,76,0.7);" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <div class="social-icon" title="Facebook">
+              <svg class="w-4 h-4" style="color:rgba(201,168,76,0.7);" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <div class="social-icon" title="TripAdvisor">
+              <svg class="w-4 h-4" style="color:rgba(201,168,76,0.7);" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.295H0l1.775 1.773a5.7 5.7 0 00-.394 2.092 5.734 5.734 0 005.734 5.734 5.72 5.72 0 003.691-1.354L12 16.026l1.194-1.19a5.72 5.72 0 003.69 1.353 5.734 5.734 0 005.735-5.734 5.7 5.7 0 00-.394-2.092L24 6.59h-4.361c-2.307-1.51-4.975-2.295-7.633-2.295zM6.31 8.738a3.734 3.734 0 110 7.469 3.734 3.734 0 010-7.469zm11.38 0a3.734 3.734 0 110 7.469 3.734 3.734 0 010-7.469zm-11.38 1.6a2.134 2.134 0 100 4.269 2.134 2.134 0 000-4.269zm11.38 0a2.134 2.134 0 100 4.269 2.134 2.134 0 000-4.269zm-11.38 1.067a1.067 1.067 0 110 2.134 1.067 1.067 0 010-2.134zm11.38 0a1.067 1.067 0 110 2.134 1.067 1.067 0 010-2.134z"/>
+              </svg>
+            </div>
+            <div class="social-icon" title="LinkedIn">
+              <svg class="w-4 h-4" style="color:rgba(201,168,76,0.7);" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="font-display text-cream text-base mb-5" style="font-weight:500; letter-spacing:0.05em;">Explore</h4>
+          <div class="hr-gold mb-5" style="height:1px; width:40px; background: linear-gradient(to right, #C9A84C, transparent);"></div>
+          <a href="#home" class="footer-link">Home</a>
+          <a href="#accommodations" class="footer-link">Suites &amp; Villas</a>
+          <a href="#spa" class="footer-link">Spa &amp; Wellness</a>
+          <a href="#experiences" class="footer-link">Curated Experiences</a>
+          <a href="#gallery" class="footer-link">Photo Gallery</a>
+          <a href="#" class="footer-link">Dining &amp; Cuisine</a>
+          <a href="#" class="footer-link">Weddings &amp; Events</a>
+        </div>
+
+        <!-- Col 3: Policies & Info -->
+        <div>
+          <h4 class="font-display text-cream text-base mb-5" style="font-weight:500; letter-spacing:0.05em;">Guest Services</h4>
+          <div class="hr-gold mb-5" style="height:1px; width:40px; background: linear-gradient(to right, #C9A84C, transparent);"></div>
+          <a href="#" class="footer-link">Reservations</a>
+          <a href="#" class="footer-link">Check-In &amp; Check-Out</a>
+          <a href="#" class="footer-link">Cancellation Policy</a>
+          <a href="#" class="footer-link">Sustainability Pledge</a>
+          <a href="#" class="footer-link">Press &amp; Media Kit</a>
+          <a href="#" class="footer-link">Careers at AuraVeda</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+        </div>
+
+        <!-- Col 4: Contact -->
+        <div>
+          <h4 class="font-display text-cream text-base mb-5" style="font-weight:500; letter-spacing:0.05em;">Find Us</h4>
+          <div class="hr-gold mb-5" style="height:1px; width:40px; background: linear-gradient(to right, #C9A84C, transparent);"></div>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#C9A84C;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+              </svg>
+              <p class="font-sans text-sm leading-relaxed" style="color: rgba(250,247,242,0.45);">No. 42, Bay Road, Weligama,<br/>Southern Province, Sri Lanka<br/>80500</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+              </svg>
+              <a href="tel:+94912234567" class="font-sans text-sm" style="color: rgba(250,247,242,0.45);">+94 91 223 4567</a>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+              </svg>
+              <a href="mailto:reservations@auraveda.lk" class="font-sans text-sm" style="color: rgba(250,247,242,0.45);">reservations@auraveda.lk</a>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <p class="font-sans text-sm" style="color: rgba(250,247,242,0.45);">24-Hour Concierge Available</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter strip -->
+      <div class="bg-charcoal-800 p-8 mb-12 flex flex-col md:flex-row items-center gap-6 border border-gold border-opacity-10">
+        <div class="flex-1 text-center md:text-left">
+          <p class="font-display text-cream text-lg mb-1" style="font-weight:500;">Join the Inner Circle</p>
+          <p class="font-sans text-sm" style="color: rgba(250,247,242,0.45);">Receive exclusive offers, seasonal wellness retreats, and curated travel insights from AuraVeda.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="flex-1 md:w-64 px-5 py-3 bg-charcoal border border-charcoal-600 text-cream placeholder-charcoal-600 text-sm font-sans outline-none focus:border-gold transition-colors duration-300"
+            style="font-size:0.85rem;"
+          />
+          <button class="btn-gold whitespace-nowrap">Subscribe</button>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="hr-gold mb-7"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center">
+        <p class="font-sans text-xs" style="color: rgba(250,247,242,0.3);">
+          © 2025 AuraVeda Resort &amp; Pavilion. All rights reserved. Weligama Bay, Sri Lanka.
+        </p>
+
+        <!-- AURA AI Labs Watermark -->
+        <p class="font-sans text-xs" style="color: rgba(201,168,76,0.45); letter-spacing: 0.08em;">
+          Designed &amp; Developed by
+          <a href="#" style="color:rgba(201,168,76,0.7); text-decoration:none; font-weight:500; transition: color 0.3s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(201,168,76,0.7)'">
+            AURA AI Labs.ai
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ==============================
+       JAVASCRIPT — BURGER MENU + SCROLL EFFECTS
+  ================================ -->
+  <script>
+    // ---- Mobile Burger Menu ----
+    const burgerBtn = document.getElementById('burger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const line1 = document.getElementById('burger-line-1');
+    const line2 = document.getElementById('burger-line-2');
+    const line3 = document.getElementById('burger-line-3');
+    let menuOpen = false;
+
+    burgerBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.add('open');
+        line1.style.transform = 'translateY(6px) rotate(45deg)';
+        line2.style.opacity = '0';
+        line2.style.transform = 'translateX(-8px)';
+        line3.style.transform = 'translateY(-6px) rotate(-45deg)';
+      } else {
+        closeMobileMenu();
+      }
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      line1.style.transform = 'none';
+      line2.style.opacity = '1';
+      line2.style.transform = 'none';
+      line3.style.transform = 'none';
+    }
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (menuOpen && !burgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // ---- Navbar scroll behaviour ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+
+    // ---- Scroll Reveal ----
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ---- Active nav link on scroll ----
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href') === `#${id}`
+              ? '#E2C97E'
+              : 'rgba(250,247,242,0.8)';
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+
+    sections.forEach(s => sectionObserver.observe(s));
+  </script>
+
+</body>
+</html>

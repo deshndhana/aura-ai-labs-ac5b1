@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Daily Grind Cafe — Sip, Relax, Repeat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:    '#fdfbf7',
+            beige:    '#f5efe6',
+            sand:     '#e8dccf',
+            coffee:   '#6f4e37',
+            espresso: '#3d2314',
+            gold:     '#c9a84c',
+            goldlt:   '#e8c96d',
+            mist:     '#f0ebe3',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans:  ['"DM Sans"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* ── Global resets & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background-color: #fdfbf7; color: #3d2314; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+    /* ── Noise / grain texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: .45;
+    }
+
+    /* ── Typography helpers ── */
+    .font-serif   { font-family: 'Playfair Display', Georgia, serif; }
+    .font-sans-dm { font-family: 'DM Sans', sans-serif; }
+
+    /* ── Navbar glass ── */
+    .navbar-glass {
+      background: rgba(253,251,247,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(111,78,55,0.10);
+    }
+
+    /* ── Animated underline nav links ── */
+    .nav-link {
+      position: relative;
+      color: #3d2314;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 1.5px; background: #6f4e37;
+      transform: scaleX(0); transform-origin: right;
+      transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+    }
+    .nav-link:hover { color: #6f4e37; }
+    .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    /* ── CTA button ── */
+    .btn-cta {
+      background: #6f4e37;
+      color: #fdfbf7;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 0.65rem 1.4rem;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    }
+    .btn-cta:hover {
+      background: #3d2314;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(61,35,20,0.25);
+    }
+
+    /* ── Outlined button ── */
+    .btn-outline {
+      border: 1.5px solid #6f4e37;
+      color: #6f4e37;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 0.65rem 1.4rem;
+      background: transparent;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+    .btn-outline:hover {
+      background: #6f4e37;
+      color: #fdfbf7;
+      transform: translateY(-1px);
+    }
+
+    /* ── Hero overlay ── */
+    .hero-overlay {
+      background: linear-gradient(
+        to right,
+        rgba(30,15,5,0.78) 0%,
+        rgba(30,15,5,0.45) 55%,
+        rgba(30,15,5,0.08) 100%
+      );
+    }
+
+    /* ── Section divider squiggle ── */
+    .squiggle-divider {
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .squiggle-divider::before, .squiggle-divider::after {
+      content: ''; flex: 1;
+      height: 1px; background: linear-gradient(to right, transparent, #c9a84c66, transparent);
+    }
+
+    /* ── Menu Tab buttons ── */
+    .tab-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: 0.8rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.55rem 1.6rem; border-radius: 1px;
+      transition: background 0.3s, color 0.3s;
+      border: 1.5px solid #6f4e37;
+      color: #6f4e37; background: transparent; cursor: pointer;
+    }
+    .tab-btn.active { background: #6f4e37; color: #fdfbf7; }
+    .tab-btn:hover:not(.active) { background: #f5efe6; }
+
+    /* ── Menu card ── */
+    .menu-card {
+      background: #fff;
+      border: 1px solid rgba(111,78,55,0.10);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(61,35,20,0.12);
+    }
+
+    /* ── Badge ── */
+    .badge-popular {
+      background: #6f4e37; color: #fdfbf7;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.18rem 0.55rem; border-radius: 1px;
+    }
+    .badge-new {
+      background: #c9a84c; color: #fdfbf7;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.18rem 0.55rem; border-radius: 1px;
+    }
+
+    /* ── Testimonial card ── */
+    .testimonial-card {
+      background: #fff;
+      border-left: 3px solid #c9a84c;
+      transition: box-shadow 0.3s;
+    }
+    .testimonial-card:hover { box-shadow: 0 12px 36px rgba(61,35,20,0.10); }
+
+    /* ── Footer ── */
+    .footer-bg { background: #1e0f05; }
+
+    /* ── Scroll-reveal ── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(.4,0,.2,1), transform 0.75s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.35s; }
+    .reveal-delay-4 { transition-delay: 0.5s; }
+
+    /* ── Horizontal rule gold ── */
+    .gold-rule { border: none; height: 1px; background: linear-gradient(to right, transparent, #c9a84c, transparent); }
+
+    /* ── Mobile menu ── */
+    #mobile-menu {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(.4,0,.2,1), opacity 0.35s;
+      opacity: 0;
+    }
+    #mobile-menu.open { max-height: 500px; opacity: 1; }
+
+    /* ── Parallax-lite hero image ── */
+    .hero-bg {
+      will-change: transform;
+    }
+
+    /* ── Story image frame ── */
+    .story-frame {
+      position: relative;
+    }
+    .story-frame::before {
+      content: '';
+      position: absolute; top: -14px; left: -14px;
+      width: 80px; height: 80px;
+      border-top: 2px solid #c9a84c;
+      border-left: 2px solid #c9a84c;
+      z-index: 1; pointer-events: none;
+    }
+    .story-frame::after {
+      content: '';
+      position: absolute; bottom: -14px; right: -14px;
+      width: 80px; height: 80px;
+      border-bottom: 2px solid #c9a84c;
+      border-right: 2px solid #c9a84c;
+      z-index: 1; pointer-events: none;
+    }
+
+    /* ── Stars ── */
+    .stars { color: #c9a84c; letter-spacing: 0.05em; }
+
+    /* ── Menu item image ── */
+    .menu-img { object-fit: cover; width: 100%; height: 180px; display: block; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #fdfbf7; }
+    ::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 3px; }
+
+    /* ── Section label ── */
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #c9a84c;
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- ════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════ -->
+  <header id="navbar" class="navbar-glass fixed top-0 left-0 right-0 z-50 transition-shadow duration-300">
+    <div class="max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between h-16 md:h-[68px]">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-2.5 select-none" aria-label="The Daily Grind home">
+        <!-- Coffee cup icon -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 10h14l-1.5 10.5A2 2 0 0115.51 22H8.49A2 2 0 016.5 20.5L5 10z" stroke="#6f4e37" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M19 12h2a2 2 0 010 4h-2" stroke="#6f4e37" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M9 6c0 0 1-2 3-2s3 2 3 2" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <span class="font-serif font-bold text-espresso text-lg leading-tight tracking-tight">The Daily Grind</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Primary navigation">
+        <a href="#home"      class="nav-link">Home</a>
+        <a href="#story"     class="nav-link">Our Story</a>
+        <a href="#menu"      class="nav-link">Menu</a>
+        <a href="#locations" class="nav-link">Locations</a>
+        <a href="#contact"   class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Order CTA + Burger -->
+      <div class="flex items-center gap-4">
+        <a href="#menu" class="btn-cta hidden md:inline-block">Order Online</a>
+
+        <!-- Burger -->
+        <button id="burger-btn" class="md:hidden flex flex-col gap-[5px] p-1.5" aria-label="Toggle menu" aria-expanded="false">
+          <span class="burger-line block w-6 h-[2px] bg-espresso rounded transition-all duration-300 origin-center"></span>
+          <span class="burger-line block w-6 h-[2px] bg-espresso rounded transition-all duration-300"></span>
+          <span class="burger-line block w-6 h-[2px] bg-espresso rounded transition-all duration-300 origin-center"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav drawer -->
+    <div id="mobile-menu" class="navbar-glass md:hidden border-t border-coffee/10" role="navigation" aria-label="Mobile navigation">
+      <nav class="flex flex-col px-6 py-4 gap-1">
+        <a href="#home"      class="mobile-nav-link py-3 text-sm font-medium text-espresso border-b border-sand uppercase tracking-widest" onclick="closeMobile()">Home</a>
+        <a href="#story"     class="mobile-nav-link py-3 text-sm font-medium text-espresso border-b border-sand uppercase tracking-widest" onclick="closeMobile()">Our Story</a>
+        <a href="#menu"      class="mobile-nav-link py-3 text-sm font-medium text-espresso border-b border-sand uppercase tracking-widest" onclick="closeMobile()">Menu</a>
+        <a href="#locations" class="mobile-nav-link py-3 text-sm font-medium text-espresso border-b border-sand uppercase tracking-widest" onclick="closeMobile()">Locations</a>
+        <a href="#contact"   class="mobile-nav-link py-3 text-sm font-medium text-espresso uppercase tracking-widest" onclick="closeMobile()">Contact</a>
+        <a href="#menu" class="btn-cta mt-4 inline-block text-center" onclick="closeMobile()">Order Online</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════
+       HERO SECTION
+  ════════════════════════════════════════════ -->
+  <section id="home" class="relative h-screen min-h-[600px] flex items-center overflow-hidden">
+
+    <!-- Background image -->
+    <div class="hero-bg absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1800&q=80&fit=crop"
+        alt="Barista crafting latte art in a warm, dimly lit specialty cafe"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Gradient overlay -->
+    <div class="hero-overlay absolute inset-0"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full py-16">
+      <div class="max-w-2xl">
+        <p class="section-label text-goldlt mb-5 reveal">Est. 2018 · Specialty Coffee & Artisanal Bakery</p>
+
+        <h1 class="font-serif font-black text-cream text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.02] tracking-tight mb-6 reveal reveal-delay-1">
+          Sip,<br/>
+          <em class="italic text-goldlt not-italic font-normal">Relax,</em><br/>
+          Repeat.
+        </h1>
+
+        <p class="text-cream/80 text-base md:text-lg leading-relaxed max-w-md mb-10 reveal reveal-delay-2 font-sans-dm font-light">
+          Hand-roasted single-origin beans. Pastries baked before dawn. A quiet corner where every morning becomes a ritual worth returning to.
+        </p>
+
+        <div class="flex flex-wrap gap-4 reveal reveal-delay-3">
+          <a href="#menu"      class="btn-cta text-sm">Explore Menu</a>
+          <a href="#locations" class="btn-outline text-sm border-cream/60 text-cream hover:border-cream">Find a Café</a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+          <span class="font-sans-dm text-cream/60 text-xs uppercase tracking-widest">Scroll</span>
+          <div class="w-px h-10 bg-cream/40 animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust strip -->
+    <div class="absolute bottom-0 left-0 right-0 bg-espresso/80 backdrop-blur-sm py-4 z-10">
+      <div class="max-w-7xl mx-auto px-6 md:px-10 flex flex-wrap justify-center md:justify-between items-center gap-4 text-cream/70 text-xs font-sans-dm uppercase tracking-widest">
+        <span>☕ 100% Ethically Sourced Beans</span>
+        <span class="hidden md:block w-px h-4 bg-cream/20"></span>
+        <span>🥐 Baked Fresh Daily at 4 AM</span>
+        <span class="hidden md:block w-px h-4 bg-cream/20"></span>
+        <span>🌱 Sustainably Farmed Partners</span>
+        <span class="hidden md:block w-px h-4 bg-cream/20"></span>
+        <span>⭐ 4.9 / 5  ·  2,400+ Reviews</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       OUR STORY SECTION
+  ════════════════════════════════════════════ -->
+  <section id="story" class="relative py-24 md:py-32 bg-cream overflow-hidden">
+
+    <!-- Decorative background shape -->
+    <div class="absolute top-0 right-0 w-72 h-72 rounded-full bg-sand/40 -translate-y-1/3 translate-x-1/3 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-12 md:gap-20 items-center relative z-10">
+
+      <!-- Image column -->
+      <div class="story-frame mx-8 md:mx-0 reveal">
+        <img
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=80&fit=crop"
+          alt="Sunlit cafe interior with exposed brick and warm wooden shelves"
+          class="w-full h-[440px] md:h-[520px] object-cover"
+          loading="lazy"
+        />
+        <!-- Floating stat card -->
+        <div class="absolute -bottom-6 -right-6 bg-espresso text-cream p-5 shadow-xl min-w-[140px]">
+          <p class="font-serif text-4xl font-bold text-goldlt leading-none">6+</p>
+          <p class="font-sans-dm text-xs uppercase tracking-widest mt-1 text-cream/70">Years of craft</p>
+        </div>
+      </div>
+
+      <!-- Text column -->
+      <div class="space-y-6 reveal reveal-delay-1">
+        <p class="section-label">Our Story</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-espresso leading-tight">
+          Rooted in craft,<br/><em class="italic font-normal">poured with purpose.</em>
+        </h2>
+        <hr class="gold-rule w-16" />
+        <p class="text-coffee/80 text-base leading-relaxed font-sans-dm">
+          The Daily Grind was born from a simple obsession: finding the world's most extraordinary coffee and sharing it, cup by honest cup, with our community. In 2018, founders Maya & Elliot traded their corporate desks for a 400-square-foot roastery in East Nashville and never looked back.
+        </p>
+        <p class="text-coffee/80 text-base leading-relaxed font-sans-dm">
+          Every origin we source — from the highlands of Ethiopia's Yirgacheffe to the volcanic soils of Guatemala Antigua — is the result of direct relationships with smallholder farmers paid above fair-trade premiums. Our pastry team arrives at 4 AM so that when you walk through our door, the croissants are still warm.
+        </p>
+
+        <div class="grid grid-cols-2 gap-6 pt-4">
+          <div class="border-l-2 border-goldlt pl-4">
+            <p class="font-serif text-2xl font-bold text-espresso">12</p>
+            <p class="font-sans-dm text-xs uppercase tracking-widest text-coffee/60 mt-0.5">Origin farms partnered</p>
+          </div>
+          <div class="border-l-2 border-goldlt pl-4">
+            <p class="font-serif text-2xl font-bold text-espresso">34</p>
+            <p class="font-sans-dm text-xs uppercase tracking-widest text-coffee/60 mt-0.5">Pastry varieties baked daily</p>
+          </div>
+        </div>
+
+        <a href="#menu" class="btn-cta inline-block mt-4">View Our Menu</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       MENU SECTION — Tabbed Cards
+  ════════════════════════════════════════════ -->
+  <section id="menu" class="py-24 md:py-32 bg-beige">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+      <!-- Heading -->
+      <div class="text-center mb-12 reveal">
+        <p class="section-label mb-3">What We Serve</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-espresso leading-tight mb-4">The Menu</h2>
+        <div class="squiggle-divider max-w-xs mx-auto">
+          <span class="font-sans-dm text-xs text-coffee/50 uppercase tracking-widest px-3">Seasonal · Local · Handcrafted</span>
+        </div>
+      </div>
+
+      <!-- Tab buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10 reveal reveal-delay-1">
+        <button class="tab-btn active" data-tab="brews"     onclick="switchTab('brews',     this)">Specialty Brews</button>
+        <button class="tab-btn"        data-tab="pastries"  onclick="switchTab('pastries',  this)">Artisanal Pastries</button>
+        <button class="tab-btn"        data-tab="breakfast" onclick="switchTab('breakfast', this)">All-Day Breakfast</button>
+      </div>
+
+      <!-- ─── TAB: SPECIALTY BREWS ─── -->
+      <div id="tab-brews" class="tab-panel grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Item 1 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=75&fit=crop" alt="Signature Pour-Over" class="menu-img" loading="lazy"/>
+            <span class="badge-popular absolute top-3 left-3">Popular</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Signature Pour-Over</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$6.50</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Single-origin Yirgacheffe, hand-poured through a Chemex over 4 minutes. Notes of bergamot, jasmine, and lemon verbena.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=600&q=75&fit=crop" alt="Caramelised Honey Latte" class="menu-img" loading="lazy"/>
+            <span class="badge-popular absolute top-3 left-3">Popular</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Caramelised Honey Latte</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$7.25</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Double-shot espresso, oat milk steamed to 60°C, finished with locally sourced wildflower honey caramel swirl.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600&q=75&fit=crop" alt="Cold Brew Tonic" class="menu-img" loading="lazy"/>
+            <span class="badge-new absolute top-3 left-3">New</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Cold Brew Tonic</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$6.75</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">18-hour steeped cold brew over ice, topped with premium tonic water and a twist of grapefruit zest. Refreshingly complex.</p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75&fit=crop" alt="Cortado de Origen" class="menu-img" loading="lazy"/>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Cortado de Origen</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$5.50</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Equal parts rich espresso and micro-foamed whole milk, served in a 4oz glass. Bold, balanced, unapologetically Andalusian.</p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=75&fit=crop" alt="Lavender Cloud Macchiato" class="menu-img" loading="lazy"/>
+            <span class="badge-new absolute top-3 left-3">New</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Lavender Cloud Macchiato</h3>
+              <span class="font-sans-dam font-bold text-coffee text-base shrink-0">$7.75</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Espresso poured over house-made lavender syrup and cold oat-milk foam. Floral, creamy, and impossibly photogenic.</p>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=75&fit=crop" alt="The Barista's Reserve" class="menu-img" loading="lazy"/>
+            <span class="badge-popular absolute top-3 left-3">Popular</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">The Barista's Reserve</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$9.00</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Limited micro-lot, rotated weekly at the discretion of our head roaster. Ask your barista what's on today's offering.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ─── TAB: ARTISANAL PASTRIES ─── -->
+      <div id="tab-pastries" class="tab-panel hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Item 1 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=75&fit=crop" alt="Almond Croissant" class="menu-img" loading="lazy"/>
+            <span class="badge-popular absolute top-3 left-3">Popular</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Double-Baked Almond Croissant</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$5.50</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Laminated butter croissant, soaked overnight in house almond cream, baked again until caramelised. Dusted with pearl sugar.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=600&q=75&fit=crop" alt="Cardamom Morning Bun" class="menu-img" loading="lazy"/>
+            <span class="badge-new absolute top-3 left-3">New</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Cardamom Morning Bun</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$4.75</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Croissant dough rolled in orange zest, cardamom sugar, and a whisper of rose. Crispy outside, pillowy within. Seasonal.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=75&fit=crop" alt="Pain au Chocolat" class="menu-img" loading="lazy"/>
+            <span class="badge-popular absolute top-3 left-3">Popular</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Valrhona Pain au Chocolat</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$4.50</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Two sticks of 70% Valrhona dark chocolate tucked inside hand-laminated pastry dough, baked to a deep mahogany finish.</p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=600&q=75&fit=crop" alt="Pistachio Kouign-Amann" class="menu-img" loading="lazy"/>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Pistachio Kouign-Amann</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$6.00</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Brittany's legendary butter cake with a caramelised crust, layered with Iranian pistachio paste and a sea-salt finish.</p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1519915028121-7d3463d5b1ff?w=600&q=75&fit=crop" alt="Lemon Ricotta Muffin" class="menu-img" loading="lazy"/>
+            <span class="badge-new absolute top-3 left-3">New</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Lemon Ricotta Muffin</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$4.25</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Tender crumb made with whole-milk ricotta and Meyer lemon zest, crowned with a crunchy turbinado sugar crust.</p>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=75&fit=crop" alt="Dark Chocolate Tart" class="menu-img" loading="lazy"/>
+            <span class="badge-popular absolute top-3 left-3">Popular</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Dark Chocolate Ganache Tart</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$7.00</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Hand-pressed shortbread shell filled with silky 65% Guanaja ganache, finished with fleur de sel and edible gold leaf.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ─── TAB: ALL-DAY BREAKFAST ─── -->
+      <div id="tab-breakfast" class="tab-panel hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Item 1 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=75&fit=crop" alt="Smashed Avocado Toast" class="menu-img" loading="lazy"/>
+            <span class="badge-popular absolute top-3 left-3">Popular</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Smashed Avocado Toast</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$13.50</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">House sourdough, whipped feta, smashed Hass avocado, poached heirloom eggs, chilli flakes, and micro herbs. Served daily.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=75&fit=crop" alt="French Toast Brioche" class="menu-img" loading="lazy"/>
+            <span class="badge-popular absolute top-3 left-3">Popular</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Brioche French Toast</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$14.00</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Thick-cut house brioche soaked in a vanilla-cardamom custard, pan-fried golden, served with whipped mascarpone and seasonal berry compote.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1620963692856-46dff4c89ae6?w=600&q=75&fit=crop" alt="Açaí Granola Bowl" class="menu-img" loading="lazy"/>
+            <span class="badge-new absolute top-3 left-3">New</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Açaí Granola Bowl</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$12.75</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Organic açaí base, house-toasted buckwheat granola, fresh mango, coconut flakes, raw honey, and sliced strawberries.</p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=75&fit=crop" alt="The Full Grind Plate" class="menu-img" loading="lazy"/>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">The Full Grind Plate</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$18.00</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Two farm eggs any style, thick-cut heritage bacon, house-baked beans, grilled sourdough, roasted tomato, and wilted greens.</p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&q=75&fit=crop" alt="Shakshuka" class="menu-img" loading="lazy"/>
+            <span class="badge-new absolute top-3 left-3">New</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Morning Shakshuka</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$15.50</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Slow-cooked harissa tomato sauce with roasted peppers, three poached eggs, crumbled feta, and fresh za'atar. Served with pita.</p>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="menu-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1601050690117-94f5f7a1f46c?w=600&q=75&fit=crop" alt="Bircher Muesli" class="menu-img" loading="lazy"/>
+            <span class="badge-popular absolute top-3 left-3">Popular</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-serif text-lg font-semibold text-espresso leading-snug">Overnight Bircher Muesli</h3>
+              <span class="font-sans-dm font-bold text-coffee text-base shrink-0">$10.50</span>
+            </div>
+            <p class="font-sans-dm text-sm text-coffee/65 mt-2 leading-relaxed">Oats soaked overnight in apple juice and coconut yoghurt, topped with toasted almonds, poached pear, and a drizzle of raw honey.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footnote -->
+      <p class="text-center font-sans-dm text-xs text-coffee/40 mt-10 uppercase tracking-widest reveal">Menu rotates seasonally · Allergen info available on request · Prices include VAT</p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       ATMOSPHERE / GALLERY STRIP
+  ════════════════════════════════════════════ -->
+  <section class="py-0 overflow-hidden bg-espresso">
+    <div class="flex overflow-x-auto no-scrollbar gap-1 md:gap-2">
+      <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=500&q=70&fit=crop" alt="Cozy cafe corner with warm lighting" class="h-52 md:h-72 object-cover shrink-0 w-[calc(33.33%-4px)] md:w-[calc(20%-4px)]" loading="lazy"/>
+      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500&q=70&fit=crop" alt="Barista carefully pouring espresso" class="h-52 md:h-72 object-cover shrink-0 w-[calc(33.33%-4px)] md:w-[calc(20%-4px)]" loading="lazy"/>
+      <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=500&q=70&fit=crop" alt="Artisan latte art overhead" class="h-52 md:h-72 object-cover shrink-0 w-[calc(33.33%-4px)] md:w-[calc(20%-4px)]" loading="lazy"/>
+      <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=500&q=70&fit=crop" alt="Fresh pastries on wooden board" class="h-52 md:h-72 object-cover shrink-0 w-[calc(33.33%-4px)] md:w-[calc(20%-4px)]" loading="lazy"/>
+      <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=500&q=70&fit=crop" alt="Coffee beans being freshly roasted" class="h-52 md:h-72 object-cover shrink-0 w-[calc(33.33%-4px)] md:w-[calc(20%-4px)]" loading="lazy"/>
+    </div>
+    <p class="text-center font-sans-dm text-xs text-cream/30 uppercase tracking-[0.25em] py-3">The Daily Grind · Atmosphere</p>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       TESTIMONIALS SECTION
+  ════════════════════════════════════════════ -->
+  <section class="py-24 md:py-32 bg-cream" id="testimonials">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+      <!-- Heading -->
+      <div class="text-center mb-14 reveal">
+        <p class="section-label mb-3">Customer Love</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-espresso leading-tight">
+          Words from our<br/><em class="italic font-normal">regulars.</em>
+        </h2>
+      </div>
+
+      <!-- Testimonial grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card p-7 reveal reveal-delay-1">
+          <div class="stars text-base mb-4">★★★★★</div>
+          <p class="font-serif text-espresso text-lg italic leading-relaxed mb-6 font-normal">
+            "The pour-over here genuinely changed how I think about coffee. I didn't know a cup could taste like Earl Grey and peaches — the Yirgacheffe changed everything."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-sand flex items-center justify-center font-serif font-bold text-coffee text-base">S</div>
+            <div>
+              <p class="font-sans-dm text-sm font-semibold text-espresso">Sophia Renner</p>
+              <p class="font-sans-dm text-xs text-coffee/50 uppercase tracking-wider">Nashville, TN</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card p-7 reveal reveal-delay-2">
+          <div class="stars text-base mb-4">★★★★★</div>
+          <p class="font-serif text-espresso text-lg italic leading-relaxed mb-6 font-normal">
+            "I've been to cafés in Paris, Tokyo, and Melbourne. The Daily Grind's almond croissant holds its own against all of them. I'm not exaggerating — it's that good."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-sand flex items-center justify-center font-serif font-bold text-coffee text-base">M</div>
+            <div>
+              <p class="font-sans-dm text-sm font-semibold text-espresso">Marcus Osei</p>
+              <p class="font-sans-dm text-xs text-coffee/50 uppercase tracking-wider">Food Writer, NY</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card p-7 reveal reveal-delay-3">
+          <div class="stars text-base mb-4">★★★★★</div>
+          <p class="font-serif text-espresso text-lg italic leading-relaxed mb-6 font-normal">
+            "A Sunday ritual that has become non-negotiable. The staff remember my name, my order, and somehow always make me feel like the café opened just for me."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-sand flex items-center justify-center font-serif font-bold text-coffee text-base">A</div>
+            <div>
+              <p class="font-sans-dm text-sm font-semibold text-espresso">Amara Jolie</p>
+              <p class="font-sans-dm text-xs text-coffee/50 uppercase tracking-wider">East Nashville Local</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA strip -->
+      <div class="mt-16 bg-espresso rounded-none p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-6 reveal">
+        <div>
+          <p class="section-label text-goldlt mb-2">Join the Community</p>
+          <h3 class="font-serif text-3xl md:text-4xl font-bold text-cream leading-snug">Your first pour-over<br/>is on us.</h3>
+          <p class="font-sans-dm text-cream/60 text-sm mt-2">Sign up for the newsletter and receive a complimentary single-origin brew on your next visit.</p>
+        </div>
+        <div class="flex w-full md:w-auto flex-col sm:flex-row gap-3">
+          <input type="email" placeholder="your@email.com" class="bg-cream/10 border border-cream/20 text-cream placeholder-cream/30 font-sans-dm text-sm px-4 py-3 focus:outline-none focus:border-goldlt w-full sm:w-64 transition-colors" />
+          <button class="btn-cta whitespace-nowrap" style="background:#c9a84c">Claim Offer</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       LOCATIONS SECTION
+  ════════════════════════════════════════════ -->
+  <section id="locations" class="py-24 md:py-32 bg-beige">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+      <!-- Heading -->
+      <div class="text-center mb-14 reveal">
+        <p class="section-label mb-3">Find Us</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-espresso leading-tight">Our Locations</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Location 1 -->
+        <div class="bg-white border border-sand p-8 reveal reveal-delay-1 transition-shadow hover:shadow-lg">
+          <div class="w-10 h-10 flex items-center justify-center bg-coffee/10 mb-5">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1a6 6 0 00-6 6c0 4 6 12 6 12s6-8 6-12a6 6 0 00-6-6z" stroke="#6f4e37" stroke-width="1.5"/><circle cx="10" cy="7" r="2" stroke="#6f4e37" stroke-width="1.3"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-espresso mb-1">East Nashville</h3>
+          <p class="font-sans-dm text-xs uppercase tracking-widest text-coffee/50 mb-4">Flagship</p>
+          <p class="font-sans-dm text-sm text-coffee/70 leading-relaxed mb-4">412 Gallatin Ave,<br/>East Nashville, TN 37206</p>
+          <p class="font-sans-dm text-sm text-coffee/70">Mon – Fri &nbsp;·&nbsp; 6:00 AM – 8:00 PM</p>
+          <p class="font-sans-dm text-sm text-coffee/70">Sat – Sun &nbsp;·&nbsp; 7:00 AM – 9:00 PM</p>
+          <a href="tel:+16155550182" class="block font-sans-dm text-sm text-coffee mt-3 hover:text-espresso transition-colors">(615) 555-0182</a>
+        </div>
+
+        <!-- Location 2 -->
+        <div class="bg-white border border-sand p-8 reveal reveal-delay-2 transition-shadow hover:shadow-lg">
+          <div class="w-10 h-10 flex items-center justify-center bg-coffee/10 mb-5">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1a6 6 0 00-6 6c0 4 6 12 6 12s6-8 6-12a6 6 0 00-6-6z" stroke="#6f4e37" stroke-width="1.5"/><circle cx="10" cy="7" r="2" stroke="#6f4e37" stroke-width="1.3"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-espresso mb-1">The Gulch</h3>
+          <p class="font-sans-dm text-xs uppercase tracking-widest text-coffee/50 mb-4">Downtown</p>
+          <p class="font-sans-dm text-sm text-coffee/70 leading-relaxed mb-4">311 11th Ave S,<br/>Nashville, TN 37203</p>
+          <p class="font-sans-dm text-sm text-coffee/70">Mon – Fri &nbsp;·&nbsp; 6:00 AM – 7:00 PM</p>
+          <p class="font-sans-dm text-sm text-coffee/70">Sat – Sun &nbsp;·&nbsp; 7:30 AM – 8:00 PM</p>
+          <a href="tel:+16155550247" class="block font-sans-dm text-sm text-coffee mt-3 hover:text-espresso transition-colors">(615) 555-0247</a>
+        </div>
+
+        <!-- Location 3 -->
+        <div class="bg-white border border-sand p-8 reveal reveal-delay-3 transition-shadow hover:shadow-lg">
+          <div class="w-10 h-10 flex items-center justify-center bg-coffee/10 mb-5">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1a6 6 0 00-6 6c0 4 6 12 6 12s6-8 6-12a6 6 0 00-6-6z" stroke="#6f4e37" stroke-width="1.5"/><circle cx="10" cy="7" r="2" stroke="#6f4e37" stroke-width="1.3"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-espresso mb-1">Green Hills</h3>
+          <p class="font-sans-dm text-xs uppercase tracking-widest text-coffee/50 mb-4">Suburban</p>
+          <p class="font-sans-dm text-sm text-coffee/70 leading-relaxed mb-4">3900 Hillsboro Pike,<br/>Nashville, TN 37215</p>
+          <p class="font-sans-dm text-sm text-coffee/70">Mon – Fri &nbsp;·&nbsp; 6:30 AM – 7:00 PM</p>
+          <p class="font-sans-dm text-sm text-coffee/70">Sat – Sun &nbsp;·&nbsp; 8:00 AM – 7:00 PM</p>
+          <a href="tel:+16155550319" class="block font-sans-dm text-sm text-coffee mt-3 hover:text-espresso transition-colors">(615) 555-0319</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       CONTACT SECTION
+  ════════════════════════════════════════════ -->
+  <section id="contact" class="py-24 md:py-32 bg-cream">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+
+      <!-- Left: image + info -->
+      <div class="reveal">
+        <img
+          src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=900&q=80&fit=crop"
+          alt="Warm interior corner table by the window in The Daily Grind"
+          class="w-full h-72 md:h-[420px] object-cover mb-8"
+          loading="lazy"
+        />
+        <p class="section-label mb-3">Get in Touch</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-espresso mb-4">We'd love to<br/><em class="italic font-normal">hear from you.</em></h2>
+        <p class="font-sans-dm text-coffee/70 text-sm leading-relaxed">For wholesale inquiries, catering, private events, press, or just to say hello — reach out any time.</p>
+        <a href="mailto:hello@dailygrindcafe.com" class="block font-sans-dm text-coffee hover:text-espresso text-sm mt-4 transition-colors">hello@dailygrindcafe.com</a>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal reveal-delay-1">
+        <div class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block font-sans-dm text-xs uppercase tracking-widest text-coffee/60 mb-2">First Name</label>
+              <input type="text" class="w-full border border-sand bg-white font-sans-dm text-sm px-4 py-3 text-espresso focus:outline-none focus:border-coffee transition-colors" placeholder="Maya"/>
+            </div>
+            <div>
+              <label class="block font-sans-dm text-xs uppercase tracking-widest text-coffee/60 mb-2">Last Name</label>
+              <input type="text" class="w-full border border-sand bg-white font-sans-dm text-sm px-4 py-3 text-espresso focus:outline-none focus:border-coffee transition-colors" placeholder="Chen"/>
+            </div>
+          </div>
+          <div>
+            <label class="block font-sans-dm text-xs uppercase tracking-widest text-coffee/60 mb-2">Email</label>
+            <input type="email" class="w-full border border-sand bg-white font-sans-dm text-sm px-4 py-3 text-espresso focus:outline-none focus:border-coffee transition-colors" placeholder="you@example.com"/>
+          </div>
+          <div>
+            <label class="block font-sans-dm text-xs uppercase tracking-widest text-coffee/60 mb-2">Subject</label>
+            <select class="w-full border border-sand bg-white font-sans-dm text-sm px-4 py-3 text-espresso/70 focus:outline-none focus:border-coffee transition-colors appearance-none">
+              <option>General Enquiry</option>
+              <option>Wholesale / B2B</option>
+              <option>Private Events & Catering</option>
+              <option>Press & Media</option>
+              <option>Careers</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-sans-dm text-xs uppercase tracking-widest text-coffee/60 mb-2">Message</label>
+            <textarea rows="5" class="w-full border border-sand bg-white font-sans-dm text-sm px-4 py-3 text-espresso focus:outline-none focus:border-coffee transition-colors resize-none" placeholder="Tell us more…"></textarea>
+          </div>
+          <button class="btn-cta w-full text-center mt-2">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="footer-bg text-cream/70">
+
+    <!-- Top footer -->
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+
+      <!-- Brand col -->
+      <div class="md:col-span-1 space-y-5">
+        <div class="flex items-center gap-2.5">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+            <path d="M5 10h14l-1.5 10.5A2 2 0 0115.51 22H8.49A2 2 0 016.5 20.5L5 10z" stroke="#c9a84c" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M19 12h2a2 2 0 010 4h-2" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M9 6c0 0 1-2 3-2s3 2 3 2" stroke="#e8c96d" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          <span class="font-serif font-bold text-cream text-lg tracking-tight">The Daily Grind</span>
+        </div>
+        <p class="font-sans-dm text-sm leading-relaxed text-cream/50">Specialty coffee & artisanal bakery rooted in craft, community, and the ritual of slowing down.</p>
+
+        <!-- Social icons -->
+        <div class="flex gap-4">
+          <!-- Instagram -->
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 border border-cream/15 flex items-center justify-center hover:border-goldlt transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <!-- Twitter / X -->
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X" class="w-9 h-9 border border-cream/15 flex items-center justify-center hover:border-goldlt transition-colors">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-9 h-9 border border-cream/15 flex items-center justify-center hover:border-goldlt transition-colors">
+            <svg width="10" height="16" viewBox="0 0 10 18" fill="currentColor"><path d="M9 1H6.5C5.4 1 4 2.4 4 3.5V6H1v3h3v8h3V9h2.5L10 6H7V3.5c0-.3.2-.5.5-.5H9V1z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h4 class="font-sans-dm text-xs uppercase tracking-[0.2em] text-cream/40 mb-5">Quick Links</h4>
+        <ul class="space-y-3">
+          <li><a href="#home"         class="font-sans-dm text-sm hover:text-goldlt transition-colors">Home</a></li>
+          <li><a href="#story"        class="font-sans-dm text-sm hover:text-goldlt transition-colors">Our Story</a></li>
+          <li><a href="#menu"         class="font-sans-dm text-sm hover:text-goldlt transition-colors">Menu</a></li>
+          <li><a href="#locations"    class="font-sans-dm text-sm hover:text-goldlt transition-colors">Locations</a></li>
+          <li><a href="#contact"      class="font-sans-dm text-sm hover:text-goldlt transition-colors">Contact</a></li>
+          <li><a href="#"             class="font-sans-dm text-sm hover:text-goldlt transition-colors">Catering & Events</a></li>
+        </ul>
+      </div>
+
+      <!-- Opening hours -->
+      <div>
+        <h4 class="font-sans-dm text-xs uppercase tracking-[0.2em] text-cream/40 mb-5">Opening Hours</h4>
+        <ul class="space-y-3 font-sans-dm text-sm">
+          <li class="flex justify-between gap-4">
+            <span class="text-cream/50">Mon – Fri</span>
+            <span class="text-cream">6:00 AM – 8:00 PM</span>
+          </li>
+          <li class="flex justify-between gap-4">
+            <span class="text-cream/50">Saturday</span>
+            <span class="text-cream">7:00 AM – 9:00 PM</span>
+          </li>
+          <li class="flex justify-between gap-4">
+            <span class="text-cream/50">Sunday</span>
+            <span class="text-cream">7:30 AM – 7:00 PM</span>
+          </li>
+          <li class="pt-2 border-t border-cream/10 text-cream/40 text-xs">Kitchen closes 30 min early</li>
+        </ul>
+      </div>
+
+      <!-- Address & contact -->
+      <div>
+        <h4 class="font-sans-dm text-xs uppercase tracking-[0.2em] text-cream/40 mb-5">Flagship Address</h4>
+        <address class="not-italic font-sans-dm text-sm space-y-2 text-cream/70">
+          <p>412 Gallatin Ave,</p>
+          <p>East Nashville, TN 37206</p>
+          <a href="tel:+16155550182" class="block mt-3 hover:text-goldlt transition-colors">(615) 555-0182</a>
+          <a href="mailto:hello@dailygrindcafe.com" class="block hover:text-goldlt transition-colors">hello@dailygrindcafe.com</a>
+        </address>
+        <div class="mt-6">
+          <a href="#menu" class="btn-cta text-xs inline-block" style="background:#c9a84c">Order Online</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-cream/10">
+      <div class="max-w-7xl mx-auto px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center">
+        <p class="font-sans-dm text-xs text-cream/30">© 2025 The Daily Grind Café. All rights reserved.</p>
+        <p class="font-sans-dm text-xs text-cream/30">
+          Designed &amp; Developed by
+          <a href="https://auraalabs.ai" target="_blank" rel="noopener noreferrer" class="text-goldlt hover:text-goldlt/80 transition-colors font-semibold ml-1">AURA AI Labs.ai</a>
+        </p>
+        <div class="flex gap-4 font-sans-dm text-xs text-cream/30">
+          <a href="#" class="hover:text-cream/60 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-cream/60 transition-colors">Terms</a>
+          <a href="#" class="hover:text-cream/60 transition-colors">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════════
+       VANILLA JS — Mobile menu & Scroll effects
+  ════════════════════════════════════════════ -->
+  <script>
+    /* ── Mobile burger toggle ── */
+    const burgerBtn  = document.getElementById('burger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const burgerLines = document.querySelectorAll('.burger-line');
+    let menuOpen = false;
+
+    burgerBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      burgerBtn.setAttribute('aria-expanded', menuOpen);
+
+      if (menuOpen) {
+        mobileMenu.classList.add('open');
+        // Animate to X
+        burgerLines[0].style.transform = 'translateY(7px) rotate(45deg)';
+        burgerLines[1].style.opacity   = '0';
+        burgerLines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      } else {
+        mobileMenu.classList.remove('open');
+        burgerLines[0].style.transform = '';
+        burgerLines[1].style.opacity   = '1';
+        burgerLines[2].style.transform = '';
+      }
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      burgerLines[0].style.transform = '';
+      burgerLines[1].style.opacity   = '1';
+      burgerLines[2].style.transform = '';
+    }
+
+    /* ── Scroll-reveal using IntersectionObserver ── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer  = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── Navbar shadow on scroll ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.style.boxShadow = window.scrollY > 10
+        ? '0 4px 24px rgba(61,35,20,0.10)'
+        : 'none';
+    }, { passive: true });
+
+    /* ── Menu tab switching ── */
+    function switchTab(tabName, btn) {
+      // Hide all panels
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      // Deactivate all buttons
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      // Show target panel
+      document.getElementById('tab-' + tabName).classList.remove('hidden');
+      // Activate clicked button
+      btn.classList.add('active');
+    }
+
+    /* ── Initialise hero reveal on load ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.querySelectorAll('#home .reveal').forEach(el => {
+          el.classList.add('visible');
+        });
+      }, 120);
+    });
+  </script>
+
+</body>
+</html>

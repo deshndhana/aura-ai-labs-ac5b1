@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CHANGE BUSINESS NAME HERE -->
+  <title>Book an Appointment — Lumière Beauty Salon</title>
+  <meta name="description" content="Book your appointment at Lumière Beauty Salon. Choose your service, stylist, date and time." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .booking-sidebar {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,169,110,0.2);
+      padding: 40px 35px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .booking-sidebar__title {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #c9a96e;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .booking-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(201,169,110,0.1);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+    }
+
+    .booking-info-item:last-child { border-bottom: none; margin-bottom: 0; }
+    .booking-info-item span:first-child { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+
+    .booking-info-item strong {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #c9a96e;
+      margin-bottom: 0.3rem;
+    }
+
+    @media (max-width: 900px) {
+      .booking-layout { grid-template-columns: 1fr; }
+      .booking-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body data-page="inner">
+
+  <div class="loader"><div class="loader__name">Lumi<span>è</span>re</div><div class="loader__bar"></div></div>
+
+  <!-- NAV -->
+  <nav class="nav scrolled">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <!-- CHANGE BUSINESS NAME / LOGO HERE -->
+        <span class="nav__logo-name">Lumière</span>
+        <span class="nav__logo-tagline">Beauty Salon</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+        <li><a href="pricing.html" class="nav__link">Pricing</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="booking.html" class="btn btn--primary nav__book"><span>Book Now</span></a>
+      <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Reserve Your Time</span>
+      <h1 class="page-hero__title">Book an <em style="font-style:italic;color:#c9a96e">Appointment</em></h1>
+      <p class="page-hero__breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Booking</p>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       BOOKING SECTION
+       ====================================================== -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="booking-layout">
+
+        <!-- BOOKING FORM -->
+        <div class="reveal">
+          <span class="eyebrow">Fill in your details</span>
+          <h2 style="color:#faf8f5;margin-bottom:0.5rem">Your <em style="font-style:italic;color:#c9a96e">Details</em></h2>
+          <div class="divider divider--left" style="margin-bottom:2.5rem"></div>
+
+          <form id="booking-form" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="first-name">First Name *</label>
+                <!-- CHANGE PLACEHOLDER TEXT AS NEEDED -->
+                <input class="form-input" type="text" id="first-name" name="first-name" placeholder="Sophie" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="last-name">Last Name *</label>
+                <input class="form-input" type="text" id="last-name" name="last-name" placeholder="Laurent" required />
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address *</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="sophie@example.com" required />
+              </div>
+              <div class="form-group">
+                <!-- CHANGE PHONE NUMBER FORMAT AS NEEDED -->
+                <label class="form-label" for="phone">Phone Number *</label>
+                <input class="form-input" type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="service">Service *</label>
+              <select class="form-select" id="service" name="service" required>
+                <option value="">Select a service...</option>
+                <optgroup label="Hair">
+                  <option value="haircut">Haircut & Style — From $65</option>
+                  <option value="fullcolor">Full Color — From $95</option>
+                  <option value="balayage">Balayage & Highlights — From $145</option>
+                  <option value="deep-treatment">Deep Treatment — From $75</option>
+                  <option value="blowout">Blowout & Styling — From $50</option>
+                  <option value="keratin">Keratin Smoothing — From $185</option>
+                </optgroup>
+                <optgroup label="Skin">
+                  <option value="facial">Signature Facial — From $80</option>
+                  <option value="microderm">Microdermabrasion — From $110</option>
+                  <option value="peel">Chemical Peel — From $130</option>
+                </optgroup>
+                <optgroup label="Nails">
+                  <option value="manicure">Classic Manicure — From $35</option>
+                  <option value="pedicure">Luxury Pedicure — From $55</option>
+                  <option value="gel">Gel & Acrylic — From $55</option>
+                </optgroup>
+                <optgroup label="Bridal">
+                  <option value="bridal-hair">Bridal Hair — From $175</option>
+                  <option value="bridal-makeup">Bridal Makeup — From $185</option>
+                  <option value="bridal-full">Complete Bridal Package — From $450</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="stylist">Preferred Stylist</label>
+              <select class="form-select" id="stylist" name="stylist">
+                <option value="">No preference</option>
+                <!-- CHANGE STYLIST NAMES HERE -->
+                <option value="sophie">Sophie Martin — Creative Director</option>
+                <option value="elena">Elena Voss — Senior Colorist</option>
+                <option value="jasmine">Jasmine Park — Skin Therapist</option>
+              </select>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="appointment-date">Preferred Date *</label>
+                <input class="form-input" type="date" id="appointment-date" name="date" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="appointment-time">Preferred Time *</label>
+                <select class="form-select" id="appointment-time" name="time" required>
+                  <option value="">Select a time...</option>
+                  <option value="9:00">9:00 AM</option>
+                  <option value="9:30">9:30 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="10:30">10:30 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="11:30">11:30 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="12:30">12:30 PM</option>
+                  <option value="13:00">1:00 PM</option>
+                  <option value="13:30">1:30 PM</option>
+                  <option value="14:00">2:00 PM</option>
+                  <option value="14:30">2:30 PM</option>
+                  <option value="15:00">3:00 PM</option>
+                  <option value="15:30">3:30 PM</option>
+                  <option value="16:00">4:00 PM</option>
+                  <option value="16:30">4:30 PM</option>
+                  <option value="17:00">5:00 PM</option>
+                  <option value="17:30">5:30 PM</option>
+                  <option value="18:00">6:00 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="booking-notes">Additional Notes</label>
+              <textarea class="form-textarea" id="booking-notes" name="notes" placeholder="Any special requests, allergies, or things we should know..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center">
+              <span>Confirm My Appointment</span>
+            </button>
+
+            <!-- SUCCESS MESSAGE -->
+            <div class="form-success" id="booking-success">
+              ✦ &nbsp; Thank you! Your appointment request has been received. We'll confirm within 24 hours.
+            </div>
+          </form>
+        </div>
+
+        <!-- SIDEBAR INFO -->
+        <div class="booking-sidebar reveal delay-3">
+          <span class="booking-sidebar__title">Before You Arrive</span>
+
+          <div class="booking-info-item">
+            <span>📍</span>
+            <div>
+              <strong>Our Address</strong>
+              <!-- CHANGE ADDRESS HERE -->
+              123 Elegance Avenue<br>Beverly Hills, CA 90210
+            </div>
+          </div>
+
+          <div class="booking-info-item">
+            <span>📞</span>
+            <div>
+              <strong>Call Us</strong>
+              <!-- CHANGE PHONE NUMBER HERE -->
+              <a href="tel:+15551234567" style="color:inherit">+1 (555) 123-4567</a>
+            </div>
+          </div>
+
+          <div class="booking-info-item">
+            <span>🕐</span>
+            <div>
+              <strong>Opening Hours</strong>
+              Mon – Fri: 9am – 7pm<br>
+              Saturday: 9am – 6pm<br>
+              Sunday: 10am – 5pm
+            </div>
+          </div>
+
+          <div class="booking-info-item">
+            <span>ℹ</span>
+            <div>
+              <strong>Cancellation Policy</strong>
+              Please give 24 hours notice for any cancellations or rescheduling.
+            </div>
+          </div>
+
+          <div class="booking-info-item">
+            <span>💆</span>
+            <div>
+              <strong>Arrival</strong>
+              Please arrive 10 minutes before your appointment for your complimentary consultation.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <span class="footer__brand-name">Lumière</span><!-- CHANGE BUSINESS NAME -->
+          <span class="footer__brand-tagline">Beauty Salon</span>
+          <p class="footer__brand-desc">A sanctuary of beauty and elegance.</p>
+          <div class="footer__social">
+            <a href="https://instagram.com/YOUR_INSTAGRAM" class="footer__social-link" target="_blank">📷</a><!-- CHANGE SOCIAL -->
+            <a href="https://facebook.com/YOUR_FACEBOOK" class="footer__social-link" target="_blank">f</a>
+            <a href="https://tiktok.com/@YOUR_TIKTOK" class="footer__social-link" target="_blank">♪</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="gallery.html" class="footer__link">Gallery</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Hours</h4>
+          <ul class="footer__links">
+            <li style="color:rgba(255,255,255,0.5);font-size:0.88rem">Mon–Fri: 9am – 7pm</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.88rem">Saturday: 9am – 6pm</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.88rem">Sunday: 10am – 5pm</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__contact-item"><span>📞</span><a href="tel:+15551234567">+1 (555) 123-4567</a></div><!-- CHANGE PHONE -->
+          <div class="footer__contact-item"><span>✉</span><a href="mailto:hello@lumieresalon.com">hello@lumieresalon.com</a></div><!-- CHANGE EMAIL -->
+          <div class="footer__contact-item"><span>📍</span><span>123 Elegance Avenue,<br>Beverly Hills, CA 90210</span></div><!-- CHANGE ADDRESS -->
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 Lumière Beauty Salon. All rights reserved.</span><!-- CHANGE BUSINESS NAME -->
+        <span>Made with ❤ for beauty lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-to-top">↑</div>
+  <script src="script.js"></script>
+</body>
+</html>
