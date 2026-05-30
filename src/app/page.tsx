@@ -149,17 +149,18 @@ export default function Home() {
               <span onClick={() => scrollToCategory('social')} style={{ cursor: 'pointer', fontSize: '1rem', fontWeight: 600, color: activeTab === 'social' ? 'var(--accent-color)' : 'var(--text-primary)' }}>Social Media</span>
               <span onClick={() => scrollToCategory('ads')} style={{ cursor: 'pointer', fontSize: '1rem', fontWeight: 600, color: activeTab === 'ads' ? 'var(--accent-color)' : 'var(--text-primary)' }}>Ads Running</span>
             </div>
-            
-            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-              <a href="#pricing" style={{ fontWeight: 600 }}>Pricing</a>
-              <a href="#reviews" style={{ fontWeight: 600 }}>Reviews</a>
-              <a href="tel:+94765954950" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)' }}>
+            {/* Logo */}
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-1px' }}>
+              <img src="/logo.png" alt="AURA AI Labs" style={{ height: '35px', borderRadius: '50%' }} />
+              <span className="gradient-text">AURA AI Labs</span>
+            </a>
+          </div>    <a href="tel:+94765954950" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)' }}>
                 <Phone size={18} /> +94765954950
               </a>
               <a href="mailto:hey.dhananjaya.me@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
                 <Mail size={18} /> Email
               </a>
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -276,10 +277,7 @@ export default function Home() {
           <div style={{ textAlign: 'center', padding: '3rem' }}>Loading AI Models...</div>
         ) : activeTab !== 'websites' ? (
           <div style={{ textAlign: 'center', padding: '5rem 2rem', background: 'rgba(30,20,40,0.5)', borderRadius: '20px', border: '1px dashed var(--accent-purple)' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }} className="gradient-text">Coming Soon!</h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '500px', margin: '0 auto' }}>
-              We are finalizing our revolutionary AI {activeTab} platform. Stay tuned for the official launch!
-            </p>
+            <h2 style={{ fontSize: '2.5rem', margin: 0 }} className="gradient-text">Coming Soon!</h2>
           </div>
         ) : (
           <div className="projects-grid">
@@ -322,8 +320,7 @@ export default function Home() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           {/* Basic */}
           <div className="glass-card pricing-card" style={{ display: 'flex', flexDirection: 'column', padding: '2.5rem' }}>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Starter</h3>
-            <div style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--accent-color)' }}>$99<span style={{ fontSize: '1rem', color: 'var(--text-secondary)', fontWeight: 400 }}>/mo</span></div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: 'var(--accent-color)' }}>Starter</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', flex: 1 }}>
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-color)" /> Basic AI Website Template</li>
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-color)" /> Standard Chatbot (FAQ)</li>
@@ -334,8 +331,7 @@ export default function Home() {
           {/* Premium */}
           <div className="glass-card pricing-card popular" style={{ display: 'flex', flexDirection: 'column', padding: '2.5rem', border: '1px solid var(--accent-purple)', background: 'rgba(30,20,40,0.8)', position: 'relative' }}>
             <div style={{ position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)', background: 'var(--accent-purple)', padding: '0.2rem 1rem', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold' }}>MOST POPULAR</div>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Professional</h3>
-            <div style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--accent-purple)' }}>$249<span style={{ fontSize: '1rem', color: 'var(--text-secondary)', fontWeight: 400 }}>/mo</span></div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: 'var(--accent-purple)' }}>Professional</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', flex: 1 }}>
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-purple)" /> Custom AI Website Design</li>
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-purple)" /> Advanced Sales Chatbot</li>
@@ -346,8 +342,7 @@ export default function Home() {
           </div>
           {/* Enterprise */}
           <div className="glass-card pricing-card" style={{ display: 'flex', flexDirection: 'column', padding: '2.5rem' }}>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Enterprise</h3>
-            <div style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--accent-color)' }}>$499<span style={{ fontSize: '1rem', color: 'var(--text-secondary)', fontWeight: 400 }}>/mo</span></div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: 'var(--accent-color)' }}>Enterprise</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', flex: 1 }}>
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-color)" /> Full Autonomous AI Platform</li>
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-color)" /> Multi-language AI Agents</li>
