@@ -9,7 +9,7 @@ async function seed() {
     const files = await fs.readdir(demosDir);
     const htmlFiles = files.filter(f => f.endsWith('.html'));
 
-    const generateRandomImage = (seed) => `https://picsum.photos/seed/${encodeURIComponent(seed)}/400/250`;
+    const generateRandomImage = (title) => `https://image.pollinations.ai/prompt/${encodeURIComponent(title + " professional website landing page clean UI design")}?width=800&height=500&nologo=true`;
 
     const projects = [];
 

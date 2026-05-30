@@ -156,6 +156,9 @@ export default function Home() {
               <a href="tel:+94765954950" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)' }}>
                 <Phone size={18} /> +94765954950
               </a>
+              <a href="mailto:hey.dhananjaya.me@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
+                <Mail size={18} /> Email
+              </a>
             </div>
           </div>
 
@@ -177,11 +180,26 @@ export default function Home() {
           <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
           <a href="#reviews" onClick={() => setMobileMenuOpen(false)}>Reviews</a>
           <a href="tel:+94765954950" style={{ color: 'var(--accent-color)' }}><Phone size={18} style={{ display: 'inline', marginRight: '0.5rem' }} /> +94765954950</a>
+          <a href="mailto:hey.dhananjaya.me@gmail.com" style={{ color: 'var(--text-secondary)' }}><Mail size={18} style={{ display: 'inline', marginRight: '0.5rem' }} /> Email</a>
         </div>
       )}
 
-      {/* Hero Section with Grid Background */}
-      <div className="hero-bg-grid"></div>
+      {/* Hero Section with Grid Background and Logo Pattern */}
+      <div className="hero-bg-grid" style={{
+        backgroundImage: `url('/logo.png'), linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)`,
+        backgroundSize: '800px, 50px 50px, 50px 50px',
+        backgroundPosition: 'top center',
+        backgroundRepeat: 'no-repeat, repeat, repeat',
+        opacity: 0.15,
+        mixBlendMode: 'screen',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100vh',
+        zIndex: 0,
+        pointerEvents: 'none'
+      }}></div>
 
       <section className="section container" style={{ position: 'relative', zIndex: 1, marginTop: '4rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -256,6 +274,13 @@ export default function Home() {
 
         {loading ? (
           <div style={{ textAlign: 'center', padding: '3rem' }}>Loading AI Models...</div>
+        ) : activeTab !== 'websites' ? (
+          <div style={{ textAlign: 'center', padding: '5rem 2rem', background: 'rgba(30,20,40,0.5)', borderRadius: '20px', border: '1px dashed var(--accent-purple)' }}>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }} className="gradient-text">Coming Soon!</h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '500px', margin: '0 auto' }}>
+              We are finalizing our revolutionary AI {activeTab} platform. Stay tuned for the official launch!
+            </p>
+          </div>
         ) : (
           <div className="projects-grid">
             {filteredProjects.length > 0 ? (
@@ -304,7 +329,7 @@ export default function Home() {
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-color)" /> Standard Chatbot (FAQ)</li>
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-color)" /> Email Support</li>
             </ul>
-            <a href="tel:+94765954950" className="btn btn-outline" style={{ width: '100%' }}>Get Started</a>
+            <a href="https://wa.me/94765954950" target="_blank" rel="noreferrer" className="btn btn-outline" style={{ width: '100%', textAlign: 'center' }}>Contact via WhatsApp</a>
           </div>
           {/* Premium */}
           <div className="glass-card pricing-card popular" style={{ display: 'flex', flexDirection: 'column', padding: '2.5rem', border: '1px solid var(--accent-purple)', background: 'rgba(30,20,40,0.8)', position: 'relative' }}>
@@ -317,7 +342,7 @@ export default function Home() {
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-purple)" /> Basic Social Media Auto-posting</li>
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-purple)" /> 24/7 Priority Support</li>
             </ul>
-            <a href="tel:+94765954950" className="btn btn-primary" style={{ width: '100%' }}>Get Started</a>
+            <a href="https://wa.me/94765954950" target="_blank" rel="noreferrer" className="btn btn-primary" style={{ width: '100%', textAlign: 'center' }}>Contact via WhatsApp</a>
           </div>
           {/* Enterprise */}
           <div className="glass-card pricing-card" style={{ display: 'flex', flexDirection: 'column', padding: '2.5rem' }}>
@@ -329,7 +354,7 @@ export default function Home() {
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-color)" /> Automated Ad Campaigns</li>
               <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle size={18} color="var(--accent-color)" /> Dedicated Account Manager</li>
             </ul>
-            <a href="tel:+94765954950" className="btn btn-outline" style={{ width: '100%' }}>Contact Sales</a>
+            <a href="https://wa.me/94765954950" target="_blank" rel="noreferrer" className="btn btn-outline" style={{ width: '100%', textAlign: 'center' }}>Contact via WhatsApp</a>
           </div>
         </div>
       </section>
@@ -436,9 +461,9 @@ export default function Home() {
         <div className="container">
           <p style={{ color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>&copy; 2026 AURA Labs AI. All rights reserved.</p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-            <a href="tel:+94765954950" style={{ color: 'var(--accent-color)' }}>Contact Us</a>
+            <a href="https://wa.me/94765954950" target="_blank" rel="noreferrer" style={{ color: 'var(--accent-color)' }}>Contact Us</a>
             <span style={{ color: 'var(--text-secondary)' }}>|</span>
-            <a href="mailto:contact@auraailabs.ai" style={{ color: 'var(--accent-color)' }}>contact@auraailabs.ai</a>
+            <a href="mailto:hey.dhananjaya.me@gmail.com" style={{ color: 'var(--accent-color)' }}>hey.dhananjaya.me@gmail.com</a>
           </div>
         </div>
       </footer>
