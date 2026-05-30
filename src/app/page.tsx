@@ -137,7 +137,6 @@ export default function Home() {
       <nav className="navbar glass" style={{ zIndex: 1000 }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div className="flex items-center" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <img src="/logo.png" alt="AURA AI Labs Logo" style={{ height: '40px', borderRadius: '8px' }} />
             <h2 className="gradient-text" style={{ fontSize: '1.5rem', fontWeight: 800 }}>AURA AI Labs</h2>
           </div>
 
@@ -149,18 +148,13 @@ export default function Home() {
               <span onClick={() => scrollToCategory('social')} style={{ cursor: 'pointer', fontSize: '1rem', fontWeight: 600, color: activeTab === 'social' ? 'var(--accent-color)' : 'var(--text-primary)' }}>Social Media</span>
               <span onClick={() => scrollToCategory('ads')} style={{ cursor: 'pointer', fontSize: '1rem', fontWeight: 600, color: activeTab === 'ads' ? 'var(--accent-color)' : 'var(--text-primary)' }}>Ads Running</span>
             </div>
-            {/* Logo */}
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-1px' }}>
-              <img src="/logo.png" alt="AURA AI Labs" style={{ height: '35px', borderRadius: '50%' }} />
-              <span className="gradient-text">AURA AI Labs</span>
+            
+            <a href="tel:+94765954950" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)' }}>
+              <Phone size={18} /> +94765954950
             </a>
-          </div>    <a href="tel:+94765954950" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)' }}>
-                <Phone size={18} /> +94765954950
-              </a>
-              <a href="mailto:hey.dhananjaya.me@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
-                <Mail size={18} /> Email
-              </a>
+            <a href="mailto:hey.dhananjaya.me@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
+              <Mail size={18} /> Email
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -185,22 +179,8 @@ export default function Home() {
         </div>
       )}
 
-      {/* Hero Section with Grid Background and Logo Pattern */}
-      <div className="hero-bg-grid" style={{
-        backgroundImage: `url('/logo.png'), linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-        backgroundSize: '800px, 50px 50px, 50px 50px',
-        backgroundPosition: 'top center',
-        backgroundRepeat: 'no-repeat, repeat, repeat',
-        opacity: 0.15,
-        mixBlendMode: 'screen',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100vh',
-        zIndex: 0,
-        pointerEvents: 'none'
-      }}></div>
+      {/* Hero Section with Grid Background */}
+      <div className="hero-bg-grid"></div>
 
       <section className="section container" style={{ position: 'relative', zIndex: 1, marginTop: '4rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
