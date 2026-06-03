@@ -1,6 +1,17 @@
 {
   "projects": [
     {
+      "id": 1780162176999.999,
+      "title": "Job Search Portal",
+      "description": "A premium AI-generated website template for a Job Search Portal. Fully responsive and dynamic.",
+      "category": "websites",
+      "images": [
+        "https://image.pollinations.ai/prompt/job%20search%20portal%20dashboard%20professional%20website%20landing%20page%20clean%20UI%20design?width=800&height=500&nologo=true"
+      ],
+      "demoUrl": "/demos/job-search.html",
+      "createdAt": "2026-06-03T17:18:00.000Z"
+    },
+    {
       "id": 1780162176938.419,
       "title": "Aesthetic Coffee Shop & Bakery",
       "description": "A premium AI-generated website template for Aesthetic Coffee Shop & Bakery. Fully responsive and dynamic.",
